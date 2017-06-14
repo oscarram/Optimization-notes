@@ -1,0 +1,114 @@
+\subsection{Convexity}
+\begin{definition}
+	Let U be linear space. A functional $J:U\rightarrow \overline{\mathbb{R}}$ is called convex, if for $t\in[0,1]$ and $u_1, u_2 \in U$.
+	\begin{equation}
+		J(tu_1+(1-t)u_2)\leq t J(u_1)+(1-t)J(u_2) \label{eq1. Convex functional}
+	\end{equation}
+	holds such that the right hand sid is well defined.
+	\begin{itemize}
+	\item 	J is strictly convex if \eqref{eq1. Convex functional} holds strictly for $\forall u_1, u_2 \in U$, $u_1\neq u_2$ and $t \in (0,1)$ with $J(u_1)<\infty$ and $J(u_2)\leq \infty$.
+	\item An optimization problem, 
+	\[
+		\min_{u \in C} J(u)
+	\] is called convex if both $C$ and $J$ are convex.
+	\end{itemize}
+\end{definition}
+
+\begin{lemma}
+	If C and V are convex in U, then
+	\begin{itemize}
+		\item  $\alpha V = \lbrace w = \alpha v, v\in C \rbrace$ is convex.
+		\item $C+V$ is convex.
+	\end{itemize}
+	\begin{proof}
+		
+	\end{proof}
+\end{lemma}
+
+
+\begin{lemma}
+	Let $V$ be a collection of convex sets in $U$, then $C=\bigcap_{K \in V} K$ is convex.
+	\begin{proof}
+			If $C = \emptyset$, then $C$ the statement is vacuously true. Consider $C\neq \emptyset$ and $u_1, u_2 \in C$ then $u_1, u_2 \in K$ for all $K \in V$
+			\[
+			\implies tu_1+(1-t)u_2 \in K, \quad \forall K \in V \implies tu_1+(1-t)u_2 \in \bigcap_{K \in V} K 
+			\]
+	\end{proof}
+\end{lemma}
+
+\begin{lemma}
+		Let $C\in U$ convex and $J: C \rightarrow \mathbb{R}$. Define $\alpha=\inf_{u\in C} J(u)$. Then the set $\Psi = {u | J(u)=\alpha}$ is convex, i.e. the solution of 
+		\[
+			\min_{u \in C} J(u)
+		\] 
+		is a convex set.
+		\begin{proof}
+			Let $u_1, u_2 \in \Psi$ and $u_t=tu_1+(1-t)u_2$.Sinc J is convex, it holds that
+			$J(u_t)\leq t J(u_t)+(1-t)J(u_t)=\alpha$. Thus $J(u_t)=\alpha$, $\forall t \in [0,1]$. Implying $u_t \in \Psi$ Hence $\Psi$ is convex.
+		\end{proof}
+\end{lemma}
+
+\begin{lemma}
+Let $U$ be linear normed space, and $C\subset U$ a convex set and $J: U \rightarrow \overline{\mathbb{R}}$ convex functional. Let $\overline{u} \in C$ such that
+\[
+	J(\overline{u}) \leq J(u) \quad \forall u \in B_\epsilon(\overline{u}) \cap C,
+\] 
+for some ball $B_\epsilon(\overline{u})$ in $U$ with center in $\overline{u}$. Then $J(\overline{u})=\inf_{u\in C} J(u)$.  In other words, the local minimizer of a convex optimization problem is also a global minimizer.
+	\begin{proof}
+		Let $B_\epsilon(\overline{u})$ be an open neighborhood of $\overline{u}$ with $J(\overline{u})\leq J(u)$ for all $u \in B_\epsilon(\overline{u})\cap C$.
+		Take an arbitrary $\asterisk{u} \in C $ and consider $u_t = t \overline{u}+(1-t)\asterisk{u}$. Since $C$ is convex $u_t \in C$.
+		
+		For some $t\in(0,1)$, $u_t \in B_\epsilon(\overline{u})$.
+		
+		Thus, \[J(\overline{u})\leq J(u_t) \leq t J(\overline{u})+(1-t)J(\asterisk{u}).\]
+		We have $\forall t \in [0, 1]$ that $(1-t)\leq 0$, then
+		\[
+			(1-t) J(\overline{u}) \leq (1-t) J(\asterisk{u}) \qquad \forall \asterisk{u} \in C
+		\]
+		Therefore, $\overline{u}$ is a local minimizer for $C$.
+	\end{proof}
+\end{lemma}
+\begin{theorem}
+	Let $U$ is Banach Space, $C \subset U$ convex and $J: C \rightarrow \mathbb{R}$ Gate\^aux differentiable. Consider the minimization problem.
+	\[
+	 \min_{u\in C} J(u)
+	\]
+	\begin{enumerate}
+		\item Let $\overline{u}$ be a local solution. Then $J'(\overline{u}, u-\overline{u})\geq 0$, $\forall u\in C$.
+		\item If $J$ is convex on $C$, then $J'(\overline{u}, u-\overline{u})\geq 0$, $\forall u\in C$ is necessary and sufficient for global optimality of $\overline{u}$
+		\item If $J$ is strictly convex on $C$, then the minimization problem admits at most one solution.
+		\item If $C$ is closed, and $J$ is convex and continuous with
+		\[
+			\lim\limits_{\substack{u \in C\\ \norm{u}\rightarrow \infty }}  J(u) = \infty.
+		\] 
+		Then a global solution $\overline{u} \in C$ exists.
+	\end{enumerate}
+\begin{proof}
+	\
+	\begin{enumerate}
+		\item Let $\overline{u}$ be a local solution $J(\overline{u})\leq J(u)$, $\forall u \in B_\epsilon (\overline{u}) \cap C$, let $t\in[0,1]$, $u_t=\overline{u}+t(u-\overline{u})$, then $u_t \in C$, since $C$ is convex. 
+		
+		For small $t>0$, 
+		\[
+		 0\leq \frac{1}{t}\left[J(u_t)-J(u)\right]\leq\frac{1}{t}\left[J(\overline{u}+t(u-\overline{u}))-J(u)\right]\xrightarrow{t \downarrow 0} J'(\overline{u}, u-\overline{u})
+		\]
+		
+		\item Since $J$ is convex we have for $u\in C$, $J(\overline{u}+t(u-\overline{u})) \leq J(\overline{u})+t\left[J(u)-J(\overline{u})\right]$, for $t>0$
+		
+	\[
+		\implies 	J(u)-J(\overline{u})\geq\frac{1}{t}\left[J(\overline{u}+t(u-\overline{u}))-J(\overline{u})\right] \xrightarrow{t \downarrow 0} J'(\overline{u}, u-\overline{u}) \geq 0.
+	\]
+	Therefore $\overline{u}$ is a global minimizer.
+	
+	\item Assume, that there are two solution for the minimization problem, $\overline{u}, \asterisk{u} \in C$, such that $\overline{u}\neq \asterisk{u}$ and $J(\overline{u})=J(\asterisk{u})=\inf_{u\in C} J(u)$. Since $J$ is strictly convex $J(u_t)=J(t\overline{u}+(1-t)\asterisk{u})<tJ(\overline{u})+(1-t)J(\asterisk{u}) = \alpha$ for all $t \in [0,1]$. Contradicting our assumption that $\asterisk{u}$ and $\overline{u}$ are solutions.
+	\item $\alpha = \inf_{u \in C} J(u) \in \mathbb{R}\cup\{-\infty\}$, choose a minimizing sequence $(u_k)_k\subset C$ with $J(u_k)\xrightarrow{k\rightarrow \infty} \alpha$
+\begin{align*}
+	\implies& (u_k)_k \mbox{ is bounded, because } J \rightarrow \infty \mbox{ as } \norm{u}\rightarrow \infty. \\
+	\implies& (u_k)_k \mbox{ contains a weakly convergent subsequence } u_{k_e} \xrightharpoonup[e\rightarrow \infty]{}\overline{u}\in C. \mbox{ Since C is closed and convex.}\\
+	\implies& J \mbox{ is weakly-lower semicontinuos because it is convex and continuos.}
+\end{align*}
+
+	\end{enumerate}
+\end{proof}	
+
+\end{theorem}
