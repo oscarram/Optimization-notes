@@ -22,6 +22,48 @@ Then,
 	\item $\langle P_C(u)-P_C(\overline{u}), u-\overline{u}\rangle \leq 0, \quad \forall u, \overline{u}\in H$
 	\item Let be $t>0$ a real number, then $\forall u \in C$, and $\forall v\in H$, $\phi(t)=\frac{1}{t}\norm{P_C\left(u+tv\right)-u}$ is non-increasing.
 \end{enumerate}
+\begin{proof}
+	\begin{enumerate}
+		\item First we prove existence, let be $(v_k)_k$ a minimizing sequence in $C$, such that
+		\[
+			\norm{x-v_k}\rightarrow \alpha=\inf_{v \in C}\norm{x-v},
+		\]
+		By the parallelogram law,
+		\begin{align*}
+			&2\norm{v_j-x}^2+2\norm{v_i-x}^2= \norm{v_j-v_i}^2+\norm{v_j+v_i-2x}^2 \\
+			&2\norm{v_j-x}^2+2\norm{v_i-x}^2= \norm{v_j-v_i}^2+4\norm{\frac{v_j+v_i}{2}-x}^2\\
+	\implies&2\norm{v_j-x}^2+2\norm{v_i-x}^2-4\norm{\frac{v_j+v_i}{2}-x}^2=\norm{v_j-v_i}^2
+		\end{align*}
+		Since $C$ is convex $\frac{v_i+v_j}{2} \in C$, then by definition of $\alpha$,
+		\[
+		0\leq \alpha \leq \norm{\frac{v_j+v_i}{2}-x}
+		\]  
+		Therefore the above equations become in the following inequality,
+		\[
+		2\norm{v_j-x}^2+2\norm{v_i-x}^2-4\alpha^2\geq \norm{v_j-v_i}^2
+		\]
+		
+		Since $\norm{v_i-x}\rightarrow \alpha$ and $\norm{v_j -x}\rightarrow \alpha$, we have that $\norm{v_j-v_i}\rightarrow 0$ , therefore the series is Cauchy and then converges. Since $C$ is closed the series converges to a point $v \in C$. 
+		
+		Second we prove uniqueness, we proceed by contradiction, take $v, v' \in C$ such $v\neq v'$, and both of them minimizing the distant with respect the point $x$, i.e.
+		\[
+		\norm{x-v}=\norm{x-v'}=\alpha=\min_{u\in C}\norm{u-x}
+		\]
+		By the parallelogram law,
+		\begin{equation*}
+			2\norm{x-v}^2+2\norm{x-v'}^2=\norm{2x-v-v'}^2 +\norm{v-v'}^2
+		\end{equation*}
+		Since $C$ is convex, $\norm{\frac{v+v'}{2}-x}\geq\alpha$
+		\begin{align*}
+			\norm{v-v'}^2=2\norm{x-v}^2+2\norm{x-v'}^2-\norm{2x-v-v'}^2 \\
+			\norm{v-v'}^2=2\norm{x-v}^2+2\norm{x-v'}^2-4\norm{x-\frac{v-v'}{2}}^2 \\
+			\norm{v-v'}^2=2\alpha^2+2\alpha^2-4\norm{x-\frac{v-v'}{2}}^2\leq 0
+		\end{align*}
+		Therefore $\norm{v-v'}=0$, and $v=v'$.
+		
+		By the uniqueness and existence $\argmin{u\in C}{\norm{u-x}}$ is not empty set and has only one element for each $x \in H$. Thus, $P_C$ is well defined.
+	\end{enumerate}
+\end{proof}
 \end{lemma}
 \begin{theorem}
 Let $H$ be Hilbert space, $C \subset H$ closed and convex, $J: C \rightarrow \mathbb{R}$, Gate\^aux differentiable at the local solution $\overline{u}$ of $\min_{u\in C} J(u)$. Thus, $J'(\overline{u};u-\overline{u}) \geq 0$, $\forall u \in C$ and it is equivalent to $ \overline{u}=P_C(\overline{u}-\delta\nabla J(\overline{u})) $
@@ -49,7 +91,7 @@ Consider $U, Y, Z$ Hilbert spaces. Let be  $J: Y\times U \rightarrow \mathbb{R}$
 	\end{array}
 	\right.
 \end{equation*}
-For some set $U_{ad}$ closed, convex and bounded. And $A \in \mathcal{L}(Y,Z)$ bounded and invertible and $B\in \mathcal{L}(Y, Z)$.
+For some set $U_{ad}$ closed, convex and bounded. And $A \in \mathcal{L}(Y,Z)$ bounded and invertible with $A^{-1}\in \mathcal{L}(Z, Y)$ and $B\in \mathcal{L}(U, Z)$.
 
 Then we can write $y \in Y$ as a function of $u \in U$,
 \[
@@ -61,18 +103,38 @@ Consider the reduced cost functional  $	F(u):=J(y(u), u)$, then our problem is e
 \]
 
 
-Let $(u_k)_k \in U_{ad}$ denote a minimizing sequence, i.e. $F(u_k) \rightarrow \inf_{u\in U_{ad}}F(u)$, since $u_k \in U_{ad}$ the sequence is bounded. Therefore we can find a convergent subsequence $u_{k_{l}} \xrightharpoonup[l\rightarrow \infty]{} \asterisk{u}$, moreover since $U_{ad}$ is closed and convex $U_{ad}$ is weakly closed, implying $\asterisk{u} \in U_{ad}$
+Let $(u_k)_k \in U_{ad}$ denote a minimizing sequence, i.e. $F(u_k) \rightarrow \inf_{u\in U_{ad}}F(u)$, since $u_k \in U_{ad}$ the sequence is bounded. Therefore we can find a convergent subsequence $u_{k_{l}} \xrightharpoonup[l\rightarrow \infty]{} \overline{u}$, moreover since $U_{ad}$ is closed and convex $U_{ad}$ is weakly closed, implying $\overline{u} \in U_{ad}$
 
 \begin{proposition}
-	If $J$ is continuous and weakly lower semicontinuous, then 	$\asterisk{u}=\argmin{u\in U_{ad}}{F(u)}$.
+	If $J$ is continuous and weakly lower semicontinuous, then 	$\overline{u}=\argmin{u\in U_{ad}}{F(u)}$.
 	\begin{proof}
 		If J is weakly lower semicontinuos 
 			\[
-				J(y(\asterisk{u}), \asterisk{u})\leq \liminf_{l\rightarrow \infty} J(y(u_k),u_k)
+				J(y(\overline{u}), \overline{u})\leq \liminf_{l\rightarrow \infty} J(y(u_k),u_k)
 			\]
 		That is, 
 		\[
-			F(\asterisk{u}) \leq \liminf_{l\rightarrow \infty} F(u_k) =\alpha 
+			F(\overline{u}) \leq \liminf_{l\rightarrow \infty} F(u_k) =\alpha 
 		\]
+
+	
+	Since $u_{k_{l}} \xrightharpoonup[l\rightarrow \infty]{} \overline{u}$, $\implies y(u_k) \xrightharpoonup[]{} y(\overline{u})$ and $A^{-1}B u_k \xrightharpoonup[]{}A^{-1}B  \overline{u}$
+	
+	$J$ is Gate\^aux differentiable, applying the chain rule to $F$ and valuating in $u$ we have
+	\[
+		F_u(u; h)=J_y(y; \alpha(u;h), u)+J_u(y,u;h)
+	\]
+	\begin{align*}
+		0 &\leq \langle u-\overline{u}, \nabla_u F(\overline{u}) \rangle \quad \forall u \in U_{ad}\\
+		&= \langle A^{-1}B(u -\overline{u}), 
+		\nabla_y J(\overline{y}, \overline{u}) \rangle_{Y^*Y}+\langle u-\overline{u},  \nabla_u J(\overline{y},\overline{u})\rangle_{U^*U} \\
+		&= \langle A^{-1}B(u -\overline{u}), 
+		\nabla_y J(\overline{y}, \overline{u}) \rangle_{Y^*Y}+\langle u-\overline{u},  \nabla_u J(\overline{y},\overline{u})\rangle_{U^*U} \\
+		&= \langle u -\overline{u}, 
+		(A^{-1}B)^*\nabla_y J(y, \overline{u}) \rangle_{U^*U}+\langle u-\overline{u},  \nabla_u J(y,\overline{u})\rangle_{U^*U} \\
+		&= \langle u -\overline{u}, 
+		(A^{-1}B)^*\nabla_y J(\overline{y}, \overline{u})+\nabla_u J(\overline{y},\overline{u})\rangle_{U^*U}
+	\end{align*}
+	Setting $p^*=(A^{-1}B)^*\nabla_y J(\overline{y}, \overline{u})$. We have that $\overline{u}=P_{U_{ad}}(\overline{u}-\delta(p^*+\nabla_u J(\overline{y}, \overline{u})))$
 	\end{proof}
 \end{proposition}
