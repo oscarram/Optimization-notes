@@ -69,13 +69,14 @@ for some ball $B_\epsilon(\overline{u})$ in $U$ with center in $\overline{u}$. T
 	\end{proof}
 \end{lemma}
 \begin{theorem}
+	\label{theorem2. Banach Derivatives}
 	Let $U$ is Banach Space, $C \subset U$ convex and $J: C \rightarrow \mathbb{R}$ Gate\^aux differentiable. Consider the minimization problem.
 	\[
 	 \min_{u\in C} J(u)
 	\]
 	\begin{enumerate}
-		\item Let $\overline{u}$ be a local solution. Then $J'(\overline{u}, u-\overline{u})\geq 0$, $\forall u\in C$.
-		\item If $J$ is convex on $C$, then $J'(\overline{u}, u-\overline{u})\geq 0$, $\forall u\in C$ is necessary and sufficient for global optimality of $\overline{u}$
+		\item Let $\overline{u}$ be a local solution. Then $J'(\overline{u}; u-\overline{u})\geq 0$, $\forall u\in C$.
+		\item If $J$ is convex on $C$, then $J'(\overline{u}; u-\overline{u})\geq 0$, $\forall u\in C$ is necessary and sufficient for global optimality of $\overline{u}$
 		\item If $J$ is strictly convex on $C$, then the minimization problem admits at most one solution.
 		\item If $C$ is closed, and $J$ is convex and continuous with
 		\[
@@ -90,13 +91,13 @@ for some ball $B_\epsilon(\overline{u})$ in $U$ with center in $\overline{u}$. T
 		
 		For small $t>0$, 
 		\[
-		 0\leq \frac{1}{t}\left[J(u_t)-J(u)\right]\leq\frac{1}{t}\left[J(\overline{u}+t(u-\overline{u}))-J(u)\right]\xrightarrow{t \downarrow 0} J'(\overline{u}, u-\overline{u})
+		 0\leq \frac{1}{t}\left[J(u_t)-J(u)\right]\leq\frac{1}{t}\left[J(\overline{u}+t(u-\overline{u}))-J(u)\right]\xrightarrow{t \downarrow 0} J'(\overline{u}; u-\overline{u})
 		\]
 		
 		\item Since $J$ is convex we have for $u\in C$, $J(\overline{u}+t(u-\overline{u})) \leq J(\overline{u})+t\left[J(u)-J(\overline{u})\right]$, for $t>0$
 		
 	\[
-		\implies 	J(u)-J(\overline{u})\geq\frac{1}{t}\left[J(\overline{u}+t(u-\overline{u}))-J(\overline{u})\right] \xrightarrow{t \downarrow 0} J'(\overline{u}, u-\overline{u}) \geq 0.
+		\implies 	J(u)-J(\overline{u})\geq\frac{1}{t}\left[J(\overline{u}+t(u-\overline{u}))-J(\overline{u})\right] \xrightarrow{t \downarrow 0} J'(\overline{u}; u-\overline{u}) \geq 0.
 	\]
 	Therefore $\overline{u}$ is a global minimizer.
 	

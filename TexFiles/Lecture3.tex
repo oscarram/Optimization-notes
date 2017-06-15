@@ -1,0 +1,78 @@
+Now consider Hilbert space $(H, \langle \cdot,\cdot \rangle)$ with the norm defined as $\norm{\cdot}=\sqrt{(\cdot,\cdot)}$.
+
+Let be $J: H\rightarrow \mathbb{R}$ a functional over a Hilbert space $H$, we define the set,
+\[
+{\displaystyle {\underset {v\in C\subseteq H}{\operatorname {arg\,min} }}\,J(x):=\{x\mid x\in C\wedge \forall v\in C:\,J(x)\leq J(v)\}.}\]
+
+
+By Riesz-Fr\'echet representation formula, exists a unique vector $\nabla J(x) \in H$ such that, 
+\[
+(\forall y \in H) \quad J'(x; y)=\langle y, \nabla J(x)\rangle
+\]
+namely Gate\^aux gradient of $J$ at $x$. 
+
+\begin{lemma}
+\label{lemma3. Projection}
+Let $H$ Hilbert space and $C\subset H$ closed and convex. Define $P_C: H\rightarrow C$, \[P_C(x)=\argmin{v\in C}{\norm{v-x}}.\]
+Then,
+\begin{enumerate}
+	\item $P_C$ is well defined, i.e. $\exists !u \in H$ such that $P_C(x)=\{u\}$.
+	\item $\forall u,v\in H$, we have $x=P_C(u) \iff x\in C$  and  $\langle u-x, v-x\rangle\leq 0$.
+	\item $\norm{P_C(u)-P_C(\overline{u})}\leq \norm{u-\overline{u}}$ \ $\forall u, \overline{u} \in H$, i.e. The projection $P_C$ is non expansive.
+	\item $\langle P_C(u)-P_C(\overline{u}), u-\overline{u}\rangle \leq 0, \quad \forall u, \overline{u}\in H$
+	\item Let be $t>0$ a real number, then $\forall u \in C$, and $\forall v\in H$, $\phi(t)=\frac{1}{t}\norm{P_C\left(u+tv\right)-u}$ is non-increasing.
+\end{enumerate}
+\end{lemma}
+\begin{theorem}
+Let $H$ be Hilbert space, $C \subset H$ closed and convex, $J: C \rightarrow \mathbb{R}$, Gate\^aux differentiable at the local solution $\overline{u}$ of $\min_{u\in C} J(u)$. Thus, $J'(\overline{u};u-\overline{u}) \geq 0$, $\forall u \in C$ and it is equivalent to $ \overline{u}=P_C(\overline{u}-\delta\nabla J(\overline{u})) $
+\begin{proof} 
+Since every Hilbert Space is a Banach space, and $C$ is closed and Convex subset of $H$, and $\overline{u}$ is a solution of minimization problem; we can apply \ref{theorem2. Banach Derivatives}.\\
+ Thus	$J'\left(\overline{u}; u-\overline{u}\right)\geq 0 \iff \langle u-\overline{u}, \nabla J(\overline{u})\rangle \geq 0 \ \forall u \in C$. \\
+For all $\delta >0$, we multiply the Gate\^aux gradient  $(-\delta)$ and we have,
+\[\langle u-\overline{u}, -\delta \nabla J(\overline{u}) \rangle \leq 0 \ \forall u \in C,\] adding zero to the gradient, $ \langle u-\overline{u}, \overline{u}-\delta\nabla J(\overline{u})-\overline{u}\rangle \leq 0$. Then we set $w \in H$ as $w:= \overline{u}-\delta  \nabla J(\overline{u})$, and applying lemma \ref{lemma3. Projection} we have,
+\[
+	\overline{u}=P_c(w)	\iff \langle w-\overline{u}, u -\overline{u}\rangle
+\]
+Thus, 
+	\[
+		\overline{u}=P_C(\overline{u}-\delta J(\overline{u}))
+	\]
+\end{proof}
+\end{theorem}
+\subsection{Application}
+Consider $U, Y, Z$ Hilbert spaces. Let be  $J: Y\times U \rightarrow \mathbb{R}$ a functional. Consider the minimization problem,
+\begin{equation*}
+	\left\lbrace
+	\begin{array}{l}
+	\overline{u}=\underset{y,u}{\min} J(y,u) \\
+	Ay=Bu \quad u \in U_{ad} \subset U
+	\end{array}
+	\right.
+\end{equation*}
+For some set $U_{ad}$ closed, convex and bounded. And $A \in \mathcal{L}(Y,Z)$ bounded and invertible and $B\in \mathcal{L}(Y, Z)$.
+
+Then we can write $y \in Y$ as a function of $u \in U$,
+\[
+y=y(u)=A^{-1}Bu
+\]
+Consider the reduced cost functional  $	F(u):=J(y(u), u)$, then our problem is equivalent to
+\[
+	\overline{u}_{ad}=\min_{u \in U_{ad}} F(u) 
+\]
+
+
+Let $(u_k)_k \in U_{ad}$ denote a minimizing sequence, i.e. $F(u_k) \rightarrow \inf_{u\in U_{ad}}F(u)$, since $u_k \in U_{ad}$ the sequence is bounded. Therefore we can find a convergent subsequence $u_{k_{l}} \xrightharpoonup[l\rightarrow \infty]{} \asterisk{u}$, moreover since $U_{ad}$ is closed and convex $U_{ad}$ is weakly closed, implying $\asterisk{u} \in U_{ad}$
+
+\begin{proposition}
+	If $J$ is continuous and weakly lower semicontinuous, then 	$\asterisk{u}=\argmin{u\in U_{ad}}{F(u)}$.
+	\begin{proof}
+		If J is weakly lower semicontinuos 
+			\[
+				J(y(\asterisk{u}), \asterisk{u})\leq \liminf_{l\rightarrow \infty} J(y(u_k),u_k)
+			\]
+		That is, 
+		\[
+			F(\asterisk{u}) \leq \liminf_{l\rightarrow \infty} F(u_k) =\alpha 
+		\]
+	\end{proof}
+\end{proposition}
