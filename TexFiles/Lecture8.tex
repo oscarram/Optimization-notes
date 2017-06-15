@@ -1,0 +1,98 @@
+\begin{definition}
+ A function $phi : U \times Y \rightarrow \overline{\mathbb{R}}$ is said to be a perturbation function of $J$ (function of minimization problem in $U$), if $\phi(u, 0)=J(u)$ for all $u \in U$. For each $p \in Y$, the minimization problem.
+ \[
+ \inf_{u\in U} \phi (u,p) \tag{Pp}\label{eq8. Perturbation}
+ \]
+ is called a perturbation problem to \eqref{eq8. Perturbation}. The variable $p$ is called perturbation parameter. If we denote by $\asterisk{\phi}$ the convex conjugate function of $\phi$, the \textit{dual problem}, with respect to $\phi$ is defined by
+ \[
+ \sup_{\asterisk{p}\in \asterisk{Y}}-\asterisk{\phi}(0,\asterisk{p}) \label{eq8. Perturbation dual problem}
+ \]
+ 
+ where $\asterisk{\phi}: \asterisk{(U\times Y)} \cong \asterisk{U}\times\asterisk{Y}\rightarrow \overline{\mathbb{R}}$.
+ \[
+ \asterisk{\phi}\left(\asterisk{u}, \asterisk{p} \right) = \sup_{u \in U, p\in Y} \left( (\asterisk{u}, u)_{\asterisk{U}U}+(\asterisk{p}, p)_{\asterisk{Y}Y}-\phi(u,p)\right)
+ \]
+
+\end{definition}
+ Remark: for $p=0$, \eqref{eq8. Perturbation dual problem} $\equiv$ \eqref{eq8. Perturbation}.
+ 
+ We denote the infimum for problem \eqref{eq8. Minimization without Perturbation} by $\inf(P)$ and the sup of \eqref{eq8. Perturbation} by $\sup P*$
+ 
+ \begin{lemma}[Weak duality]
+ 	For the problem (P)and (P*) it holds that
+ 	\[
+ 	 -\infty \leq \sup(P*) \leq \inf(P) \leq \infty.
+ 	\]
+ 	\begin{proof}
+ 		Let $\asterisk{p}\in\asterisk{Y}$. It follows
+ 		\begin{align}
+ 			-\asterisk{\phi}(0,\asterisk{p})=&-\sup_{u\in U, p\in Y}\left( (0,u) + (\asterisk{p}, p)-\phi(u,p)
+ 			\right)\\
+ 			=&\inf_{u\in U, p\in Y} \left(\phi(u,p)-(\asterisk{p},p)\right)\\
+ 			\leq & \left(\phi(u,0)-(\asterisk{p},0) \right) \quad \forall u \in U, \asterisk{p} \in \asterisk{Y}\\
+ 			\implies \sup_{ \asterisk{p}\in \asterisk{Y}} \leq&\inf_{u\in U} \phi (u, 0) = \inf(P)
+ 		\end{align}
+ 	By iteration we can define, a bidual problem 
+ 	\[
+ 	-\sup_{u \in U} \left(-\asterisk{\phi}(u,0)\right)=\inf_{u\in U} \asterisk{\phi}(u,0)
+ 	\]
+ 	If the perturbation function $\phi(u,p)$ is proper, convex and weakly lower semicontinuous. Then $\asterisk{\asterisk{\phi}}=\phi$. In this case $\phi (u, 0) =\asterisk{\asterisk{\phi}}(u, p)$ i.e \ref{eq8. Perturbation dual problem} $\equiv$ \ref{eq8. Perturbation mini}
+ 	\end{proof}
+
+ \end{lemma}
+  \begin{definition}
+  		Consider the infimal value function
+  		\[
+  		h(\asterisk{p})=\inf Pp 
+  		\]
+  	The problem is called stable if h(0) is finite and subdifferentiable in zero is not empty.
+  	\end{definition}
+  	
+  \begin{theorem}
+  	The primal problem (P) is stable 
+  	if and only if the following this condition are simultaneously satisfied:
+  	\begin{itemize}
+  		\item The dual problem ($\asterisk{P}$) has solution.
+  		\item There is no duality gap, i.e.
+  		\[ 
+	  		\inf(P)=\sup(\asterisk{P})\leq \infty
+  		\]
+  	\end{itemize}
+ \end{theorem}	
+
+\begin{theorem}[Extremal relation]
+	Let $\phi:U\times Y \rightarrow \overline{\mathbb{R}}$, be convex the the following statements are equivalent:
+	
+	\begin{enumerate}[]
+		\item (P) and \ref{eq8. Perturbation} have solutions $\overline{u}$ and $\overline{\asterisk{p}}$ and $\inf(P)=sup(\asterisk{P})$
+		\item $\phi(\overline{u}, 0)+\asterisk{\phi}\left(0, \overline{\asterisk{p}}\right)=0$
+		\item $\left(0, \overline{\asterisk{p}}\right) \in \partial \phi (u,0)$ and $ \left(\overline{u}, 0\right) \in \partial \asterisk{\phi}(0,\asterisk{p})$
+	\end{enumerate}
+	\begin{proof}
+		We proceed by parts:
+		\begin{enumerate}
+			\item (1)$\implies$ (2): $\overline{u}$ solution of $\inf(P)$ and $\overline{\asterisk{p}}$ solution $\sup(\asterisk{p})$ and $\inf(P)=\sup(P*)$ $\implies$
+			$\phi(\overline{u},0)=\inf(P)=\sup(P*)=-\phi(0,\overline{\asterisk{p}})$, then $\implies \phi(\overline{u}, 0)+\asterisk{\phi}(0, \overline{\asterisk{p}}) =0$
+			\item (2) $\implies$ (1): $-\asterisk{\phi}(0, \overline{\asterisk{p}})=\sup(P*)\leq \inf(P)=\phi(\overline{u}, 0)=-\asterisk{\phi}(0, \overline{\asterisk{p}}) \implies \sup(P*)=\inf(P)$
+			\item (2)$\iff$(3): $\phi(\overline{u},0)+\asterisk{\phi}(0, \overline{\asterisk{p}})=0=(0, \overline{u}) +(\overline{\asterisk{p}},0)=\left((0, \overline{\asterisk{p}}, (\overline{u},0))\right) \iff (0, \overline{\asterisk{p}}) \in \partial\phi(\overline{u},0) \ \forall u \in U, \asterisk{p} \in \partial J(u) \iff J(u)+\asterisk{J}(\asterisk{p})=(\asterisk{p}, u)$
+		\end{enumerate}
+	\end{proof}
+\end{theorem}
+\paragraph{Functional duality.}
+\[
+	J(u)=F(u)+G(Au)
+\]
+ with $F:U\rightarrow\overline{\mathbb{R}}$,  G convex function $G: V\rightarrow \overline{\mathbb{R}}$ and $A:U\rightarrow V$ bounded and linear.
+ 
+ We introduce the perturbation $\phi(u, p) = F(u)+G(Au-p)$. The dual problem is obtained with,
+ \[
+	 \asterisk{\phi}(0, \asterisk{p})=\sup_{\substack{u\in U\\ p \in V} }\left( (\asterisk{p},p)-F(u)-G(Au-p)\right)
+ \]
+ For fixed $u$ we set $q: Au -p$.
+ 
+ \begin{align*}
+ \asterisk{\phi}(0, \asterisk{p})=&\sup_{u\in U} \sup_{p\in V} \left(\left(\asterisk{p}, Au-q\right)-F(u)-G(q)\right)\\
+ =&\sup_{u\in U} \sup_{p\in V} \left(\left(\asterisk{A}\asterisk{p}, u\right)-(\asterisk{p}, q)-F(u)-G(q)\right)\\
+ =&\sup_{u\in U}  \left(\left(\asterisk{p}, Au\right)-F(u)\right)+\sup_{p\in V}\left((-\asterisk{p},q)-G(q)\right)\\
+ =&\asterisk{F}(\asterisk{A}\asterisk{p})+\asterisk{G}(-\asterisk{p})
+ \end{align*}
