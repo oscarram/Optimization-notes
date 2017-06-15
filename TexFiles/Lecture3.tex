@@ -66,14 +66,14 @@ Then,
 \end{proof}
 \end{lemma}
 \begin{theorem}
-Let $H$ be Hilbert space, $C \subset H$ closed and convex, $J: C \rightarrow \mathbb{R}$, Gate\^aux differentiable at the local solution $\overline{u}$ of $\min_{u\in C} J(u)$. Thus, $J'(\overline{u};u-\overline{u}) \geq 0$, $\forall u \in C$ and it is equivalent to $ \overline{u}=P_C(\overline{u}-\delta\nabla J(\overline{u})) $
+Let $H$ be Hilbert space, $C \subset H$ closed and convex, $J: C \rightarrow \mathbb{R}$, Gate\^aux differentiable at the local solution $\overline{u}$ of $\min_{u\in C} J(u)$. Thus, $J'(\overline{u};u-\overline{u}) \geq 0$, $\forall u \in C$ and it is equivalent to $ \overline{u}=P_C(\overline{u}-\delta\nabla J(\overline{u}))$, $\forall \delta >0$. 
 \begin{proof} 
 Since every Hilbert Space is a Banach space, and $C$ is closed and Convex subset of $H$, and $\overline{u}$ is a solution of minimization problem; we can apply \ref{theorem2. Banach Derivatives}.\\
  Thus	$J'\left(\overline{u}; u-\overline{u}\right)\geq 0 \iff \langle u-\overline{u}, \nabla J(\overline{u})\rangle \geq 0 \ \forall u \in C$. \\
 For all $\delta >0$, we multiply the Gate\^aux gradient  $(-\delta)$ and we have,
 \[\langle u-\overline{u}, -\delta \nabla J(\overline{u}) \rangle \leq 0 \ \forall u \in C,\] adding zero to the gradient, $ \langle u-\overline{u}, \overline{u}-\delta\nabla J(\overline{u})-\overline{u}\rangle \leq 0$. Then we set $w \in H$ as $w:= \overline{u}-\delta  \nabla J(\overline{u})$, and applying lemma \ref{lemma3. Projection} we have,
 \[
-	\overline{u}=P_c(w)	\iff \langle w-\overline{u}, u -\overline{u}\rangle
+	\overline{u}=P_C(w)	\iff \langle u -\overline{u},w-\overline{u}\rangle
 \]
 Thus, 
 	\[
@@ -119,7 +119,8 @@ Let $(u_k)_k \in U_{ad}$ denote a minimizing sequence, i.e. $F(u_k) \rightarrow 
 
 	
 	Since $u_{k_{l}} \xrightharpoonup[l\rightarrow \infty]{} \overline{u}$, $\implies y(u_k) \xrightharpoonup[]{} y(\overline{u})$ and $A^{-1}B u_k \xrightharpoonup[]{}A^{-1}B  \overline{u}$
-	
+	\end{proof}
+\end{proposition}
 	$J$ is Gate\^aux differentiable, applying the chain rule to $F$ and valuating in $u$ we have
 	\[
 		F_u(u; h)=J_y(y; \alpha(u;h), u)+J_u(y,u;h)
@@ -136,5 +137,3 @@ Let $(u_k)_k \in U_{ad}$ denote a minimizing sequence, i.e. $F(u_k) \rightarrow 
 		(A^{-1}B)^*\nabla_y J(\overline{y}, \overline{u})+\nabla_u J(\overline{y},\overline{u})\rangle_{U^*U}
 	\end{align*}
 	Setting $p^*=(A^{-1}B)^*\nabla_y J(\overline{y}, \overline{u})$. We have that $\overline{u}=P_{U_{ad}}(\overline{u}-\delta(p^*+\nabla_u J(\overline{y}, \overline{u})))$
-	\end{proof}
-\end{proposition}
