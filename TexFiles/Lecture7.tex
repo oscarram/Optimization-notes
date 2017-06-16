@@ -1,0 +1,70 @@
+\begin{remark}
+Some elementary properties of conjugate functions
+\begin{itemize}
+	\item  \textbf{Young inequality} $J(u)+J^*(p^*)\geq p^*(u) \quad \forall u \in U, \forall p^* \in U^*$
+	\item  $J^*(0)=\sup_{u\in U}\left((0,u)-J(u)\right)=\sup_{u\in U}\left(-J(u)\right)=\inf_{u\in U}J(u)$
+\end{itemize}
+In many applications in optimization, is used the equivalent formulation,
+\[
+\inf_{u\in U}J(u)=-J^*(0).
+\]
+\end{remark}
+$J\leq F \implies J^*\geq F^*$
+
+\begin{theorem}
+	Let $U$ a Banach space and $J^*: U^* \rightarrow \overline{\mathbb{R}}$ be the conjugate of the $J:U\rightarrow \overline{\mathbb{R}}$. Then for all $u\in U$. \[p^* \in \partial J(u) \iff J(u)+J^*(p^*)=p^*(u)\]. \label{th7. conjugate plus functional}
+	\begin{proof}
+		content...
+	\end{proof}
+\end{theorem}
+\begin{corollary}
+	It follows from previous theorem that $\partial J(u)=\lbrace p^* \in U^* | J(u)+J^*(p^*)=(p^*, u)\rbrace$.
+\end{corollary}
+\begin{theorem}
+	Let $U$ be a Banach space and $J:U\rightarrow \mathbb{R}$ be proper function. If $p^* \in \partial J(u)$ then $u\in \partial J^* (p^*)$
+	\begin{proof}
+		Let $p^*\in \partial J(u)$. For any $g^* \in U^*$, it follows \[J^*(g^*)=\sup_{v\in U} \left(g^*(v)-J(v)\right)\geq g^*(u)-J(u)\geq g^*(u)-J(u)\]
+		From theorem \ref{th7. conjugate plus functional} 
+		\[
+		J^*(g^*)\leq g^*(u)-p^*(u)+J^*(p^*) = \left(g^* - p^* \right)(u)+J^*(p^*)\implies u\in \partial J^*(p^*).
+		\]
+	\end{proof}
+\end{theorem}
+By iteration the definition, we obtain the bipolar function
+$(J^*)^*=J^{**}: U^{**}\rightarrow \overline{\mathbb{R}}$, 
+\[
+	J^{**}(u)=\sup_{p^*\in U^*} \lbrace p^*(u)-J^*(p^*) \rbrace
+\]
+
+\begin{theorem}
+	Let $U$ be a reflexive Banach space. The $J^{**}$ is the maximum convex functional below $J$ (also called convex envelope), i.e. $J^{**}(u)\leq J(u)$, $\forall u \in U$ and $F(u)\leq J^{**}(u)$, $\forall u \in U$ if $F$ is also convex and $F(u)\leq J(u)$, $\forall u$. In particular $J^{**}=J$ if and only if $J$ is convex.
+	\begin{proof}
+		\begin{align}
+			J^{**}(u)&=\sup_{p^*\in U^*} \left\lbrace p^*(u)-J^*(p^*) \right\rbrace\\
+					&=\sup_{p^*\in U^*} \left\lbrace p^*(u)-\sup_{v\in U}\left\lbrace p^*(v)-J(v)\right\rbrace\right\rbrace\\
+					&=\sup_{p^*\in U^*} \left\lbrace p^*(u)+\inf_{v\in U}\left\lbrace p^*(v)-J(v)\right\rbrace\right\rbrace\\
+		\end{align}
+		Since for any $p^* \in U^*$,
+			\[
+				\inf_{v\in U}\left\lbrace p^* \left(u-v\right)+J(v) \right\rbrace \leq p^*(u-u)+J(u)
+			\]
+		We have that $J^{**}(u)\leq J(u)$.
+		
+		Now we assume that $F$ is a convex functional and $g^* \in \partial F(u)$ for $u \in U$.
+		\begin{align}
+			\implies  F(v)&\geq F(v)+q^*(v-u)\\
+					  F^{**}(u)& = \sup_{p^* \in U^*} \inf_{v \in U} \left\lbrace p^*(u-v)+F(u)+q^*(v-u)\right\rbrace \\
+					  &\geq \sup_{p^* \in U^*} \inf_{v \in U} \left\lbrace \left(p^*-q^*\right)(u-v)+F(u)\right\rbrace\\
+					  &\geq \inf_{v \in U} \left\lbrace (q^*-q^*)(u-v)+F(u) \right\rbrace\\
+					  &=F(u)
+		\end{align}
+	If $F$ is convex,
+	\begin{equation}
+		\implies F(u)\leq F^{**}(u)\leq F(u) \implies F(u)=F^{**}(u),
+	\end{equation}
+
+	\begin{equation}
+a		
+	\end{equation}
+	\end{proof}
+\end{theorem}
