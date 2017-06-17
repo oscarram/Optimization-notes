@@ -1,13 +1,13 @@
 \begin{definition}
- A function $\Phi : U \times Y \rightarrow \overline{\mathbb{R}}$ is said to be a perturbation function of $J$ for the minimization problem
+Let $U$ and $Y$ Banach spaces and $J: U\rightarrow \overline{\mathbb{R}}$ is a proper function. We consider an optimization problem \eqref{eq8. P} called primal problem
  \[
  \inf_{u\in U} J(u) \tag{P} \label{eq8. P}
  \] 
- if $\Phi(u, 0)=J(u)$ for all $u \in U$. For each $p \in Y$, the minimization problem \eqref{eq8. Pp}
+ Then the problem is said to be nontrivial if there is $\overline{u} \in U$ such that $J(\overline{u}) < \infty$. A function $\Phi : U \times Y \rightarrow \overline{\mathbb{R}}$ is said to be a perturbation function of $J$, 
  \[
  \inf_{u\in U} \Phi (u,p) \tag{Pp}\label{eq8. Pp}
  \]
- is called a perturbation problem. The variable $p$ is called perturbation parameter. If we denote by $\asterisk{\Phi}$ the convex conjugate function of $\Phi$, the \textit{dual problem}, with respect to $\Phi$ is defined by
+ if $\Phi(u, 0)=J(u)$ for all $u \in U$. For each $p \in Y$, the minimization problem \eqref{eq8. Pp} is called a perturbation problem. The variable $p$ is called perturbation parameter. If we denote by $\asterisk{\Phi}$ the convex conjugate function of $\Phi$, the \textit{dual problem}, with respect to $\Phi$ is defined by
  \[
  \sup_{\asterisk{p}\in \asterisk{Y}}-\asterisk{\Phi}(0,\asterisk{p}) \label{eq8. P*}\tag{P*}
  \]

@@ -1,0 +1,42 @@
+\begin{lemma}
+	Let U be linear space and $J: U\rightarrow \overline{\mathbb{R}}$. Then
+	\begin{enumerate}
+		\item If $J$ is convex, then the effective domain $\mathrm{dom}(J)=\lbrace u\in U | \ J(u) < \infty\rbrace $ is convex.
+		\item $J$ is convex $\iff$ $\mathrm{epi}(J)=\left\lbrace (u,\alpha) \in U\times \mathbb{R} | J(u)\leq \alpha\right\rbrace$ is convex.
+	\end{enumerate}
+	\begin{proof} Since $U$ and $\mathbb{R}$ are linear spaces, is easy to see that scalar multiplications and sums are well defined over $U\times \mathbb{R}$ and so over $\epi(J)$.
+		\begin{enumerate}
+			\item Assume $J$ convex. If $u_1\in \dom (J)$ and $u_2$ are elements of $\dom (J)$. Therefore, $J(u_1)<\infty$, and $J(u_2)<\infty$, therefore for $t \in [0,1]$, we have $tJ(u_1)<\infty$ and $(1-t)J(u_2)<\infty$. Since $J$ is convex, 
+			\[J(t u_1 + (1-t)u_2)\leq tJ(u_1)	+(1-t)J(u_2) < \infty\],
+			
+			Therefore, $tu_1 +(1-t)u_2 \in \dom (J)$. Hence $\dom J$ is convex.
+			\item First consider $J$ a convex functional, then we have for all $u_1, u_2 \in U$,
+				\[
+					J(t u_1 + (1-t)u_2)\leq tJ(u_1)	+(1-t)J(u_2) \quad \forall t \in [0,1]
+				\]
+				Let $(u_1, \alpha_1)$, $(u_2, \alpha_2)$ elements of $\epi(J)$, then $J(u_1) < \alpha_1$ and $J(u_2)< \alpha_2$. Since $J$ is convex. 
+				\[
+					J(t u_1 + (1-t)u_2) \leq t \alpha_1 + (1-t)\alpha_2
+				\]
+				Then $(tu_1+(1-t)u_2, t \alpha_1+(1-t)\alpha_2) \in \epi(J)$. Therefore, if $J$ is convex, and $(u_1, \alpha_1)$, $(u_2, \alpha_2)$ are elements of $\epi(J)$ then,
+				\[ t(u_1,\alpha_1)+(1-t)(u_2, \alpha_2)=(tu_1+(1-t)u_2, t \alpha_1+(1-t)\alpha_2) \in \epi(J) \]
+				Hence $\epi(J)$ is convex. 
+				
+				Now assume $\epi(J)$ convex. Let $(u_1, \alpha_1)$, $(u_2, \alpha_2)$ elements of $\epi(J)$ then $(tu_1+(1-t)t \alpha_1 + (1-t)\alpha_2) $, then
+				\[
+							J(t u_1 + (1-t)u_2) \leq t \alpha_1 + (1-t)\alpha_2 \quad \forall t \in [0,1]
+				\]
+				
+				By definition of $\epi(J)$, if $u_1, u_2 \in \dom J$, then $(u_1, J(u_1))$ and $(u_2, J(u_2))$, are elements of $\epi(J)$, therefore
+				\[
+				tJ(u_1) + (1-t)J(u_2) \leq t \alpha_1 + (1-t)\alpha_2
+				\]
+				Implying that $J$ is convex.
+		\end{enumerate}
+	\end{proof}
+\end{lemma}
+
+\begin{definition}
+	
+\end{definition}
+
