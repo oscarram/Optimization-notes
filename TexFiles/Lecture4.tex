@@ -86,3 +86,49 @@ is lower semi-continuous if and only if C is closed.
 	Take $\xi \in \mathbb{R}$.  If $\xi < 0$, the set $\mu_\xi=\emptyset$. If $\xi >0$, the set $\mu_\xi = C$. Therefore the sets $m_\xi$, for all $\xi \in \mathbb{R}$ is closed if and only if $C$ is closed. By the theorem \ref{th4: levelsets and lsc} $I_C$ is lower semi-continuous if and only if $C$ is closed.
 \end{proof}
 \end{example}
+
+\begin{definition}
+	If $U$ is a normed space, the the dual space $U^*=\mathcal{B}(U, \mathbb{R})$. Consists of all linear and bonded functionals mapping from $U$ to $\mathbb{R}$.
+\end{definition}
+\begin{theorem}
+	Let be $U$ a Banach space, then the dual $U^*$ is also a Banach space relative to the norm of the functionals defined by \[\norm{u^*}=\sup_{\norm{u}\leq 1} \abs{u^*(u)}\]
+\end{theorem}
+
+
+\subsection{The Dual Systems of Linear Spaces} 
+Two linear spaces $X$ and $Y$ over the same scalar field $\Gamma$ define a dual system if a
+fixed bilinear functional on their product is given:
+\[(\cdot, \cdot) : X \times Y \rightarrow \Gamma\].
+
+The bilinear functional is sometimes omitted. 
+
+The dual system is called separated if the following two properties hold:
+\begin{enumerate}
+	\item $\forall x \in X \backslash \{0\}$ there is $y \in Y$ such that $(x, y) \neq 0$.
+	\item $\forall y \in Y \backslash \{0\}$ there is $x \in X$ such that $(x, y) \neq 0$. 
+\end{enumerate}
+
+
+In other words, $X$ separates points in $Y$ and $Y$ separates points in $X$.
+We consider only separated dual systems.
+For each $x \in X$, we define the application $f_x: Y \rightarrow \Gamma$ by
+\[f_x(y) = (x, y) \quad \forall y \in Y\]
+We observe that $f_x$ is a linear functional on $Y$ and the mapping
+$x \rightarrow f_x, \quad \forall x \in X$,
+is linear and injective, as can be seen from condition (1). Hence, the correspondence is an embedding. Thus, the elements of $X$ can be identified with the linear
+functionals on $Y$. In a similar way, the elements of $Y$ can be considered as linear functionals of $X$, identifying an element $y \in Y$ with $g_y: X\rightarrow \Gamma$, defined by
+\[g_y(x) = (x, y), \quad \forall x \in X.\]
+
+Therefore, each dual system of linear spaces defines a mapping from either of the two linear spaces into the space of linear functionals on the other.
+We set,
+\begin{align*}
+p_y(x)=\abs{(x,y)}=\abs{g_y(x)}, & \quad \forall x \in X \\	
+q_x(y)=\abs{(x,y)}=\abs{f_x(y)}, & \quad \forall y \in Y
+\end{align*}
+
+and we observe that $\mathcal{P} = \{p_y | \ y \in Y \}$ is a family of seminorms on $X$ and $\mathcal{Q}=
+\{q_x | \ y \in  X\} $ is a family of seminorms on $Y$. 
+
+
+
+
