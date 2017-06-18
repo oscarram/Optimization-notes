@@ -16,8 +16,8 @@ namely Gate\^aux gradient of $J$ at $x$.
 Let $H$ Hilbert space and $C\subset H$ closed and convex. Define $P_C: H\rightarrow C$, \[P_C(x)=\argmin{v\in C}{\norm{v-x}}.\]
 Then,
 \begin{enumerate}
-	\item $P_C$ is well defined, i.e. $\exists !u \in H$ such that $P_C(x)=\{u\}$.
-	\item $\forall u,v\in H$, we have $x=P_C(u) \iff x\in C$  and  $\langle u-x, v-x\rangle\leq 0$.
+	\item $P_C$ is well defined, i.e. $\exists !u \in C$ such that $P_C(x)=\{u\} \ \forall x \in H$.
+	\item $\forall u,x\in H$, we have $u=P_C(x) \iff u\in C$  and  $\langle x-u, v-u\rangle\leq 0\ \forall v \in C$.
 	\item $\norm{P_C(u)-P_C(\overline{u})}\leq \norm{u-\overline{u}}$ \ $\forall u, \overline{u} \in H$, i.e. The projection $P_C$ is non expansive.
 	\item $\langle P_C(u)-P_C(\overline{u}), u-\overline{u}\rangle \leq 0, \quad \forall u, \overline{u}\in H$
 	\item Let be $t>0$ a real number, then $\forall u \in C$, and $\forall v\in H$, $\phi(t)=\frac{1}{t}\norm{P_C\left(u+tv\right)-u}$ is non-increasing.

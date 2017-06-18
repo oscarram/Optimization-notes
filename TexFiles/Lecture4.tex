@@ -87,15 +87,8 @@ is lower semi-continuous if and only if C is closed.
 \end{proof}
 \end{example}
 
-\begin{definition}
-	If $U$ is a normed space, the the dual space $U^*=\mathcal{B}(U, \mathbb{R})$. Consists of all linear and bonded functionals mapping from $U$ to $\mathbb{R}$.
-\end{definition}
-\begin{theorem}
-	Let be $U$ a Banach space, then the dual $U^*$ is also a Banach space relative to the norm of the functionals defined by \[\norm{u^*}=\sup_{\norm{u}\leq 1} \abs{u^*(u)}\]
-\end{theorem}
 
-
-\subsection{The Dual Systems of Linear Spaces} 
+\paragraph{The Dual Systems of Linear Spaces} 
 Two linear spaces $X$ and $Y$ over the same scalar field $\Gamma$ define a dual system if a
 fixed bilinear functional on their product is given:
 \[(\cdot, \cdot) : X \times Y \rightarrow \Gamma\].
@@ -131,4 +124,31 @@ and we observe that $\mathcal{P} = \{p_y | \ y \in Y \}$ is a family of seminorm
 
 
 
+\begin{definition}
+	If $U$ is a normed space, the the dual space $U^*=\mathcal{B}(U, \mathbb{R})$. Consists of all linear and bonded functionals mapping from $U$ to $\mathbb{R}$.
+\end{definition}
+\begin{theorem}
+	Let be $U$ a Banach space, then the dual $U^*$ is also a Banach space relative to the norm of the functionals defined by \[\norm{u^*}=\sup_{\norm{u}\leq 1} \abs{u^*(u)}\]
+\end{theorem}
 
+
+\begin{remark}
+	There is a natural duality between $U$ and $U^*$ determined by the bilinear functional $(\cdot, \cdot): U\times U^*\rightarrow \mathbb{R}$, defined as \[(u, u^*)=u^*(u), \quad \forall u \in U, \, \forall u^* \in U^*\]
+\end{remark}
+
+\begin{example}
+	The dual of the $L^p$ can be identified with $L^q$, where $\frac{1}{p}+\frac{1}{q}=1$.
+	
+	
+\end{example}
+\begin{definition}
+	A sequence $(u_n)_n$ in a Banach space is called weakly convergent to some $u\in U$ if for all linears continuous functionals $u^* \in U^*$ we have
+	\[
+		\lim_{n\rightarrow \infty}u^*(u_n)=u^*(u)
+	\]
+	$u$ is also called the weak-limit and we write $u_n \xrightharpoonup[n\rightarrow\infty]{} u$.
+\end{definition}
+
+\begin{theorem}
+	A sequence $(u_n)_n$ in $U$ converges to $u\in U$ if and only if $\sup_{n\in \mathbb{N}} \norm{u_n}$
+\end{theorem}
