@@ -37,6 +37,52 @@
 \end{lemma}
 
 \begin{definition}
-	
+	Let $U$ a Banach space. Then the function $J:U\rightarrow \overline{\mathbb{R}}$ is called lower semi-continuous at $u_0 \in U$ if the following conditions holds:
+	\begin{itemize}
+		\item If $\forall \epsilon > 0$ there is a neighborhood $B_\delta (u_0)$ of $u_0$ such that $J(u_0)-\epsilon \leq J(u) \ \forall u \in B_\delta{u_0)}$.
+		\item If $J(u_0)\leq\liminf_{n\rightarrow \infty} J(u_n)$ holds for each sequence $u_n \in U$.
+	\end{itemize}
 \end{definition}
 
+\begin{remark}
+	If the second condition holds, $J$ is called sometimes sequentially semi-continuous. If $J$ is continuous it is also lower semi-continuous.
+\end{remark}
+\begin{theorem}
+	\label{th4: levelsets and lsc}
+	Let $U$ be a Banach space and $J: U\rightarrow \overline{\mathbb{R}}$. Then sthe following conditions are equivalent.
+	\begin{enumerate}
+		\item $J$ is lower semi-continuous, i.e., $J$ is lower semi-continuous at every point in $U$.
+		\item The $\epi(J)$ is closed.
+		\item The level sets $\mu_\xi=\lbrace u \in U | J(u)\leq \xi \rbrace$ is a closed set. Note that  the sets $\mu_\xi$ are closed if and only if the sets $\gamma_\xi=\lbrace u \in U | J(u)> \xi \rbrace $ are open. (Since $\mu_\xi ^c = \gamma _\xi$).
+
+	\end{enumerate}
+	\begin{proof}\
+		
+		\begin{itemize}
+			\item $(1)\implies(2)$ Let $(u_n, \xi_n)$, be a sequence in $\epi(J)$, such that converges to $(u,\xi)$ in $U\times\mathbb{R}$. Then \[J(u)\leq \liminf_{n\rightarrow \infty} J(u_n) \leq \liminf_{n\rightarrow \infty}\xi_n=\xi. \]Hence $(u, \xi) \in \epi (J)$.
+			
+			\item $(2)\implies (3)$Let $\xi\in \mathbb{R}$ and assume that $(u_n)_{n\in \mathbb{N}}$ is a sequence in $\mu_\xi$ that converges to $u$. 
+			Then the set $(u_n,\xi)_{n\in\mathbb{N}}$ is in $\epi (J)$. Since $\epi (J)$ is closed, we conclude that $(u, \xi)\in \epi (J)$, and hence $u \in \mu_k$.
+			
+			\item $(3)\implies (1)$ Let bet $u \in U$ an arbitrary member of the Banach space $U$, and let $(u_n)_{n\in \mathbb{N}}$ be a sequence that converges to $u$. And we set the number $\eta=\liminf_{n\rightarrow \infty} J(u_n)$. Then we have to prove that $J(u)\leq \eta$. When $\eta=\infty$, the inequality is clear. Therefore we assume that $\eta < +\infty$. Since every sequence in $\mathbb{R}$ has a subsequence that converges to the $\liminf$, the sequence $(u_n)_n$ has a subsequence $(u_k)_k$, such that $J(u_k) \xrightarrow{k\rightarrow\infty} \eta$. Now, we can fix $\xi \in (\eta, \infty)$. By convergence we can find $c$ such that $k\geq c$ implies that $(J(u_k))$ belongs to $(-\infty, \xi)$, therefore the set \[\lbrace u_k | \ k \geq c \in \mathbb{N}\rbrace \subset \mu_\xi. \]
+			
+			Since the sequence $u_n \rightarrow u$, the subsequence $u_k\rightarrow u$. And $\mu_\xi$ closed implies $u \in \mu_\xi$. Since this holds for all $\eta < \infty$, we take $\xi \downarrow \eta$. Implying $J(u)\leq \eta$. 
+		\end{itemize}
+	\end{proof}
+\end{theorem}
+\begin{example}
+The indicator function of a set $C \subset U$, i.e. the function $I_C: U\rightarrow[-\infty, \infty]$
+\begin{equation*}
+I_C(u)=
+\left\lbrace
+	\begin{array}{rl}
+	0, & \text{if } u \in C \\
+	+\infty, & otherwise,
+	\end{array}
+\right.
+\end{equation*}
+is lower semi-continuous if and only if C is closed. 
+\begin{proof}
+	Take $\xi \in \mathbb{R}$.  If $\xi < 0$, the set $\mu_\xi=\emptyset$. If $\xi >0$, the set $\mu_\xi = C$. Therefore the sets $m_\xi$, for all $\xi \in \mathbb{R}$ is closed if and only if $C$ is closed. By the theorem \ref{th4: levelsets and lsc} $I_C$ is lower semi-continuous if and only if $C$ is closed.
+\end{proof}
+\end{example}
