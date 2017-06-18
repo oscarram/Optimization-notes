@@ -136,11 +136,6 @@ and we observe that $\mathcal{P} = \{p_y | \ y \in Y \}$ is a family of seminorm
 	There is a natural duality between $U$ and $U^*$ determined by the bilinear functional $(\cdot, \cdot): U\times U^*\rightarrow \mathbb{R}$, defined as \[(u, u^*)=u^*(u), \quad \forall u \in U, \, \forall u^* \in U^*\]
 \end{remark}
 
-\begin{example}
-	The dual of the $L^p$ can be identified with $L^q$, where $\frac{1}{p}+\frac{1}{q}=1$.
-	
-	
-\end{example}
 \begin{definition}
 	A sequence $(u_n)_n$ in a Banach space is called weakly convergent to some $u\in U$ if for all linears continuous functionals $u^* \in U^*$ we have
 	\[
@@ -150,5 +145,95 @@ and we observe that $\mathcal{P} = \{p_y | \ y \in Y \}$ is a family of seminorm
 \end{definition}
 
 \begin{theorem}
-	A sequence $(u_n)_n$ in $U$ converges to $u\in U$ if and only if $\sup_{n\in \mathbb{N}} \norm{u_n}$
+	A sequence $(u_n)_n$ in $U$ converges to $u\in U$ if and only if $\sup_{n\in \mathbb{N}} \norm{u_n} < \infty $ and $u_n \xrightharpoonup[n\rightarrow \infty]{}u$
 \end{theorem}
+\begin{theorem}[Bourbaki-Alaoglu-Katulami]
+	The closed unit ball in a Banach space $U$ is weakly compact if and only if $U$ is reflexive. If $U$ is in an addition separable, then it's weakly sequentially compact.
+\end{theorem}
+
+\begin{definition}
+	Let $U$ be a Banach space and $J: U \rightarrow \mathbb{R}$, $J$ is called weakly (sequentially) lower semi-continuous at point $u_0$ if for every weakly convergent sequence $(u_n)_n$ converges to $u_0$, i.e. $u_n \xrightharpoonup[]{} u_0$, it holds \[(u)\leq \liminf_{n\rightarrow \infty} J(u_n)\]
+\end{definition}
+
+\begin{definition}
+	A non empty set $C\subset U$ is called weakly closed if for every weakly convergent sequence $(u_n)_n$ in $C$ follows that the weak limit belongs to $C$. i.e. $u_n \xrightleftharpoons[]{} u$, with $u_n \in C$, implies $u\in C$.
+\end{definition}
+
+\begin{definition}
+	A non empty set $C\subset U$ is called weakly sequentially compact if for every sequence in $C$ contains a weakly convergent subsequence whose limit belongs to $C$.
+\end{definition}
+
+\begin{theorem}
+	Let $U$ be a Banach space and $J:U \rightarrow \overline{\mathbb{R}}$ the the following conditions are equivalent:
+	\begin{itemize}
+		\item J is weakly lower semi-continuous on $U$ for all $u\in U$.
+		\item The level sets $\mu_\xi = \lbrace u \in U | J(u)\leq \xi \rbrace$ is weakly closed for each $\xi \in \mathbb{R}$.
+	\end{itemize}
+\end{theorem}
+
+\begin{lemma}
+	Let be $J: U \rightarrow \overline{\mathbb{R}}$ a convex and lower semicontinuous functional. Assume there is $u_0 \in U$ such that $J(u_0)=-\infty$, then $J$ is nowhere finite.
+	\begin{proof}
+		Assume that there is $v\in U$ such that $-infty< J(v)< \infty$. Then by convexity $J(\lambda u_0 + (1-\lambda)v)=- \infty$, $\forall \lambda \in [0,1]$. Because $J$ is lower semicontinuos it follows that in the limit $\lambda \rightarrow 0$, 
+		\[
+			(\lambda u_0 +(1-\lambda)v) \rightarrow v \implies J(v)\leq J(\lambda u_0 +(1-\lambda)v)=-\infty
+		\]
+	\end{proof}
+\end{lemma}
+\begin{lemma}
+	Every lower semi-continuous and convex function on a linear space $U$ is weakly lower semi-continuous.
+\end{lemma}
+
+\begin{corollary}
+	Assume that $U$ is a reflexive Banach space, then every bounded sequence $(u_n)_n \in U$ that is $\sup_{n\in \mathbb{N}} \norm{u_n}<\infty$ has a subsequence $(u_k)_k$ which is weakly convergent to some $u\in U$. 
+\end{corollary}
+
+\begin{remark}
+	Since every Hilbert space is reflexive the corollary applies to this case.
+\end{remark}
+
+\begin{lemma}
+	A closed set $C$ is weakly closed if and only if the set is convex.
+\end{lemma}
+
+\begin{definition}
+	Let $U$ be a real linear space and $J:U\rightarrow \overline{\mathbb{R}}$. We said that $J$ is sublinear if:
+	\begin{align*}
+		J(\lambda u)=\lambda J(u) & \qquad  \forall u \in U, \text{ and } \mathbb{R}\ni \lambda>0 \\
+		J(u+v)\leq J(u)+J(v) & \qquad \forall u, v \in U
+	\end{align*}
+	\begin{remark}
+		Every sublinear function is convex.
+	\end{remark}
+\end{definition}
+\begin{theorem}
+	Let $U$ be a real linear space $J: U\rightarrow \overline{\mathbb{R}}$ a sublinear functional. Then there is a linear functional $f$ on $U$ such that,
+	\[
+		f(u)\leq J(u) \quad \forall u \in U
+	\]
+\end{theorem}
+
+\begin{definition}
+	Let $J:U\rightarrow \overline{\mathbb{R}}$, we said that $J$ is locally bounded around $u_0$ if $\exists V\subset U$ neighborhood of $u_0$ such that for some $M \in \mathbb{R}$
+	\[
+		\abs{J(u)} < M \qquad \forall u \in V
+	\]
+\end{definition}
+\begin{lemma}
+	Let $J:U\rightarrow \mathbb{R}$ convex and $U$ is a Banach space. If $J$ is locally bounded around $u$, then $J$ is lower semi-continuous in $u$.
+	\begin{proof}
+		Let $u_k \rightarrow u$ as $k\rightarrow\infty$. For each $\epsilon > 0$ we can find a sequence $\alpha_k$ such that $\norm{\frac{u-u_k}{\alpha_k}}< \epsilon$, and $\alpha_k \rightarrow 0$ as $k\rightarrow \infty$. (Please read Maximal Monotone Operators and Evolution Systems
+		in Banach Spaces of Barbu. Details Still to be recovered).
+		
+		Moreover, for $k$ sufficiently large we have $\norm{u-u_k}<\epsilon$. Choose $\epsilon$ such that $J$ is bounded in $\overline{B_{2\epsilon}(u)}$ by $M$ and define $v_k = u_k + \frac{u-u_k}{\alpha_k} \in \overline{B_{2\epsilon}(u)}$, since  $\norm{v_k-u}\leq \norm{u_k-u}+\norm{\frac{u-u_k}{\alpha_k}}\leq 2\epsilon$. 
+		
+		Since $J$ is convex \[J(u)\leq \alpha_k J(v_k) + (1-\alpha_k)J(u_k) \leq \alpha_k M+J(u_k)\].
+		
+		Since $\alpha_k \rightarrow 0$, then
+		\[J(u)\leq \liminf_{k\rightarrow \infty}(\alpha_kM+J(u_k)) = \liminf_{k\rightarrow\infty} J(u_k) \]
+		Thus is if $J$ is convex and locally bounded around $u$, then is lower semi-continuous around $u$.
+	\end{proof}
+\end{lemma}
+\begin{remark}
+	The result that convexity and local boundedness imply lower semi-continuity is similar to classical result for linear operators where local boundness implies continuity. In general convexity plays in optimization the same role as linearity in solving equations.
+\end{remark}
