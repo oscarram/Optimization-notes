@@ -10,7 +10,72 @@ Characterization for $J''$ still to be analized the professor's notes are flawed
 	The elements of $p^* \in \partial J(u)$ are called subgradients of $J$ at $u$.
 \end{definition}
 \begin{example}
-	Consider $J:\mathbb{R}\rightarrow \mathbb{R}$, $u\rightarrow \abs{u}$ which is not differentiable at $u=0$.
+	Consider $J:\mathbb{R}\rightarrow \mathbb{R}$, $u\rightarrow \abs{u}$ which is not differentiable at $u=0$. If $u>0$, then $J(u)=u$ and we can find $0<v<u<w$. Then $p^* \in \partial J(u)$ implies by definition of subdifferential
+	\begin{align*}
+		v-u \geq p^*(v-u) &\equiv (1-p^*)(u-v) \leq 0 \\
+		w-u \geq p^*(w-u) &\equiv (1-p^*)(w-u) \geq 0.
+	\end{align*}
+	which implies for $u>0$, $p^* \leq 1 \leq p^*$, then $p^*=1$.
 	
-	If $u>0$, then $J(u)=u$ and we can find $0<v<u<w$. Then $p^*$
+	In the same way we obtain for $u<0$, $p^*\geq -1 \geq p^*$. 
+	In the case $u=0$, we need to satisfy $\abs{v}\geq p^*v$, which is fulfilled if and only if $\abs{p^*}\leq 1$. Hence for $J(u)=\abs{u}$,
+	\begin{equation*}
+	\partial \abs{u}=
+	\left\lbrace
+		\begin{array}{lr}
+		\{1\}, & u>0 \\
+		\left[-1,1\right], & u=0 \\
+		\{-1\}, & u < 0
+		\end{array}
+	\right. .
+	\end{equation*}
 \end{example}
+
+\begin{example}
+	A convex function which is not subdifferentiable everywhere $J:\mathbb{R} \rightarrow \mathbb{R}$, 
+	\begin{equation*}
+		J(u)=\left\lbrace\begin{array}{cl}
+		 -\sqrt{1-\abs{u}^2} &\quad \abs{u}\leq 1 \\
+		 \infty &\quad \text{otherwise}
+		\end{array}
+	\right.
+	\end{equation*}
+	For $\abs{u}\geq 1$, we have $\partial J(u) = \emptyset$.
+\end{example}
+
+\begin{example}
+	Let $C$ be a convex and closed subset of $U$ and $\mathcal{X}_C$ function defined by
+	\[
+		\mathcal{X}_C (u)=
+		\left\lbrace
+		\begin{array}{cl}
+			0 \quad& u\in C \\
+			\infty \quad& \text{otherwise}
+		\end{array}
+		\right.
+	\]
+	The subdifferentiable is the definition of normal cone at $u$
+	\[\partial \mathcal{X}_C (u)=\lbrace u^* \in U^* \ | \ u^*(u-v)\geq \forall v \in C\rbrace = \mathcal{N}_C(u)\].
+
+\end{example}
+
+\begin{theorem}
+	Let $U$ be a Banach space. And $J: U\rightarrow \overline{\mathbb{R}}$ a subdifferentiable function. Then $\partial J(u)$ is convex and weakly closed.
+\end{theorem}
+
+\begin{remark}
+	Most of the rules for derivates also hold for subdifferentials with some additional assumptions,
+	\begin{itemize}
+		\item $J:U\rightarrow \overline{\mathbb{R}}$, $\lambda > 0$, $\partial J(\lambda u)=\lambda J(u)$.
+		\item $\partial(J+F)(u) \supseteq \partial J(u)+ \partial F(u)$.
+	\end{itemize}
+\end{remark}
+
+\begin{theorem}[Rockefeller]
+	Let $U$ be a Banach space and $J: U\rightarrow \mathbb{R}$ proper and convex functions for $i=1,\dots, n$.
+	The sum-rule
+	\[
+		\partial(J_1+\dots+J_n)(u)=\partial J_1(u)\dots \partial J_n(u), \qquad n\geq 2
+	\]
+	holds if there exists $u_0 \in U$ such that all $J_i(u_0)$ are finite and all $J_i$ except at most one $J_k$, $k\in \lbrace 1,2,\dots n\rbrace$ are continuous at $u_0$
+\end{theorem}
