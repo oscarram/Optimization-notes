@@ -128,9 +128,24 @@ and we observe that $\mathcal{P} = \{p_y | \ y \in Y \}$ is a family of seminorm
 	If $U$ is a normed space, the the dual space $U^*=\mathcal{B}(U, \mathbb{R})$. Consists of all linear and bonded functionals mapping from $U$ to $\mathbb{R}$.
 \end{definition}
 \begin{theorem}
-	Let be $U$ a Banach space, then the dual $U^*$ is also a Banach space relative to the norm of the functionals defined by \[\norm{u^*}=\sup_{\norm{u}\leq 1} \abs{u^*(u)}\]
+	Let be $U$ a Banach space, then the dual $U^*$ is also a Banach space relative to the norm of the functionals defined by \[\norm{u^*}=\sup_{\norm{u}_U\leq 1} \abs{u^*(u)}\]
 \end{theorem}
-
+\begin{example}
+	Let $\Omega \subset \mathbb{R}$ be a measurable set. Let $f \in L^p(\Omega)$. Consider the functional $\phi_g: L^p(\Omega):\rightarrow \mathbb{R}$ defined by,
+	\[
+		\phi_g (f) = \int_{\Omega} f g d\mu 
+	\]
+	characterized for some $g$ mapping $\Omega$ to the real line. This is a linear functional with respect $L^p(\Omega)$. We want an estimate of the norm of this functional. For this purpose we apply H\"older inequality, with $\frac{1}{p}+\frac{1}{q}=1$, and $p,q >1$,
+	\begin{align*}
+		\norm{\phi_g}&=\sup_{1\geq \norm{f}_{L^p(\Omega)}}\abs{\int_{\Omega} gf d\mu}\\
+		&\leq 	\sup_{1\geq\norm{f}_{L^p(\Omega)}}\int_{\Omega} \abs{gf} d\mu\\
+		&{\centering \text{By H\"older inequality}}\\
+		&\leq	\sup_{1\geq\norm{f}_{L^p(\Omega)}}\left(\int_{\Omega} \abs{f}^p d\mu \right)^{\frac{1}{p}}\left(\int_{\Omega} \abs{g}^q d\mu \right)^{\frac{1}{q}}\\
+		&=\left(\int_{\Omega} \abs{g}^q d\mu \right)^{\frac{1}{q}} \sup_{1\geq\norm{f}_{L^p(\Omega)}}\left(\int_{\Omega} \abs{f}^p d\mu \right)^{\frac{1}{p}} \\
+		&=\left(\int_{\Omega} \abs{g}^q d\mu \right)^{\frac{1}{q}}=\norm{g}_{L^q(\Omega)}
+	\end{align*}
+	This result implies that if $g \in L^q(\Omega)$, then $\phi_g$ is bounded, hence for all $g\in L^q(\Omega)$ we have that the functionals characterized by $g$,  $\phi_g \in (L^p(\Omega))^*$. It's possible to demonstrate that all $ \phi \in (L^p(\Omega))^*$ can be characterized by some $g$ in $L^q(\Omega)$. Thus, \[L^q(\Omega)=(L^p(\Omega))^*\]
+\end{example}
 
 \begin{remark}
 	There is a natural duality between $U$ and $U^*$ determined by the bilinear functional $(\cdot, \cdot): U\times U^*\rightarrow \mathbb{R}$, defined as \[(u, u^*)=u^*(u), \quad \forall u \in U, \, \forall u^* \in U^*\]

@@ -1,4 +1,7 @@
 \subsection{Definitions}
+\begin{definition}
+	We say a functional $J$ is proper if $\dom J \neq \emptyset$ and $J>-\infty$.
+\end{definition}
 \subsection{Useful lemmas and Theorems.}
 \begin{lemma}
 	Let $(x_n)_{n \in \mathbb{N}}$ be a bounded sequence in a Hilbert Space $H$. Then $(x_n)_{n \in \mathbb{N}}$ possesses a weakly convergent subsequence.
@@ -33,7 +36,15 @@ Let $(x_n)_{n \in \mathbb{N}}$ be a sequence in a Hilbert Space $H$. Then $(x_n)
 \]
 \end{lemma}
 
-
+\begin{lemma}
+	Let $\mathcal{X}$ be a Hausdorff space and let $(f_i)_{i \in I}$ be a family of lower semicontinuous functions from $\mathcal{X}$ to $[-\infty, \infty]$. Then $\sup_{i\in I}f_i$ is lower semi-continuous. If $I$ is finite, then $\min_{i\in I}f_i$ is lower-semicontinuous.
+\end{lemma}
+\begin{definition}
+	Let $\mathcal{X}$ be a Hausdorff space. The lower semicontinuous envelope of $f: \mathcal{X}\rightarrow[-\infty, \infty]$ is 
+	\[
+	\overline{f}=\sup \left\lbrace g: \mathcal{X}\rightarrow[-\infty, \infty] \ |\quad  g\leq f \text{ and } g \text{ is lower semicontinuous}\right\rbrace.
+	\]
+\end{definition}
 %%%%% Text taken from Barbu%
 % Fulfilling the gaps later.
 
