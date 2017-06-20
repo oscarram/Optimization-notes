@@ -1,3 +1,115 @@
 \begin{theorem}
-	Let $J:V \rightarrow \overline{\mathbb{R}}$ convex.
+	Let $V, U$, Hilbert Spaces. Let $J:V \rightarrow \overline{\mathbb{R}}$ convex. $U$ and $V$ Banach spaces, $A: U\rightarrow V$ linear and continuous with  $A^*:U^*\rightarrow V^*$. Moreover, $J$ is lower semi-continuous and let $A\overline{u}$ be a point where $J$ is continuous and finite. Then te compose function $J\circ A: U\rightarrow \overline{\mathbb{R}}$ is subdifferentiable for all $u\in V$ and, 
+	\[
+		\partial(J\circ A)(u)=A^*\left[\partial J(Au)\right]
+	\]
+	\begin{proof}
+		Let $p^*\in \partial J(Au)$,
+		\[
+			J(p)\geq J(Au)+p^*(p-Au) \quad \forall p \in V 
+		\]
+		where $p=Av$ with $v\in U$,
+		\begin{align}
+			(J\circ A) (v) &\geq (J\circ A) (u)+p^*(A(v-u)) \quad \forall v \in U \\
+						   &=(J\circ A)(u)+A^*p^*(v-u) \quad \forall v \in U
+		\end{align}
+		
+		i.e. $A^*p^* \in \partial (J\circ A)(u) \implies A^* \partial J(Au)\subseteq \partial (J\circ A)(u)$. Proof based again on the weak separation theorem of convex sets. (We have to check Bauschke)
+	\end{proof}
+\end{theorem}
+
+\begin{theorem}
+	If $J: U\rightarrow \overline{\mathbb{R}}$ is convex and Frech\'et-differentiable at $u\in U$, then $\partial J(u)=\lbrace J'(u)\rbrace$
+	
+	\begin{proof}
+		Let $p^* \in \partial J(u)$. Then for each $t>0$, $J(u+tv)-J(u)\geq p^*(tv)=tp^*(v)$, diving by $t$ and takin the limit $t\rightarrow 0$ we obtain,
+		\begin{align}
+			&J'(u)(v) \geq p^*(v) \quad \forall v \in U \\
+	\implies& (J'(u)-p^*)(v) \geq 0 \quad \forall v \in U.
+		\end{align}
+	Since $J'(u)$ is Frech\'et differentiable the operator $J'(u)$ is linear with respect to $v$ and $p^* \in U^*$ implies $(J'(u)-p^*)$ is linear, taking $-v \in U$, we obtain that $(J'(u)-p^*)(v)\leq 0$. Therefore $p^*=J'(u)$.
+	
+	On the other hand, if $J$ is differentiable, it follows that $J'(u)\in \partial J(u)$. For $v\in U$, we set $w=v-u$, $u\in U$ we have, 
+	\begin{align}
+		    J(u+w)-J(u)&\geq (J'(u))(w) \\
+	\implies \ J(v)-J(u)&\geq (J'(u))(v-u)
+	\end{align}
+	
+	Since the above inequality holds for all $v \in U$ implies $J'(u) \in \partial J(u)$.
+	\end{proof}
+\end{theorem}
+\begin{remark}
+	The subgradient can be used to obtain local optimality conditions that are necessary and sufficient for convex problem.
+\end{remark}
+\begin{theorem}
+	Let $U$ be a Banach Space and $J: U \rightarrow \mathbb{R}$ convex and proper. Then each local minimum is global minimum.
+	Moreover $\overline{u}\in U$ is a minimizer if and only if $0 \in \partial J(\overline{u})$.
+	\begin{proof}
+		If $0 \in \partial J(\overline{u})$: $J(v) \geq J(\overline{u})+ (0)(v-\overline{u})=J(\overline{u})$, $\forall v\in U$, and hence $\overline{u}$ is a global minimizer. 
+		
+		
+		Assume that $0 \notin J(\overline{u})$, then $\exists v \in U$, such that
+		\[
+			J(v) < J(\overline{u}) + (0)(v-\overline{u}) = J(\overline{u}).
+		\]
+		Therefore $\overline{u}$ cannot be a minimizer.
+	\end{proof}
+\end{theorem}
+
+\paragraph{Duality}
+Let $J:U\rightarrow \overline{\mathbb{R}}$, and $U$ a Banach space. Then the convex conjugate function $J^*: U^* \rightarrow \mathbb{R}$ is defined by
+\[
+	J^*(p^*)=\sup_{u\in U} \left\lbrace p^*(u)-J(u)\right\rbrace
+\]
+implies that $-\sup_{u\in U} \left\lbrace p^*(u)-J(u) \right\rbrace= -J^*(p^*)= \inf_{u\in U} \left\lbrace J(u)-p^*(u)\right\rbrace$.
+
+
+\begin{example}
+	Consider the indicator function of a convex set $C$, $I_C: U\rightarrow\overline{\mathbb{R}}$
+	\[
+	I_C(u)=
+	\left\lbrace
+	\begin{array}{cl}
+	0&\quad u \in C\\
+	\infty & \quad \text{otherwise}.
+	\end{array}
+	\right.
+	\]
+	
+	Then we have that the convex conjugate is given by
+	\[J^*(p^*)=\sup_{u\in U}\left\lbrace p^*(u)-I_C(u)\right\rbrace=\sup_{u\in C}\left\lbrace p^*(u)\right\rbrace.\]
+\end{example}
+\begin{example}
+	Let $J:\mathbb{R}\rightarrow \mathbb{R}$, such that $J(u)=\exp u$, then $J^*(p^*)=\sup_{u\in \mathbb{R}} \lbrace p^*u -\exp u\rbrace$. Let $f(u)=p^*u-\exp(u)$, therefore $f'(u)=p^*-\exp u$, $\forall u \in \mathbb{R}$. Which is zero for $\overline{u} = \ln p^*$, if $p^*>0$. Since $f''(u)<0$, then $\overline{u}$ is indeed maximum. And we see that $\lim\limits_{u\rightarrow \pm \infty} f(u)=-\infty$. If $p^*=0$, $f(u)=-\exp u < 0$ and therefore the $\sup_{u \in \mathbb{R}} f(u)=0$ (Consider the limit when $u \rightarrow -\infty$). Then we have,
+	\begin{equation*}
+		J^*(p^*)=\left\lbrace 
+		\begin{array}{cr}
+			p^*(\ln p^*-1) & \quad p^*>0 \\
+			0 & \quad p^*=0
+		\end{array}		
+		\right.
+	\end{equation*}	
+\end{example}
+\begin{example}
+	Let $U$ be a Hilbert space and $J(u)=\frac{1}{2} \norm{u}^2$,
+	\begin{align*}
+	J(p^*) &= \sup_{u \in U} \left\lbrace\langle p^*, u\rangle -\frac{1}{2} \norm{u}^2\right\rbrace \\
+	&\text{By Riesz formula and ..} \\
+	      & = \langle p^*, p^*\rangle -\frac{1}{2} \norm{p^*}^2
+	      &= \frac{1}{2} \norm{p^*}^2
+	\end{align*}
+\end{example}
+\begin{theorem}
+	Let $U$ be a Banach space and $J:U\rightarrow \overline{\mathbb{R}}$. Then $J^*$ is convex.
+	\begin{proof}
+		Let $p^*, q^* \in U^*$, and $\lambda \in [0,1]$,
+		\begin{align}
+			J^*(\lambda p^* +(1-\lambda)q^*) &=\sup_{u\in U}\lbrace (\lambda p^* +(1-\lambda)q^*)(u)-J(u) \rbrace \\
+										 &= \sup_{u \in U} \left\lbrace  \lambda p^*(u)	- \lambda J(u) +(1-\lambda)q^* (u)-(1-\lambda)J(u)\right\rbrace\\
+										 &\leq \sup_{v,u\in U} \left\lbrace  \lambda p^*(u)	- \lambda J(u) +(1-\lambda)q^* (v)-(1-\lambda)J(v)\right\rbrace \\
+										 &=\sup_{u\in U} \left\lbrace  \lambda p^*(u)	- \lambda J(u)\right\rbrace +\sup_{v \in U}\left\lbrace(1-\lambda)q^* (v)-(1-\lambda)J(v)\right\rbrace \\
+										 &=\lambda J^*(p^*)+(1-\lambda) J^*(q^*).
+		\end{align}	
+		Hence $J^*$ is convex.
+	\end{proof}
 \end{theorem}
