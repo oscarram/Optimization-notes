@@ -91,13 +91,29 @@ implies that $-\sup_{u\in U} \left\lbrace p^*(u)-J(u) \right\rbrace= -J^*(p^*)= 
 	\end{equation*}	
 \end{example}
 \begin{example}
-	Let $U$ be a Hilbert space and $J(u)=\frac{1}{2} \norm{u}^2$,
+	Let $U$ be a Hilbert space and $J(u)=\frac{1}{2} \norm{u}^2$.
+	Since $U$ is Hilbert, by Riesz, for each linear and bounded functional $\phi_{p^{*}} \in H$, $\exists p^* \in H$ such that, $\phi_{p^{*}}(u)=\langle u,p^*\rangle$. Using the definition of conjugate function,
 	\begin{align*}
-	J(p^*) &= \sup_{u \in U} \left\lbrace\langle p^*, u\rangle -\frac{1}{2} \norm{u}^2\right\rbrace \\
-	&\text{By Riesz formula and ..} \\
-	      & = \langle p^*, p^*\rangle -\frac{1}{2} \norm{p^*}^2 \\
-	      &= \frac{1}{2} \norm{p^*}^2
+	J^*(p^*) &= \sup_{u \in U} \left\lbrace\langle u, p^*\rangle -\frac{1}{2} \norm{u}^2\right\rbrace \\
+	&= -\inf_{u \in U} \left\lbrace \frac{1}{2} \norm{u}^2-\langle u, p^*\rangle \right\rbrace
 	\end{align*}
+Note that,
+\[
+	\frac{1}{2}\norm{u-p^*}^2=\frac{1}{2}\norm{u}^2-\langle u ,p^*\rangle + \frac{1}{2}\norm{p^*}^2 
+\]
+Therefore we can substitute in the above equation to find an equivalent form to the conjugate function,
+\begin{align*}
+J^*(p^*) &=-\inf_{u \in U} \left\lbrace \frac{1}{2} \left(\norm{u-p^*}^2 - \norm{p^*}^2\right) \right\rbrace \\
+&=-\frac{1}{2} \inf_{u \in U} \left\lbrace  \norm{u-p^*}^2\right\rbrace +\frac{1}{2} \norm{p^*}^2
+\end{align*}
+Since $\norm{u-p^*} \geq 0$, $\forall u \in H$, we have,
+\[
+\inf_{u \in U} \left\lbrace  \norm{u-p^*}^2\right\rbrace=0,
+\]
+taking $u=p^*$. Hence,
+\begin{equation}
+	J^*(p^*)=\frac{1}{2}\norm{p^*}^2
+\end{equation}
 \end{example}
 \begin{theorem}
 	Let $U$ be a Banach space and $J:U\rightarrow \overline{\mathbb{R}}$. Then $J^*$ is convex.
