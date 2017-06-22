@@ -1,7 +1,7 @@
 We check the optimality conditions.
 \begin{align*}
 	0&=\Phi (\overline{u},0)+\Phi^*(u, \overline{p^*}) \\
-	&= F(\overline{u})+G(A\overline{u})+F^*(A^*\overline{p^*})
+	&= F(\overline{u})+G(A\overline{u})+F^*(A^*\overline{p^*})\\
 	&= [F(\overline{u})+F^*(A^*\overline{p^*})-A^*\circ p^*(u)]+[G(A\overline{u})+G^*(-\overline{p^*})-(-p^*)(A\overline{u})]
 \end{align*}
 
@@ -13,20 +13,25 @@ Using Young inequality $J(u)+J^*(u^*)-u^*(u)\geq 0$, $\forall u \in U$, and $\fo
 
 $F$, $G$ are convex and locally bounded, one can show that 
 $\sup\eqref{eq8. P*}=\inf\eqref{eq8. P}$.
-\begin{example}[....Bounded variation]
-	\begin{equation}
-		J(u)=\frac{1}{2} \int_{\Omega}\abs{u(x)-v(x)}^2+\alpha \sup_{g\in C_0^\infty, \abs{g}\leq 1} \int_{\Omega} u dv g dx
-	\end{equation}
-	$\min_{u\in B(g)} J(u)$, $\mathcal{B}=\left\lbrace u\in L^1(\Omega) \ | \ V(u, \Omega) < \infty\right\rbrace$, where
-	\begin{equation}
+\begin{example}[Denoising with bounded variation.]
+	\begin{equation*}
+		J(u)=\frac{1}{2} \int_{\Omega}\abs{u(x)-v(x)}^2+\alpha \sup_{\substack{g\in C_0^\infty(\Omega, \mathbb{R}^n) \\ \abs{g}\leq 1}} \int_{\Omega} u \dive (g) dx
+	\end{equation*}
+	$\min_{u\in BV(\Omega)} J(u)$, \[BV(\Omega)=\left\lbrace u\in L^2(\Omega) \ | \ V(u, \Omega) < \infty\right\rbrace\]
+	
+	where bounded variation set,
+	\begin{equation*}
 		V(u, \Omega)=\left\lbrace 
-		\sup \int_{\Omega} u d_v g dx, g \in C_0^\infty (\Omega, \mathbb{R}^n), \norm{g}_\infty \leq 1
+		\sup \int_{\Omega} u \dive (g) dx, \ g \in C_0^\infty (\Omega, \mathbb{R}^n), \  \norm{g}_\infty \leq 1
 		\right\rbrace
-	\end{equation}
-	$\norm{u}_{BV}:= \norm{u}_{C^1(\Omega)}+V(u, \Omega)$,
+	\end{equation*}
+	$\norm{u}_{BV}:= \norm{u}_{L^2(\Omega)}+V(u, \Omega)$, for $u$ smooth enough 
+	\[
+		\sup \int_{\Omega} u \dive g dx = -\sup \int_{\Omega} \nabla u \cdot g dx 
+	\]
 	
 	\begin{align*}
-		\implies & F(u)=\frac{1}{2}\int_{\Omega} \abs{u(x)-v(x)}^2 dx = \norm{u-x}_{L^2(\Omega)}^2
+		\implies & F(u)=\frac{1}{2}\int_{\Omega} \abs{u(x)-v(x)}^2 dx = \norm{u-v}_{L^2(\Omega)}^2
 	\end{align*}
 	\[G(u)=\int_{\Omega} \abs{u}dx\]
 	 where $A: \alpha \nabla$,
@@ -36,14 +41,14 @@ $\sup\eqref{eq8. P*}=\inf\eqref{eq8. P}$.
 	and 
 	\[G^*(p^*) =\left\lbrace 
 	\begin{array}{cl}
-		0, &\quad \abs{p^*} \leq 1 \\
+		0, &\quad \norm{p^*} \leq 1 \\
 	-\infty, &\quad \text{otherwise}
 	\end{array}
 	\right. \]
 	
-	$A^*=-\alpha \div$, therefore
+	$A^*=-\alpha (\nabla\cdot)$, therefore
 	
-	$J(p^*)=-\frac{1}{2} -\frac{1}{2} \int_{\Omega} -\alpha \div p^* + v^2+ \frac{1}{2} v^2 dx$
+	\[-J(p^*)=-\frac{1}{2} \int_{\Omega} -\alpha \nabla\cdot p^* + v^2+ \frac{1}{2} v^2 dx\]
 \end{example}
 
 \subsection{Lagrangians}
@@ -53,9 +58,9 @@ $\sup\eqref{eq8. P*}=\inf\eqref{eq8. P}$.
 \end{definition}
 
 \begin{lemma}
-	For all $u\in U$, the function $L_u: Y^* \rightarrow \overleftarrow{\mathbb{R}}$, $p^*\rightarrow L(u, p)$ is  a concave function (i.e. $-L_u$ is convex) and weak upper semi-continuous. If $\Phi$ is convex the for all $p^* \in Y^*$ the function $L_{p^*}: U\rightarrow \overline{\mathbb{R}}$, $u\rightarrow L(u, p^*)$ is convex.
+	For all $u\in U$, the function $L_u: Y^* \rightarrow \overline{\mathbb{R}}$, $p^*\rightarrow L(u, p)$ is  a concave function (i.e. $-L_u$ is convex) and weak upper semi-continuous. If $\Phi$ is convex the for all $p^* \in Y^*$ the function $L_{p^*}: U\rightarrow \overline{\mathbb{R}}$, $u\rightarrow L(u, p^*)$ is convex.
 	\begin{proof}
-		Le valio verga otra vez. :@ 
+
 	\end{proof}
 \end{lemma}
 
