@@ -25,7 +25,25 @@ $\sup\eqref{eq8. P*}=\inf\eqref{eq8. P}$.
 	\end{equation}
 	$\norm{u}_{BV}:= \norm{u}_{C^1(\Omega)}+V(u, \Omega)$,
 	
-	\begin{align}
-		\implies & \frac{1}{2}\int_{\Omega} \abs{u(x)-v(x)}^2 dx = \abs{u-x}_{L^2(\Omega)}^2
-	\end{align}
+	\begin{align*}
+		\implies & F(u)=\frac{1}{2}\int_{\Omega} \abs{u(x)-v(x)}^2 dx = \norm{u-x}_{L^2(\Omega)}^2
+	\end{align*}
+	\[G(u)=\int_{\Omega} \abs{u}dx\]
+	 where $A: \alpha \nabla$,
+	\begin{align*}
+		F^*(p^*)=\frac{1}{2} \int_{\Omega}\abs{p^*(x)-v(x)} ^2 -\frac{1}{2} v^2(x) dx
+	\end{align*}
+	and 
+	\[G^*(p^*) =\left\lbrace 
+	\begin{array}{cl}
+		0, &\quad \abs{p^*} \leq 1 \\
+	-\infty, &\quad \text{otherwise}
+	\end{array}
+	\right. \]
+	
+	$A^*=-\alpha \div$, therefore
+	
+	$J(p^*)=-\frac{1}{2} -\frac{1}{2} \int_{\Omega} -\alpha \div p^* + v^2+ \frac{1}{2} v^2 dx$
 \end{example}
+
+\subsection{Lagrangians}
