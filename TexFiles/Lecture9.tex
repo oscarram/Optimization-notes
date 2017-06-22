@@ -12,4 +12,20 @@ Using Young inequality $J(u)+J^*(u^*)-u^*(u)\geq 0$, $\forall u \in U$, and $\fo
 \end{align*}
 
 $F$, $G$ are convex and locally bounded, one can show that 
-$\sup\eqref{eq8. P*}=\inf\eqref{eq8. P}$
+$\sup\eqref{eq8. P*}=\inf\eqref{eq8. P}$.
+\begin{example}[....Bounded variation]
+	\begin{equation}
+		J(u)=\frac{1}{2} \int_{\Omega}\abs{u(x)-v(x)}^2+\alpha \sup_{g\in C_0^\infty, \abs{g}\leq 1} \int_{\Omega} u dv g dx
+	\end{equation}
+	$\min_{u\in B(g)} J(u)$, $\mathcal{B}=\left\lbrace u\in L^1(\Omega) \ | \ V(u, \Omega) < \infty\right\rbrace$, where
+	\begin{equation}
+		V(u, \Omega)=\left\lbrace 
+		\sup \int_{\Omega} u d_v g dx, g \in C_0^\infty (\Omega, \mathbb{R}^n), \norm{g}_\infty \leq 1
+		\right\rbrace
+	\end{equation}
+	$\norm{u}_{BV}:= \norm{u}_{C^1(\Omega)}+V(u, \Omega)$,
+	
+	\begin{align}
+		\implies & \frac{1}{2}\int_{\Omega} \abs{u(x)-v(x)}^2 dx = \abs{u-x}_{L^2(\Omega)}^2
+	\end{align}
+\end{example}
