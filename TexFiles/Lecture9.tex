@@ -21,40 +21,37 @@ Let be $u, v \in L^2(\Omega)$. And let be $g: \Omega\rightarrow \mathbb{R}^n$, s
 	\end{equation*}
 	Also consider the minimization problem \[\min_{u\in BV(\Omega)} J(u),\] 
 	restricted to the set of functions with bounded total variations,
-	\[BV(\Omega)=\left\lbrace u\in L^2(\Omega) \ | \ V(u, \Omega) < \infty\right\rbrace,\]
+	\[BV(\Omega)=\left\lbrace u\in L^1(\Omega) \ | \ V(u, \Omega) < \infty\right\rbrace,\]
 	
 	where a total bounded variation is defined as,
 	\begin{equation*}
 		V(u, \Omega)=\sup\left\lbrace 
-		 \int_{\Omega} u \dive (g) dx;  \text{such that} \ g \in C_0^\infty (\Omega, \mathbb{R}^n), \  \norm{g}_\infty \leq 1
+		 \int_{\Omega} u\ \dive (g) dx;  \ \text{such that} \ g \in C_0^\infty (\Omega, \mathbb{R}^n), \  \norm{g}_\infty \leq 1
 		\right\rbrace
 	\end{equation*}
 
 	 \begin{remark}
-	 For $u$ smooth enough, it is possible to apply integration by parts, (considering the contributions of the boundary as zero or $g$ with compact support and $\Omega\subset \mathbb{R}^n$) 
-		\[
-		\int_{\Omega} u \dive g dx = -\int_{\Omega} \nabla u \cdot g dx 
-		\]
+	 For $u$ smooth enough, it is possible to apply integration by parts, considering the contributions due $g$ has compact support and $\Omega\subset \mathbb{R}^n$, $\int_{\Omega} u\ \dive g dx = -\int_{\Omega} g\cdot \nabla u  dx$.
 	 \end{remark}
 
 	Consider the norm defined on $BV(\Omega)$ as follows,	
-		\[\norm{u}_{BV}:= \norm{u}_{L^2(\Omega)}+V(u, \Omega)\],
-	
+		\[\norm{u}_{BV}:= \norm{u}_{L^1(\Omega)}+V(u, \Omega).\]
+	If we consider $J(u)=F(u)+G(Au)$, we can set
 	\begin{align*}
-		\implies & F(u)=\frac{1}{2}\int_{\Omega} \abs{u(x)-v(x)}^2 dx = \norm{u-v}_{L^2(\Omega)}^2
+		F(u)&=\frac{1}{2}\int_{\Omega} \abs{u(x)-v(x)}^2 dx = \frac{1}{2}\norm{u-v}_{L^2(\Omega)}^2 \\
+		G(Au)&=\alpha\int_{\Omega} \abs{\nabla u}dx
 	\end{align*}
-	\[G(u)=\int_{\Omega} \abs{u}dx\]
-	 where $A: \alpha \nabla$,
+	 Where $A:=\alpha \nabla$, and $G(u)=\int_{\Omega} \abs{u}dx$. We proceed to give 
 	\begin{align*}
-		F^*(p^*)=\frac{1}{2} \int_{\Omega}\abs{p^*(x)-v(x)} ^2 -\frac{1}{2} v^2(x) dx
-	\end{align*}
-	and 
-	\[G^*(p^*) =\left\lbrace 
+		F^*(p^*)&=\frac{1}{2} \int_{\Omega}\abs{p^*(x)-v(x)} ^2 -\frac{1}{2} v^2(x) dx
+\\
+G^*(p^*) &={\left\lbrace 
 	\begin{array}{cl}
 		0, &\quad \norm{p^*} \leq 1 \\
 	-\infty, &\quad \text{otherwise}
 	\end{array}
-	\right. \]
+	\right.} 
+	\end{align*}
 	
 	$A^*=-\alpha (\nabla\cdot)$, therefore
 	
@@ -137,7 +134,7 @@ Thus,
 		"other direction" follows the same argumentation.
 	\end{proof}
 \end{theorem}
-\begin{theorem}[saddle point theorem]
+\begin{theorem}[Saddle point theorem.]
 	Let $\Phi: U \times Y \rightarrow \overline{\mathbb{R}}$ be convex, weak lower semicontinuous and $\eqref{eq8. P}$ is stable. Then $\overline{u}\in U$ is a solution of $\eqref{eq8. P}$ if and only if then exist $\overline{p^*} \in Y^*$ such that $(\overline{u}, \overline{p^*})$, is a saddle point of $L$.
 	\begin{proof}
 		Out of the scope of the course. According to professor.
