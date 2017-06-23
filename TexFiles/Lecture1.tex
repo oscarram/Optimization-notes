@@ -1,3 +1,62 @@
+\subsection{Infinite-Dimensional Optimization}
+Existence of solutions. Let $(U,d)$ be a metric space and $J:U\rightarrow \overline{\mathbb{R}}$
+
+Let $(U, d)$ a metric space and $C\subset U$
+\[
+	\min_{u\in C} J(u)
+\]
+
+
+\begin{definition}
+	A point $u\in U$ is called:
+	\begin{itemize}
+		\item \textbf{Local Minimizer.} If there is a neighborhood $V \in U$ such that $J(u) \leq J(v)$, $\forall v \in V$.
+		\item \textbf{Global Minimizer. } If $J(u)\leq J(v)$, $\forall v \in U$.
+	\end{itemize}
+\end{definition}
+\begin{definition}
+	Let be $\{u_k\} \in U$ a convergent sequence in $U$, converging to $u \in U$. The functional $J$ is called lower semicontinuous at $u\in U$ if
+	\[
+		J(u) \leq \liminf_{k\rightarrow\infty} J(u_k)
+	\]
+\end{definition}
+
+\begin{theorem}
+	Let $J: U\rightarrow \mathbb{R}$ lower semicontinuous functional and $\exists \xi \in \mathbb{R}$, such that the level set $\mu_\xi=\{ u \in U \mid J(u)\leq \xi\}$ be non-empty and compact set of $U$. Then there exists a global minimum.
+	\begin{proof}
+		Let $\alpha := \inf_{u\in U} J(u)$. Then $\exists \{u_n\} \in U $ such that $J(u_n) \rightarrow \alpha$. Then  $\exists N\in \mathbb{N}$, such that $\forall k \geq N$,  $J(u_k) \leq r$ (otherwise $r=\alpha$), then we have since $\mu \xi$ is not empty, $u_k \in \mu_\xi$. Since $\mu_\xi$ is compact,  $\exists \{u_k\}_l$ a subsequence of $\{u_k\}$ that converges in $\mu_\xi$, i.e. $\{u_k\}_l \rightarrow \overline{u} \in \mu_\xi$, as $l \rightarrow \infty$	. Since $\alpha$ is the infimimum and $J$ is lower semicontinuous and,
+		 \[\alpha \leq J(\overline{u}) \leq \liminf_{l\rightarrow \infty} J(u_{k_l}) \]
+		 On the other hand,  since $J(u_k) \rightarrow \alpha$,
+		 \[
+		  \liminf_{l\rightarrow \infty} J(u_k) \leq \alpha
+		 \]
+		 Therefore $J(\overline{u})=\alpha$, and hence $\overline{u}$ exists and it is a global minimizer.
+	\end{proof}
+	\label{th1. Existence of global minimizer}
+\end{theorem}
+\begin{corollary}
+	If the following conditions hold:
+	\begin{itemize}
+		\item $\exists \mu_\epsilon$ (level set) non-empty and compact.
+		\item $J: U \rightarrow \overline{\mathbb{R}}$
+	\end{itemize}
+	The set of global minimizers is compact
+	\begin{proof}
+		The theorem \ref{th1. Existence of global minimizer} implies that all minimizers are in the set $\mu_\xi$.
+		
+		\begin{remark}
+			If $C$ is a compact set in a normed space $U$, and $G$ is a closed subset of $C$. Then $G$ is compact.
+			\begin{proof}
+				Let $\{ g_n\}$ a sequence in $G$. Since $G \subset C$ and $C$ compact. $\exists \{g_n\}_k$ subsequence of $\{g_n\}$
+			\end{proof}
+		\end{remark}
+		\begin{remark}
+		\end{remark}
+	\end{proof}
+\end{corollary}
+
+with $J:U\rightarrow \overline{\mathbb{R}}$.
+with $J:U\rightarrow \mathbb{R}$
 \begin{fact}
 	Let $x\in H$,  let $U$ be a neighborhood of $x$, let $G$ be a real Banach space, let $T:U\rightarrow G$, let $V$ be a neighborhood of $Tx$, and let $R : V \rightarrow K$.
 	Suppose that $T$ is Fréchet differentiable at $x$ and that $R$ is Gâteaux differentiable at $Tx$. Then $R\circ T$ is Gate\^aux differentiable at x and $\mathsf{D}(R \circ T )(x) =

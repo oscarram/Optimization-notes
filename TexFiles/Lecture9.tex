@@ -14,21 +14,31 @@ Using Young inequality $J(u)+J^*(u^*)-u^*(u)\geq 0$, $\forall u \in U$, and $\fo
 $F$, $G$ are convex and locally bounded, one can show that 
 $\sup\eqref{eq8. P*}=\inf\eqref{eq8. P}$.
 \begin{example}[Denoising with bounded variation.]
+\	
+Let be $u, v \in L^2(\Omega)$. And let be $g: \Omega\rightarrow \mathbb{R}^n$, such that, $g\in C_0^\infty(\Omega, \mathbb{R}^n)$. Consider the following functional $J: L^2(\Omega) \rightarrow \mathbb{R}$, defined as follows,
 	\begin{equation*}
-		J(u)=\frac{1}{2} \int_{\Omega}\abs{u(x)-v(x)}^2+\alpha \sup_{\substack{g\in C_0^\infty(\Omega, \mathbb{R}^n) \\ \abs{g}\leq 1}} \int_{\Omega} u \dive (g) dx
+		J(u)=\frac{1}{2} \int_{\Omega}\abs{u(x)-v(x)}^2+\alpha \sup_{\norm{g}\leq 1} \int_{\Omega} u \dive (g) dx
 	\end{equation*}
-	$\min_{u\in BV(\Omega)} J(u)$, \[BV(\Omega)=\left\lbrace u\in L^2(\Omega) \ | \ V(u, \Omega) < \infty\right\rbrace\]
+	Also consider the minimization problem \[\min_{u\in BV(\Omega)} J(u),\] 
+	restricted to the set of functions with bounded total variations,
+	\[BV(\Omega)=\left\lbrace u\in L^2(\Omega) \ | \ V(u, \Omega) < \infty\right\rbrace,\]
 	
-	where bounded variation set,
+	where a total bounded variation is defined as,
 	\begin{equation*}
-		V(u, \Omega)=\left\lbrace 
-		\sup \int_{\Omega} u \dive (g) dx, \ g \in C_0^\infty (\Omega, \mathbb{R}^n), \  \norm{g}_\infty \leq 1
+		V(u, \Omega)=\sup\left\lbrace 
+		 \int_{\Omega} u \dive (g) dx;  \text{such that} \ g \in C_0^\infty (\Omega, \mathbb{R}^n), \  \norm{g}_\infty \leq 1
 		\right\rbrace
 	\end{equation*}
-	$\norm{u}_{BV}:= \norm{u}_{L^2(\Omega)}+V(u, \Omega)$, for $u$ smooth enough 
-	\[
-		\sup \int_{\Omega} u \dive g dx = -\sup \int_{\Omega} \nabla u \cdot g dx 
-	\]
+
+	 \begin{remark}
+	 For $u$ smooth enough, it is possible to apply integration by parts, (considering the contributions of the boundary as zero or $g$ with compact support and $\Omega\subset \mathbb{R}^n$) 
+		\[
+		\int_{\Omega} u \dive g dx = -\int_{\Omega} \nabla u \cdot g dx 
+		\]
+	 \end{remark}
+
+	Consider the norm defined on $BV(\Omega)$ as follows,	
+		\[\norm{u}_{BV}:= \norm{u}_{L^2(\Omega)}+V(u, \Omega)\],
 	
 	\begin{align*}
 		\implies & F(u)=\frac{1}{2}\int_{\Omega} \abs{u(x)-v(x)}^2 dx = \norm{u-v}_{L^2(\Omega)}^2

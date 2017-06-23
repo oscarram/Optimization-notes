@@ -37,20 +37,27 @@ $(J^*)^*=J^{**}: U^{**}\rightarrow \overline{\mathbb{R}}$,
 	J^{**}(u)=\sup_{p^*\in U^*} \lbrace p^*(u)-J^*(p^*) \rbrace
 \]
 
-\begin{theorem}
+\begin{theorem}[Convex envelope theorem.]
 	Let $U$ be a reflexive Banach space. The $J^{**}$ is the maximum convex functional below $J$ (also called convex envelope), i.e. $J^{**}(u)\leq J(u)$, $\forall u \in U$ and $F(u)\leq J^{**}(u)$, $\forall u \in U$ if $F$ is also convex and $F(u)\leq J(u)$, $\forall u$. In particular $J^{**}=J$ if and only if $J$ is convex.
 	\begin{proof}
+		Let $\phi_u \in U^{**}$, 
 		\begin{align}
 			J^{**}(u)&=\sup_{p^*\in U^*} \left\lbrace p^*(u)-J^*(p^*) \right\rbrace\\
 					&=\sup_{p^*\in U^*} \left\lbrace p^*(u)-\sup_{v\in U}\left\lbrace p^*(v)-J(v)\right\rbrace\right\rbrace\\
-					&=\sup_{p^*\in U^*} \left\lbrace p^*(u)+\inf_{v\in U}\left\lbrace p^*(v)-J(v)\right\rbrace\right\rbrace\\
+					&=\sup_{p^*\in U^*} \left\lbrace p^*(u)+\inf_{v\in U}\left\lbrace J(v)-p^*(v)\right\rbrace\right\rbrace\\
+					&=\sup_{p^*\in U^*} \left\lbrace \inf_{v\in U}\left\lbrace p^*(u)+ J(v)-p^*(v)\right\rbrace\right\rbrace\\
+					&=\sup_{p^*\in U^*} \left\lbrace \inf_{v\in U}\left\lbrace p^*(u-v)+J(v)\right\rbrace\right\rbrace
 		\end{align}
-		Since for any $p^* \in U^*$,
-			\[
-				\inf_{v\in U}\left\lbrace p^* \left(u-v\right)+J(v) \right\rbrace \leq p^*(u-u)+J(u)
-			\]
+		Taking $v=u$ in the expression and comparing it with its infimum the inequality holds,
+			\begin{align*}
+				\inf_{v\in U}\left\lbrace p^* \left(u-v\right)+J(v) \right\rbrace &\leq p^*(u-u)+J(u) \\
+				\inf_{v\in U}\left\lbrace p^* \left(u-v\right)+J(v) \right\rbrace &\leq J(u)
+			\end{align*}
 		We have that $J^{**}(u)\leq J(u)$.
-		
+		\begin{align*}
+		\sup_{p^* \in U^*}\inf_{v\in U}\left\lbrace p^* \left(u-v\right)+J(v) \right\rbrace &\leq J(u)\\
+		J^{**}(u) &\leq J(u)
+		\end{align*}
 		Now we assume that $F$ is a convex functional and $g^* \in \partial F(u)$ for $u \in U$.
 		\begin{align}
 			\implies  F(v)&\geq F(v)+q^*(v-u)\\
