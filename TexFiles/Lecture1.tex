@@ -15,10 +15,11 @@ Let $(U, d)$ a metric space and $C\subset U$
 	\end{itemize}
 \end{definition}
 \begin{definition}
-	Let be $\{u_k\} \in U$ a convergent sequence in $U$, converging to $u \in U$. The functional $J$ is called lower semicontinuous at $u\in U$ if
+	Let be $\{u_k\} \in U$, a convergent sequence in $U$, such that converges to $u \in U$. The functional $J$ is called lower semicontinuous at $u\in U$ if
 	\[
-		J(u) \leq \liminf_{k\rightarrow\infty} J(u_k)
+		J(u) \leq \liminf_{k\rightarrow\infty} J(u_k).
 	\]
+	In general if $J$ is lower semicontinuous at $u$, for all the $u \in U$. $J$ is lower semicontinuous (l.s.c). 
 \end{definition}
 
 \begin{theorem}
@@ -35,26 +36,28 @@ Let $(U, d)$ a metric space and $C\subset U$
 	\label{th1. Existence of global minimizer}
 \end{theorem}
 \begin{corollary}
-	If the following conditions hold:
+	Let $U$ be a Banach space. If the following conditions hold:
 	\begin{itemize}
-		\item $\exists \mu_\epsilon$ (level set) non-empty and compact.
-		\item $J: U \rightarrow \overline{\mathbb{R}}$
+		\item $\exists \mu_\epsilon \in U$ (level set) non-empty and compact.
+		\item $J: U \rightarrow \overline{\mathbb{R}}$ is lower semicontinuous. 
 	\end{itemize}
-	The set of global minimizers is compact
+	Then set of global minimizers  $G$ is compact
 	\begin{proof}
-		The theorem \ref{th1. Existence of global minimizer} implies that all minimizers are in the set $\mu_\xi$.
-		
-		\begin{remark}
-			If $C$ is a compact set in a normed space $U$, and $G$ is a closed subset of $C$. Then $G$ is compact.
-			\begin{proof}
-				Let $\{ g_n\}$ a sequence in $G$. Since $G \subset C$ and $C$ compact. $\exists \{g_n\}_k$ subsequence of $\{g_n\}$
-			\end{proof}
-		\end{remark}
-		\begin{remark}
-		\end{remark}
+		The theorem \ref{th1. Existence of global minimizer} implies that all minimizers are in the set $\mu_\xi$. Therefore by proposition \ref{prop0. closed subset compact. Precompact}, $G$ is precompact. Since $J$ is lower semicontinuous, for any convergent sequence $(u_k) \in G$, we have
+		\[
+			\alpha \leq J(u) \leq \liminf_{k\rightarrow\infty} J(u_k)=\alpha
+		\]
+		Implying that the limit is also a global minimizer. Hence $G$ is closed.
 	\end{proof}
 \end{corollary}
-
+\subsection{Derivatives}
+Let $U$ and $V$ Banach spaces and $F:U\rightarrow V$ a mapping from $U$ to $V$ (that could be non linear).
+\begin{definition}
+	Let $C$ be a subset of $U$, let $F: C \rightarrow V$, and let $x \in C$
+	be such that, for all $y \in H$, $\exists \alpha >0$ and the set $[x, x + \alpha y]$. Then T is Gâteaux
+	differentiable at x if there exists an operator DT (
+\end{definition}
+ 
 with $J:U\rightarrow \overline{\mathbb{R}}$.
 with $J:U\rightarrow \mathbb{R}$
 \begin{fact}
