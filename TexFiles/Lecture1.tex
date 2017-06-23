@@ -25,7 +25,7 @@ Let $(U, d)$ a metric space and $C\subset U$
 \begin{theorem}
 	Let $J: U\rightarrow \mathbb{R}$ lower semicontinuous functional and $\exists \xi \in \mathbb{R}$, such that the level set $\mu_\xi=\{ u \in U \mid J(u)\leq \xi\}$ be non-empty and compact set of $U$. Then there exists a global minimum.
 	\begin{proof}
-		Let $\alpha := \inf_{u\in U} J(u)$. Then $\exists \{u_n\} \in U $ such that $J(u_n) \rightarrow \alpha$. Then  $\exists N\in \mathbb{N}$, such that $\forall k \geq N$,  $J(u_k) \leq r$ (otherwise $r=\alpha$), then we have since $\mu \xi$ is not empty, $u_k \in \mu_\xi$. Since $\mu_\xi$ is compact,  $\exists \{u_k\}_l$ a subsequence of $\{u_k\}$ that converges in $\mu_\xi$, i.e. $\{u_k\}_l \rightarrow \overline{u} \in \mu_\xi$, as $l \rightarrow \infty$	. Since $\alpha$ is the infimimum and $J$ is lower semicontinuous and,
+		Let $\alpha := \inf_{u\in U} J(u)$. Then $\exists \{u_n\} \in U $ such that $J(u_n) \rightarrow \alpha$. Then  $\exists N\in \mathbb{N}$, such that $\forall k \geq N$,  $J(u_k) \leq r$ (otherwise $r=\alpha$), then we have since $\mu_\xi$ is not empty, $u_k \in \mu_\xi$. Since $\mu_\xi$ is compact,  $\exists \{u_k\}_l$ a subsequence of $\{u_k\}$ that converges in $\mu_\xi$, i.e. $\{u_k\}_l \rightarrow \overline{u} \in \mu_\xi$, as $l \rightarrow \infty$	. Since $\alpha$ is the infimimum and $J$ is lower semicontinuous and,
 		 \[\alpha \leq J(\overline{u}) \leq \liminf_{l\rightarrow \infty} J(u_{k_l}) \]
 		 On the other hand,  since $J(u_k) \rightarrow \alpha$,
 		 \[
