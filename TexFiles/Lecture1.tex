@@ -41,7 +41,7 @@ Let $(U, d)$ a metric space and $C\subset U$
 		\item $\exists \mu_\epsilon \in U$ (level set) non-empty and compact.
 		\item $J: U \rightarrow \overline{\mathbb{R}}$ is lower semicontinuous. 
 	\end{itemize}
-	Then set of global minimizers  $G$ is compact
+	Then set of global minimizers  $G$ is compact.
 	\begin{proof}
 		The theorem \ref{th1. Existence of global minimizer} implies that all minimizers are in the set $\mu_\xi$. Therefore by proposition \ref{prop0. closed subset compact. Precompact}, $G$ is precompact. Since $J$ is lower semicontinuous, for any convergent sequence $(u_k) \in G$, we have
 		\[
@@ -54,12 +54,68 @@ Let $(U, d)$ a metric space and $C\subset U$
 Let $U$ and $V$ Banach spaces and $F:U\rightarrow V$ a mapping from $U$ to $V$ (that could be non linear).
 \begin{definition}
 	Let $C$ be a subset of $U$, let $F: C \rightarrow V$, and let $x \in C$
-	be such that, for all $y \in H$, $\exists \alpha >0$ and the set $[x, x + \alpha y]$. Then T is Gâteaux
-	differentiable at x if there exists an operator DT (
+	be such that, for all $y \in U$, $\exists \alpha >0$ and the set $[x, x + \alpha y] \subset C$. Then $F$ is G\^ateaux
+	differentiable at $x$ if there exists an operator $\mathsf{D}F(x) \in \mathcal{B}(U, V)$, called the G\^ateaux derivative of $F$ at $x$, such that,
+	\[
+	\forall (y \in U)\quad \mathsf{D}F(x) = \lim\limits_{\alpha \downarrow 0} \frac{F(x+\alpha y)-F(x)}{\alpha}
+	\]
+	
+	 Thus, the second G\^ateaux derivative of $F$ at $x$ is the operator $\mathsf{D}^2 F(x) \in \mathcal{B}(U, \mathcal{B}(U, K))$ that
+	 satisfies \[(\forall y \in  U) \quad \mathsf{D}^2 F(x) y = \lim\limits_{\alpha \downarrow 0} \frac{\mathsf{D}F(x + \alpha y) - \mathsf{D}F(x)}{\alpha} 
+	 \]
 \end{definition}
  
-with $J:U\rightarrow \overline{\mathbb{R}}$.
-with $J:U\rightarrow \mathbb{R}$
+\begin{remark}
+	The G\^ateaux derivative $\mathsf{D}F(x)$ is unique whenever it exists.	
+\end{remark}
+
+\begin{definition}
+	Let $x \in U$, let $C$ a set contained  in a neighborhood $\mathcal{V}(x)$ de $x$, and let $F : C \rightarrow V$. Then $F$ is
+	Fr\'echet differentiable at $x$ if there exists an operator $\mathsf{D}F(x)\in \mathcal{B}(U, V)$, called the Fr\'echet derivative of $F$ at $x$, such that
+	\[
+	\lim_{0\neq\norm{y}\rightarrow 0}\frac{\norm{F(x+y)-F(x)-\mathsf{D}F(x)y}}{\norm{y}}=0.
+	\]
+	
+	Higher-order Fr\'chet derivatives are defined inductively. Thus, the second Fr\'echet derivative of $F$ at $x$ is the operator $\mathsf{D}^2 F(x) \in  \mathcal{B}(U, \mathcal{B}(U, V))$ that satisfies,
+	\[
+		\lim_{0\neq\norm{y}\rightarrow 0}\frac{\norm{\mathsf{D}F(x+y)-\mathsf{D}F(x)-\mathsf{D}^2F(x)y}}{\norm{y}}=0.
+	\]
+	\label{def1. Frechet.}
+\end{definition}
+
+
+\begin{lemma}
+	Let $x \in U$, let be $C$ a set $\mathcal{V}(x)$ contained in a neighborhood of $x$, and let $F: C \rightarrow V$. Suppose that $F$ is Fr\'echet differentiable at $x$. Then the following hold:
+	\begin{itemize}
+	\item  $F$ is G\^ateaux differentiable at $x$ and the two derivatives coincide.
+	\item $F$ is continuous at $x$.
+	\end{itemize}
+	\begin{proof}
+		Denote the Fr\'echet derivative of $F$ at $x$ by $L_x$.
+		\begin{itemize}
+			\item Let $\alpha >0$ and $y \in U\backslash\{0\}$. Then
+			
+			\[
+				\norm{\frac{F(x+\alpha y)-Fx}{\alpha}-L_xy} = \norm{y}\frac{\norm{F(x+\alpha y)-Fx-L_x(\alpha y)}}{\norm{\alpha y}}
+			\]
+			converges to $0$ as $\alpha \downarrow 0$, since $F$ is Fr\'echet differentiable.
+			\item Fix $\epsilon > 0$. By definition \ref{def1. Frechet.}, we can find $\delta \in  (0, \frac{\epsilon}{\epsilon + \norm{L_x}}]$, such that for all $y$ in the open ball of radius $\delta$ and center in zero, (i.e. $\forall y \in B_\delta(0)$), 
+			\[
+			   \norm{F(x+y)-Fx-L_xy} \leq \epsilon \norm{y}\]
+			Thus, $\forall y \in B_\delta(0)$,  by triangle inequality, 
+			 \begin{align*}  
+			\norm{F(x+y)-Fx} &\leq \norm{F(x+y) -Fx-L_xy} + 
+			\norm{L_xy} \\ &\leq \epsilon \norm{y} + \norm{L_x }\norm{y} \\ &\leq \delta(\epsilon + \norm{L_x})
+			\\
+			&\leq \epsilon.
+			\end{align*}
+			It follows that $F$ is continuous at $x$.
+		\end{itemize}
+	\end{proof}
+\end{lemma}
+
+
+
 \begin{fact}
 	Let $x\in H$,  let $U$ be a neighborhood of $x$, let $G$ be a real Banach space, let $T:U\rightarrow G$, let $V$ be a neighborhood of $Tx$, and let $R : V \rightarrow K$.
 	Suppose that $T$ is Fréchet differentiable at $x$ and that $R$ is Gâteaux differentiable at $Tx$. Then $R\circ T$ is Gate\^aux differentiable at x and $\mathsf{D}(R \circ T )(x) =
@@ -72,10 +128,4 @@ with $J:U\rightarrow \mathbb{R}$
 	Then $\forall(y, z) \in H \times H$,  $(\mathsf{D}^2 T (x)y)z = (\mathsf{D}^2 T (x)z)y$.
 \end{fact}
 
-\begin{definition}
-	Let $x \in H$, let $C \in \mathcal{V}(x)$, and let $T : C \rightarrow K$. Then T is
-	Fr\'echet differentiable at $x$ if there exists an operator $\mathbf{D}T (x) \in B(H, K)$, called the Fréchet derivative of $T$ at $x$, such that
-	\[
-	\lim_{0\neq\norm{y}\rightarrow 0}\frac{\norm{T(x+y)-Tx-\mathsf{D}T(x)y}}{\norm{y}}=0
-	\]
-\end{definition}
+
