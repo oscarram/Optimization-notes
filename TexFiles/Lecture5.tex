@@ -1,5 +1,27 @@
 \subsection{Subgradients}
-Characterization for $J''$ still to be analized.
+\begin{proposition}
+	 Let $J: U \rightarrow (-\infty, \infty]$ be proper. Suppose that $\text{dom} f$
+	 is open and convex, and that $f$ is G\^ateaux differentiable on $\text{dom} f$ . Then the
+	 following are equivalent:
+	 \begin{itemize}
+		 \item $f$ is convex.
+		 \item $(\forall x \in \dom f )(\forall y \in \dom f )\quad (x-y\mid \nabla f(x))_{UU^*}\leq f(x)-f(y)$.
+		 \item $(\forall x \in \dom f )(\forall y \in \dom f )\quad 0 \leq (x-y\mid \nabla f(x)-f(y)_{UU^*}$, i.e. $\grad f(x)$ is monotone.
+	 \end{itemize}
+	 \begin{proof}
+	 
+	 \end{proof}
+\label{prop5. First derivative convex.}
+\end{proposition}
+
+\begin{theorem}
+	\label{th5. Secon derivative convex.}
+	 Let $J: U \rightarrow (-\infty, \infty]$ be proper. Suppose that $\text{dom} f$
+	 is open and convex, and that $f$ is twice G\^ateaux differentiable on $\text{dom} f$ . Then,
+	 \[
+		 (\forall x \in \dom f )(\forall y \in \dom f ) \quad (z\mid  \nabla^2 f(x)z)_{UU^*} \geq 0
+	 \]
+\end{theorem}
 \begin{definition}
 	Let $U$ be a Banach space and let $J:U\rightarrow (-\infty, \infty]$ be a convex and proper function.
 	The subdifferential at a point $u \in \dom J$ is a mapping,
