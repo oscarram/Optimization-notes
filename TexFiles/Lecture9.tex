@@ -41,21 +41,20 @@ Let be $u, v \in L^2(\Omega)$. And let be $g: \Omega\rightarrow \mathbb{R}^n$, s
 		F(u)&=\frac{1}{2}\int_{\Omega} \abs{u(x)-v(x)}^2 dx = \frac{1}{2}\norm{u-v}_{L^2(\Omega)}^2 \\
 		G(Au)&=\alpha\int_{\Omega} \abs{\nabla u}dx
 	\end{align*}
-	 Where $A:=\alpha \nabla$, and $G(u)=\int_{\Omega} \abs{u}dx$. We proceed to give 
+	 Where $A:=\alpha \nabla$, and $G(u)=\int_{\Omega} \abs{u}dx$. We introduce the convex functional of each function,
 	\begin{align*}
-		F^*(p^*)&=\frac{1}{2} \int_{\Omega}\abs{p^*(x)-v(x)} ^2 -\frac{1}{2} v^2(x) dx
+		F^*(q^*)&=\frac{1}{2} \int_{\Omega}\abs{q^*(x)-v(x)} ^2 -\frac{1}{2} v^2(x) dx & \quad \forall q^*\in L^2(\Omega)
 \\
 G^*(p^*) &={\left\lbrace 
 	\begin{array}{cl}
 		0, &\quad \norm{p^*} \leq 1 \\
 	-\infty, &\quad \text{otherwise}
 	\end{array}
-	\right.} 
+	\right.}  & \quad \forall p^* \in C_0^\infty(\Omega, \mathbb{R}^n)
 	\end{align*}
 	
-	$A^*=-\alpha (\nabla\cdot)$, therefore
-	
-	\[-J(p^*)=-\frac{1}{2} \int_{\Omega} -\alpha \nabla\cdot p^* + v^2+ \frac{1}{2} v^2 dx\]
+	In order to apply the Fencel duality we see that the , adjoint of $A$ is given by $A^*=-\alpha (\nabla\cdot)$, thus	
+	\[-J(p^*)=\frac{1}{2} \int_{\Omega} \abs{-\alpha \nabla\cdot p^* + v^2}^2+ \frac{1}{2} v^2 dx\]
 \end{example}
 
 \subsection{Lagrangians}
