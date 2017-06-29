@@ -1,5 +1,32 @@
 
-\subsection{Definitions}
+
+
+\subsection{Basic Definitions}
+
+%----------------------------------------------------------
+
+Let $X$ be a real  vector space, let $C$ and $D$ be subsets of $X$, and let $z \in X$. Then we use the following notation:
+\begin{itemize}
+	\item $C + D =\lbrace x + y \mid x \in C, y \in D\rbrace$.
+	\item $C -D =\lbrace x - y \mid x \in C, y \in D\rbrace$.
+	\item $z+C=\lbrace z \rbrace +C$.
+	\item  $C-z=C-\lbrace z \rbrace$. 
+	\item For every $\lambda \in \mathbb{R}$, $\lambda C =\lbrace\lambda x \mid x \in C\rbrace$.
+	\item  If $\Lambda$ is a non-empty subset of $\mathbb{R}$, then $\Lambda C = \bigcup_{\lambda \in \Lambda}\lambda C$, and $\Lambda z = \Lambda \lbrace z \rbrace =\lbrace\lambda z \mid \lambda \in \Lambda$.
+\end{itemize}
+ 
+%-------------------------------------------------------------------------------
+
+\begin{definition}[Cone]
+	Using the above notation, we define $C$ as a cone if $C=\mathbb{R}^+C$.
+\end{definition}
+
+
+
+
+
+
+
 
 
 \begin{definition}
@@ -26,18 +53,7 @@ Let $(x_n)_{n \in \mathbb{N}}$ be a sequence in a Hilbert Space $H$. Then $(x_n)
 \item 	$f$ is weakly lower semicontinuous.
 	\end{enumerate}
 \end{theorem}
-%----------------------------------------------------------
 
-Let $X$ be a real  vector space, let $C$ and $D$ be subsets of $X$, and let $z \in X$. Then
- $C + D =\lbrace x + y \mid x \in C, y \in D\rbrace$, $C -D =\lbrace x - y \mid x \in C, y \in D\rbrace$,
-$z+C=\lbrace z \rbrace +C$, $C-z=C-\lbrace z \rbrace$, and for every $\lambda \in \mathbb{R}$, $\lambda C =\lbrace\lambda x \mid x \in C\rbrace$. If $\Lambda$ is a non-empty subset of $\mathbb{R}$, then $\Lambda C = \bigcup_{\lambda \in \Lambda}\lambda C$, and $\Lambda z = \Lambda \lbrace z \rbrace =\lbrace\lambda z \mid \lambda \in \Lambda$.
-
-
-%-------------------------------------------------------------------------------
-
-\begin{definition}
-	$C$ is a cone if $C=\mathbb{R}^+C$
-\end{definition}
 \begin{definition}
 Let $C$ be a subset of $U$ Banach space. The conical hull of $C$ is the intersection of all the cones in $U$ containing $C$, i.e., the smallest cone in $U$ containing $C$. It is denoted by $\cone C$. The closed conical hull of $C$ is the smallest closed cone in $U$ containing $C$. It is denoted by $\overline{\cone} C.$
 \end{definition}
