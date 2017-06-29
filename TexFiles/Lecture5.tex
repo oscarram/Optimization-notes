@@ -10,7 +10,16 @@
 		 \nabla f(x)$ is monotone.
 	 \end{itemize}
 	 \begin{proof}
-	 
+		 Let $x,y \in \dom f$, and $z \in U$. Since $\dom f$ is open, $\exists \epsilon >0$, such that $x+\epsilon(x-y) \in \dom f$. Set $C=(-\epsilon, 1+\epsilon) $ and 
+		 \[
+			 \phi: \mathbb{R}\rightarrow (-\infty, \infty]: \alpha \mapsto f(y+\alpha(x-y))+I_C(\alpha).
+		 \]
+		 
+		 Where $I_C$ is the indicator function.  Then $\phi$ is Gate\^aux differentiable on $C$ and $\forall \alpha \in C$,
+		 
+		 \[
+			 \phi'(\alpha)=\left(x-y\mid\nabla f(y+\alpha (x-y))\right)_{UU^*}
+		 \]
 	 \end{proof}
 \label{prop5. First derivative convex.}
 \end{proposition}
