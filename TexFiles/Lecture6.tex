@@ -24,18 +24,18 @@
 	\begin{proof}
 		Let $p^* \in \partial J(u)$. Then for each $t>0$, $J(u+tv)-J(u)\geq p^*(tv)=tp^*(v)$, diving by $t$ and takin the limit $t\rightarrow 0$ we obtain,
 		\begin{align}
-			&J'(u)(v) \geq p^*(v) \quad \forall v \in U \\
-	\implies& (J'(u)-p^*)(v) \geq 0 \quad \forall v \in U.
+			&J'(u;v) \geq p^*(v) \quad \forall v \in U \\
+	\implies& (\nabla J(u)-p^*)(v) \geq 0 \quad \forall v \in U.
 		\end{align}
-	Since $J'(u)$ is Frech\'et differentiable the operator $J'(u)$ is linear with respect to $v$ and $p^* \in U^*$ implies $(J'(u)-p^*)$ is linear, taking $-v \in U$, we obtain that $(J'(u)-p^*)(v)\leq 0$. Therefore $p^*=J'(u)$.
+	Since $J(u)$ is Frech\'et differentiable the operator $J'(u;v)$ is linear with respect to $v$ and $p^* \in U^*$ implies $(\nabla J(u)-p^*)$ is linear, taking $-v \in U$, we obtain that $(\nabla J(u)-p^*)(v)\leq 0$. Therefore $p^*=\nabla J(u)$.
 	
-	On the other hand, if $J$ is differentiable, it follows that $J'(u)\in \partial J(u)$. For $v\in U$, we set $w=v-u$, $u\in U$ we have, 
+	On the other hand, if $J$ is differentiable, it follows that $\nabla J(u)\in \partial J(u)$. For $v\in U$, we set $w=v-u$, $u\in U$ we have, 
 	\begin{align}
-		    J(u+w)-J(u)&\geq (J'(u))(w) \\
-	\implies \ J(v)-J(u)&\geq (J'(u))(v-u)
+		    J(u+w)-J(u)&\geq J'(u;w)=\left(w\mid \nabla J(u)\right)_{UU^*} \\
+	\implies \ J(v)-J(u)&\geq J'(u; v-u) = \left(v-u \mid \nabla J(u)\right)_{UU^*}
 	\end{align}
 	
-	Since the above inequality holds for all $v \in U$ implies $J'(u) \in \partial J(u)$.
+	Since the above inequality holds for all $v \in U$ implies $\nabla J(u) \in \partial J(u)$.
 	\end{proof}
 \end{theorem}
 \begin{remark}

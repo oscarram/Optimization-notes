@@ -38,11 +38,12 @@ $(J^*)^*=J^{**}: U^{**}\rightarrow \overline{\mathbb{R}}$,
 \]
 
 \begin{theorem}[Convex envelope theorem.]
-	Let $U$ be a reflexive Banach space. The $J^{**}$ is the maximum convex functional below $J$ (also called convex envelope), i.e. $J^{**}(u)\leq J(u)$, $\forall u \in U$ and $F(u)\leq J^{**}(u)$, $\forall u \in U$ if $F$ is also convex and $F(u)\leq J(u)$, $\forall u$. In particular $J^{**}=J$ if and only if $J$ is convex.
+	Let $U$ be a reflexive Banach space. The $J^{**}$ is the maximum convex functional below $J$ (also called convex envelope). That is, if $F$ is convex and $F(u)\leq J(u)$, $\forall u \in U$. Then, $J^{**}(u)\leq J(u)$, and $F(u)\leq J^{**}(u)$, $\forall u \in U$. In particular $J^{**}=J$ if and only if $J$ is convex.
 	\begin{proof}
-		Let $\phi_u \in U^{**}$, 
+		Let $\phi_u \in U^{**}$. Since $U$ is reflexive every $\phi_u \in U^**$ can be related with a member $u \in U$, defining $\phi_u(p^*)=p^*(u)$, we proceed 
 		\begin{align}
-			J^{**}(u)&=\sup_{p^*\in U^*} \left\lbrace p^*(u)-J^*(p^*) \right\rbrace\\
+			J^{**}(u)&=\sup_{p^*\in U^*} \left\lbrace \phi_u(p^*)-J^*(p^*) \right\rbrace\\
+					&=\sup_{p^*\in U^*} \left\lbrace p^*(u)-J^*(p^*) \right\rbrace\\
 					&=\sup_{p^*\in U^*} \left\lbrace p^*(u)-\sup_{v\in U}\left\lbrace p^*(v)-J(v)\right\rbrace\right\rbrace\\
 					&=\sup_{p^*\in U^*} \left\lbrace p^*(u)+\inf_{v\in U}\left\lbrace J(v)-p^*(v)\right\rbrace\right\rbrace\\
 					&=\sup_{p^*\in U^*} \left\lbrace \inf_{v\in U}\left\lbrace p^*(u)+ J(v)-p^*(v)\right\rbrace\right\rbrace\\
