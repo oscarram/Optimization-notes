@@ -1,8 +1,8 @@
 We check the optimality conditions.
 \begin{align*}
-	0&=\Phi (\overline{u},0)+\Phi^*(u, \overline{p^*}) \\
-	&= F(\overline{u})+G(A\overline{u})+F^*(A^*\overline{p^*})\\
-	&= [F(\overline{u})+F^*(A^*\overline{p^*})-A^*\circ p^*(u)]+[G(A\overline{u})+G^*(-\overline{p^*})-(-p^*)(A\overline{u})]
+	0&=\Phi (\overline{u},0)+\Phi^*(0, \overline{p^*})\\
+	&= F(\overline{u})+G(A\overline{u})+F^*(A^*\overline{p^*}) +G^*(-\overline{p^*})\\
+	&= [F(\overline{u})+F^*(A^*\overline{p^*})-A^*\circ p^*(\overline{u})]+[G(A\overline{u})+G^*(-\overline{p^*})-(-p^*)(A\overline{u})]
 \end{align*}
 
 Using Young inequality $J(u)+J^*(u^*)-u^*(u)\geq 0$, $\forall u \in U$, and $\forall u^* \in U^*$, we see that both square brackets are nonnegative; and the sum is zero. Then

@@ -1,7 +1,60 @@
+\subsection{Minimization}
+Two approaches for the solution of infinite-dimensional optimization problems.
+
+\begin{itemize}
+	\item \textbf{Discretize then Optimize:} this approach consists of a direct discretization of the problem which leads to a non-linear programming problem in a finite subspace $U_n \subset U$. If the discretization is accurate enough, the approximate solution $\overline{u_n} \in U_n$ is close to the real solution $\overline{u} \in U$
+	
+	\item \textbf{Optimize then Discretize:} The idea is to formulate the problem in infinite dimensions and to apply discretization only for the solution of sub-problems and for the evluation of the objective function. The main advantage is that quantitative estimates for the convergence of the optimization method can be combined with error estimates of the discretization.
+\end{itemize}
+The general framework for minimization algorithms for 
+\[
+	\min_{u\in U} J(u)
+\]
+with $J:U\rightarrow \overline{\mathbb{R}}$, $U$ Banach space delivers a sequence $(u_k)_k \in U$.
+
+\paragraph{Desired Concepts}
+\begin{enumerate}
+	\item \textbf{Global convergence: }We need to measure if a limit is a candidate for a solution of \eqref{eq8. P}.
+	\begin{definition}[Stationary measure]
+		Let $\Sigma: U\rightarrow \mathbb{R}_+$ a functional, given by
+		\begin{align*}
+		\Sigma(u)=
+		\left\lbrace	
+		\begin{array}{ll}
+			0 & \quad u \text{ is stationary point}.\\
+			\alpha(u) \in \mathbb{R}_+ & \quad \text{everywhere else}			
+			\end{array}
+		\right.
+		\end{align*}
+	We call this function an stationary measure. 
+	\end{definition}
+	\begin{example}\
+	\begin{itemize}
+		\item For unconstrained problems: \[\Sigma(u)=\norm{\nabla J(u)}_{U^*}\]
+		\item In the case $U$ is a Hilbert space and the problem restricted over a closed and convex set $C\subset U$. 
+		\[
+		\Sigma(u)= \norm{u-P_c(u-\nabla J(u))}
+		\]
+	\end{itemize}
+	\end{example}
+	We have global convergence if:
+	\begin{itemize}
+		\item Every accumulation point of $(u_k)_k$ is a stationary point.
+		\item $\lim_{k\rightarrow \infty} \Sigma(u)=0$ for some continuous stationary measure.
+		\item $(u_k)_k$ has an accumulation point which is stationary.
+		\item $\liminf_{k\rightarrow\infty} \Sigma(u_k) =0$ and $\Sigma$ continuous.
+	\end{itemize}
+	\item \textbf{Fast local convergence:}
+	Let $\overline{u}$ be a stationary point of $\eqref{eq8. P}$. We say that $u_k \rightarrow \overline{u}$ locally with \textit{q-superlinear rate} if $\norm{u_{k+1}-\overline{u}}_U=C_k\norm{u_k-\overline{u}}_U$, as $k\rightarrow \infty$ in a neighborhood of $\overline{u}$ and $C_k\rightarrow 0$ as $k\rightarrow 0$.
+	We have convergence of order $\alpha +1$, $\alpha >0$ if 
+	$\norm{u_{k+1}-\overline{u}}_U=C_k\norm{u_k-\overline{u}}^{\alpha+1}_U$. With $\alpha =1$ we obtain \textit{q-quadratic} convergence.
+\end{enumerate}
+
+
 \subsection{Gradient methods}
 In the following, we assume $H$ to be Hilbert space.
 \paragraph{Motivation}
-	Dynamical systems in physics are often based on the idea of gradient flow with respect to the energy which the system follows. Consider $f$ $g$ the heat equation, then, the thermal energy is given by
+	Dynamical systems in physics are often based on the idea of gradient flow with respect to the energy which the system follows. Consider for example the heat equation. Hence, the thermal energy is given by
 	\[
 		E(u)=\frac{1}{2}\int \abs{\nabla u}^2 dx.
 	\]
