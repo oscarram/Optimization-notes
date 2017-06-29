@@ -2,7 +2,7 @@
 Some elementary properties of conjugate functions
 \begin{itemize}
 	\item  \textbf{Young inequality} $J(u)+J^*(p^*)\geq p^*(u) \quad \forall u \in U, \forall p^* \in U^*$
-	\item  $J^*(0)=\sup_{u\in U}\left((0,u)-J(u)\right)=\sup_{u\in U}\left(-J(u)\right)=\inf_{u\in U}J(u)$
+	\item  $J^*(0)=\sup_{u\in U}\left((0,u)-J(u)\right)=\sup_{u\in U}\left(-J(u)\right)=-\inf_{u\in U}J(u)$
 \end{itemize}
 In many applications in optimization, is used the equivalent formulation,
 \[
@@ -14,7 +14,35 @@ $J\leq F \implies J^*\geq F^*$
 \begin{theorem}
 	Let $U$ a Banach space and $J^*: U^* \rightarrow \overline{\mathbb{R}}$ be the conjugate of the $J:U\rightarrow \overline{\mathbb{R}}$. Then for all $u\in U$. \[p^* \in \partial J(u) \iff J(u)+J^*(p^*)=p^*(u)\]. \label{th7: conjugate plus functional}
 	\begin{proof}
-		content...
+		Let $p^* \in \partial J(u)$, then for all $v \in U$ we have,
+		\begin{align*}
+			J(v)&\geq J(u) +p^*(v)-p^*(u) \\
+			p^*(u)-J(u)&\geq p^*(v)-J(v) \\
+			p^*(u)-J(u)&\geq \sup_{v\in U} \left\lbrace p^*(v)-J(v)\right\rbrace\\
+			p^*(u)-J(u)&\geq J^*(p^*)\\
+			p^*(u)&\geq J^*(p^*)+J(u)
+		\end{align*}
+		
+		In the other hand (Young inequality), by definition of $J^*$, 
+		\begin{align*}
+			J^*(p^*) \geq p^*(u)-J(u)\\
+			J^*(p^*)+J(u) \geq p^*(u)
+		\end{align*}
+		Then we have that $p^*(u)= J(u)+J^*(p^*)$.
+		
+		Now assume $p^*\notin \partial J(u)$, then $\exists v \in U$ such that,
+		\[
+			J(v)< J(u)+p^*(v-u)
+		\]
+		Rearranging the inequality we get,
+		\begin{align*}
+			p^*(u)-J(u)<p^*(v)-J(v)\leq J^*(p^*)
+		\end{align*}
+		Which implies that we have the inequality strictly and the equality cannot hold. 
+		\[
+			p^*(u)<J^*(p^*)+J(u)
+		\]
+		
 	\end{proof}
 \end{theorem}
 \begin{corollary}
