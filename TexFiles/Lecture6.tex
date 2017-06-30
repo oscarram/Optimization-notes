@@ -9,10 +9,10 @@
 			J(p)\geq J(Au)+p^*(p-Au) \quad \forall p \in V 
 		\]
 		where $p=Av$ with $v\in U$,
-		\begin{align}
+		\begin{align*}
 			(J\circ A) (v) &\geq (J\circ A) (u)+p^*(A(v-u)) \quad \forall v \in U \\
 						   &=(J\circ A)(u)+A^*p^*(v-u) \quad \forall v \in U
-		\end{align}
+		\end{align*}
 		
 		i.e. $A^*p^* \in \partial (J\circ A)(u) \implies A^* \partial J(Au)\subseteq \partial (J\circ A)(u)$. Proof based again on the weak separation theorem of convex sets. (We have to check Bauschke)
 	\end{proof}
@@ -23,17 +23,17 @@
 	
 	\begin{proof}
 		Let $p^* \in \partial J(u)$. Then for each $t>0$, $J(u+tv)-J(u)\geq p^*(tv)=tp^*(v)$, diving by $t$ and takin the limit $t\rightarrow 0$ we obtain,
-		\begin{align}
+		\begin{align*}
 			&J'(u;v) \geq p^*(v) \quad \forall v \in U \\
 	\implies& (\nabla J(u)-p^*)(v) \geq 0 \quad \forall v \in U.
-		\end{align}
+		\end{align*}
 	Since $J(u)$ is Frech\'et differentiable the operator $J'(u;v)$ is linear with respect to $v$ and $p^* \in U^*$ implies $(\nabla J(u)-p^*)$ is linear, taking $-v \in U$, we obtain that $(\nabla J(u)-p^*)(v)\leq 0$. Therefore $p^*=\nabla J(u)$.
 	
-	On the other hand, if $J$ is differentiable, it follows that $\nabla J(u)\in \partial J(u)$. For $v\in U$, we set $w=v-u$, $u\in U$ we have, 
-	\begin{align}
+	On the other hand, if $J$ is differentiable, it follows that $\nabla J(u)\in \partial J(u)$. For $v\in U$, we set $w=v-u$, $u\in U$ we have by \eqref{prop5. First derivative convex.}, 
+	\begin{align*}
 		    J(u+w)-J(u)&\geq J'(u;w)=\left(w\mid \nabla J(u)\right)_{UU^*} \\
 	\implies \ J(v)-J(u)&\geq J'(u; v-u) = \left(v-u \mid \nabla J(u)\right)_{UU^*}
-	\end{align}
+	\end{align*}
 	
 	Since the above inequality holds for all $v \in U$ implies $\nabla J(u) \in \partial J(u)$.
 	\end{proof}
@@ -80,7 +80,20 @@ implies that $-\sup_{u\in U} \left\lbrace p^*(u)-J(u) \right\rbrace= -J^*(p^*)= 
 	\[J^*(p^*)=\sup_{u\in U}\left\lbrace p^*(u)-I_C(u)\right\rbrace=\sup_{u\in C}\left\lbrace p^*(u)\right\rbrace.\]
 \end{example}
 \begin{example}
-	$J: \mathbb{R}_+\rightarrow \mathbb{R}$
+	$J: \mathbb{R}_+\rightarrow \mathbb{R}$, such that
+	\begin{equation*}
+	J(u)=\left\lbrace
+	\begin{array}{ll}
+		u(\ln u -1) & \quad u >0 \\
+		0 & \quad u =0
+	\end{array}		
+	\right.
+	\end{equation*}
+	Then $J^*(p^*)=\sup_{u>0} \{p^*u-u(\ln u -1)\}$, then for $u>0$,
+	\begin{align*}
+		f'(u)=p^*-(\ln u -1) -1 = p^* -\ln(u) \implies \overline{u}=\exp p^* \\
+		f'(u)=p^*-(\ln u -1) -1 = p^* -\ln(u) \implies \overline{u}=\exp p^* \\
+	\end{align*}
 \end{example}
 \begin{example}
 	Let $J:\mathbb{R}\rightarrow \mathbb{R}$, such that $J(u)=\exp u$, then $J^*(p^*)=\sup_{u\in \mathbb{R}} \lbrace p^*u -\exp u\rbrace$. Let $f(u)=p^*u-\exp(u)$, therefore $f'(u)=p^*-\exp u$, $\forall u \in \mathbb{R}$. Which is zero for $\overline{u} = \ln p^*$, if $p^*>0$. Since $f''(u)<0$, then $\overline{u}$ is indeed maximum. And we see that $\lim\limits_{u\rightarrow \pm \infty} f(u)=-\infty$. If $p^*=0$, $f(u)=-\exp u < 0$ and therefore the $\sup_{u \in \mathbb{R}} f(u)=0$ (Consider the limit when $u \rightarrow -\infty$). Then we have,
@@ -122,13 +135,13 @@ since we can take $u=p^*$. Hence,
 	Let $U$ be a Banach space and $J:U\rightarrow \overline{\mathbb{R}}$. Then $J^*$ is convex.
 	\begin{proof}
 		Let $p^*, q^* \in U^*$, and $\lambda \in [0,1]$,
-		\begin{align}
+		\begin{align*}
 			J^*(\lambda p^* +(1-\lambda)q^*) &=\sup_{u\in U}\lbrace (\lambda p^* +(1-\lambda)q^*)(u)-J(u) \rbrace \\
 										 &= \sup_{u \in U} \left\lbrace  \lambda p^*(u)	- \lambda J(u) +(1-\lambda)q^* (u)-(1-\lambda)J(u)\right\rbrace\\
 										 &\leq \sup_{v,u\in U} \left\lbrace  \lambda p^*(u)	- \lambda J(u) +(1-\lambda)q^* (v)-(1-\lambda)J(v)\right\rbrace \\
 										 &=\sup_{u\in U} \left\lbrace  \lambda p^*(u)	- \lambda J(u)\right\rbrace +\sup_{v \in U}\left\lbrace(1-\lambda)q^* (v)-(1-\lambda)J(v)\right\rbrace \\
 										 &=\lambda J^*(p^*)+(1-\lambda) J^*(q^*).
-		\end{align}	
+		\end{align*}	
 		Hence $J^*$ is convex.
 	\end{proof}
 \end{theorem}

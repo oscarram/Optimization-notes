@@ -1,25 +1,51 @@
 \subsection{Subgradients}
+
 \begin{proposition}
-	 Let $J: U \rightarrow (-\infty, \infty]$ be proper. Suppose that $\dom f$
-	 is open and convex, and that $f$ is G\^ateaux differentiable on $\dom f$ . Then the
+ Let $J : U \rightarrow (-\infty, \infty]$ be proper and convex, let $x \in 
+ \dom J$, and let $y \in U$. Then the following hold:
+ \begin{enumerate}
+ 	\item Let $\phi:\mathbb{R}_+\rightarrow (-\infty, \infty]$, such that $\phi(\alpha) := \frac{J(x+\alpha y) -J(x)}{\alpha}$. $\phi$ is increasing.
+ 	\item $J'(x;y)$ exists in $[-\infty, \infty]$ and  \[J'(x;y)=\inf_{\alpha \in \mathbb{R}_+} \frac{J(x+\alpha y)-J(x)}{\alpha}.\]
+ 	\item $J'(x; y-x)+J(x)\leq J(y)$.
+ 	\item $J'(x; \cdot)$ is sublinear and $J'(x; 0)=0$
+ 	\item $J'(x; \cdot)$ is proper, convex, and $\dom J'(x; \cdot) = \cone(\dom f - x)$.
+ \end{enumerate}
+\end{proposition}
+
+\begin{proposition}
+	Let $J: U \rightarrow (-\infty, \infty]$ be convex, let $x\in U$, and suppose
+	that $J$ is G\^ateaux differentiable at $x$. Then $\forall y \in U$ $(y - x \mid \nabla J(x))_{UU*}+J(x) \leq J(y)$.
+\end{proposition}	
+
+\begin{proposition}
+	 Let $J: U \rightarrow (-\infty, \infty]$ be proper. Suppose that $\dom J$
+	 is open and convex, and that $J$ is G\^ateaux differentiable on $\dom J$ . Then the
 	 following are equivalent:
-	 \begin{itemize}
-		 \item $f$ is convex.
-		 \item $(\forall x \in \dom f )(\forall y \in \dom f )\quad \left(x-y\mid \nabla f(x)\right)_{UU^*}\leq f(x)-f(y)$.
-		 \item $(\forall x \in \dom f )(\forall y \in \dom f )\quad 0 \leq \left(x-y\mid \nabla f(x)-f(y)\right)_{UU^*}$, i.e. $
-		 \nabla f(x)$ is monotone.
-	 \end{itemize}
-	 \begin{proof}
-		 Let $x,y \in \dom f$, and $z \in U$. Since $\dom f$ is open, $\exists \epsilon >0$, such that $x+\epsilon(x-y) \in \dom f$. Set $C=(-\epsilon, 1+\epsilon) $ and 
+	 \begin{enumerate}
+		 \item $J$ is convex.
+		 \item $\forall x,y \in \dom J, \quad \left(x-y\mid \nabla J(x)\right)_{UU^*}\leq f(x)-f(y)$.
+		 \item $\forall x,y \in \dom J, \quad 0 \leq \left(x-y\mid \nabla J(x)-J(y)\right)_{UU^*}$, i.e. $
+		 \nabla J(x)$ is monotone.
+	 \end{enumerate}
+	 \begin{proof}\
+	 	\begin{itemize}
+		 \item $(1)\implies (2)$.  Let $x,y \in \dom J$, and $z \in U$. Since $\dom J$ is open, $\exists \epsilon >0$, such that $x+\epsilon(x-y) \in \dom J$ and $y+\epsilon(y-x) \in \dom J$. Set $C=(-\epsilon, 1+\epsilon)$ and the function $\phi: \mathbb{R}\rightarrow(-\infty, \infty)$
+
 		 \[
-			 \phi: \mathbb{R}\rightarrow (-\infty, \infty]: \alpha \mapsto f(y+\alpha(x-y))+I_C(\alpha).
+			 \phi(\alpha) = J(y+\alpha(x-y))+I_C(\alpha).
 		 \]
 		 
 		 Where $I_C$ is the indicator function.  Then $\phi$ is Gate\^aux differentiable on $C$ and $\forall \alpha \in C$,
 		 
 		 \[
-			 \phi'(\alpha)=\left(x-y\mid\nabla f(y+\alpha (x-y))\right)_{UU^*}
+			 \phi'(\alpha)=\left(x-y\mid\nabla J(y+\alpha (x-y))\right)_{UU^*}
 		 \]
+		 \item $(2)\implies(3)$. 
+		 
+		 \item 
+		 \item 
+		\end{itemize}
+		 
 	 \end{proof}
 \label{prop5. First derivative convex.}
 \end{proposition}

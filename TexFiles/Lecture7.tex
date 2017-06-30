@@ -28,7 +28,7 @@ $J\leq F \implies J^*\geq F^*$
 			J^*(p^*) \geq p^*(u)-J(u)\\
 			J^*(p^*)+J(u) \geq p^*(u)
 		\end{align*}
-		Then we have that $p^*(u)= J(u)+J^*(p^*)$.
+		Therefore we have that $p^*(u)= J(u)+J^*(p^*)$.
 		
 		Now assume $p^*\notin \partial J(u)$, then $\exists v \in U$ such that,
 		\[
@@ -69,14 +69,14 @@ $(J^*)^*=J^{**}: U^{**}\rightarrow \overline{\mathbb{R}}$,
 	Let $U$ be a reflexive Banach space. The $J^{**}$ is the maximum convex functional below $J$ (also called convex envelope). That is, if $F$ is convex and $F(u)\leq J(u)$, $\forall u \in U$. Then, $J^{**}(u)\leq J(u)$, and $F(u)\leq J^{**}(u)$, $\forall u \in U$. In particular $J^{**}=J$ if and only if $J$ is convex.
 	\begin{proof}
 		Let $\phi_u \in U^{**}$. Since $U$ is reflexive every $\phi_u \in U^**$ can be related with a member $u \in U$, defining $\phi_u(p^*)=p^*(u)$, we proceed 
-		\begin{align}
+		\begin{align*}
 			J^{**}(u)&=\sup_{p^*\in U^*} \left\lbrace \phi_u(p^*)-J^*(p^*) \right\rbrace\\
 					&=\sup_{p^*\in U^*} \left\lbrace p^*(u)-J^*(p^*) \right\rbrace\\
 					&=\sup_{p^*\in U^*} \left\lbrace p^*(u)-\sup_{v\in U}\left\lbrace p^*(v)-J(v)\right\rbrace\right\rbrace\\
 					&=\sup_{p^*\in U^*} \left\lbrace p^*(u)+\inf_{v\in U}\left\lbrace J(v)-p^*(v)\right\rbrace\right\rbrace\\
 					&=\sup_{p^*\in U^*} \left\lbrace \inf_{v\in U}\left\lbrace p^*(u)+ J(v)-p^*(v)\right\rbrace\right\rbrace\\
 					&=\sup_{p^*\in U^*} \left\lbrace \inf_{v\in U}\left\lbrace p^*(u-v)+J(v)\right\rbrace\right\rbrace
-		\end{align}
+		\end{align*}
 		Taking $v=u$ in the expression and comparing it with its infimum the inequality holds,
 			\begin{align*}
 				\inf_{v\in U}\left\lbrace p^* \left(u-v\right)+J(v) \right\rbrace &\leq p^*(u-u)+J(u) \\
@@ -88,20 +88,20 @@ $(J^*)^*=J^{**}: U^{**}\rightarrow \overline{\mathbb{R}}$,
 		J^{**}(u) &\leq J(u)
 		\end{align*}
 		Now we assume that $F$ is a convex functional and $g^* \in \partial F(u)$ for $u \in U$.
-		\begin{align}
+		\begin{align*}
 			\implies  F(v)&\geq F(v)+q^*(v-u)\\
 					  F^{**}(u)& = \sup_{p^* \in U^*} \inf_{v \in U} \left\lbrace p^*(u-v)+F(u)+q^*(v-u)\right\rbrace \\
 					  &\geq \sup_{p^* \in U^*} \inf_{v \in U} \left\lbrace \left(p^*-q^*\right)(u-v)+F(u)\right\rbrace\\
 					  &\geq \inf_{v \in U} \left\lbrace (q^*-q^*)(u-v)+F(u) \right\rbrace\\
 					  &=F(u)
-		\end{align}
+		\end{align*}
 	If $F$ is convex,
-	\begin{equation}
+	\begin{equation*}
 		\implies F(u)\leq F^{**}(u)\leq F(u) \implies F(u)=F^{**}(u),
-	\end{equation}
-
-	\begin{equation}
-	F(u)=F^{**}(u)=\sup_{p^* \in U^*} \inf_{v \in U} \left\lbrace p^*(u-v)+F(v)\right\rbrace \leq J^{**}(u)
-	\end{equation}
+	\end{equation*}
+	Hence, we have
+	\begin{equation*}
+	F(u)=F^{**}(u)=\sup_{p^* \in U^*} \inf_{v \in U} \left\lbrace p^*(u-v)+F(v)\right\rbrace \leq J^{**}(u).
+	\end{equation*}
 	\end{proof}
 \end{theorem}
