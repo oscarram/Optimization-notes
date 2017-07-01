@@ -7,9 +7,39 @@
  	\item Let $\phi:\mathbb{R}_+\rightarrow (-\infty, \infty]$, such that $\phi(\alpha) := \frac{J(x+\alpha y) -J(x)}{\alpha}$. $\phi$ is increasing.
  	\item $J'(x;y)$ exists in $[-\infty, \infty]$ and  \[J'(x;y)=\inf_{\alpha \in \mathbb{R}_+} \frac{J(x+\alpha y)-J(x)}{\alpha}.\]
  	\item $J'(x; y-x)+J(x)\leq J(y)$.
- 	\item $J'(x; \cdot)$ is sublinear and $J'(x; 0)=0$
- 	\item $J'(x; \cdot)$ is proper, convex, and $\dom J'(x; \cdot) = \cone(\dom f - x)$.
+% 	\item $J'(x; \cdot)$ is sublinear and $J'(x; 0)=0$
+% 	\item $J'(x; \cdot)$ is proper, convex, and $\dom J'(x; \cdot) = \cone(\dom f - x)$.
  \end{enumerate}
+ 
+ \begin{proof} \
+ 	\begin{enumerate}
+	\item Fix $\alpha$ and $\beta$ in $\mathbb{R}_+$ such that $\alpha < \beta$, and set $\lambda =\alpha/\beta$ and $z=x+\beta y$. If $J(z)=\infty$, then certainly $\phi(\alpha) \leq \phi(\beta) = \infty$. Consider $J(x)<\infty$, since $J$ is convex,
+	 \[J (x + \alpha y) = J(\lambda z + (1 - \lambda)x) \leq \lambda J(z) + (1 - \lambda)J(x) = J(x) + \lambda(J(z)- J(x)).\]
+	 Then, substituting $\lambda$ and $z$ 
+	 \begin{align*}
+			 J (x + \alpha y) - J(x) &\leq \frac{\alpha}{\beta} (J(x+\beta y)-J(x))\\
+			 \frac{J (x + \alpha y) - J(x)}{\alpha} &\leq \frac{J(x+\beta y)-J(x)}{\beta}\\
+			 \phi(\alpha)&\leq\phi(\beta)
+	 \end{align*}
+	 Hence, if $\alpha < \beta \implies \phi(\alpha) \leq \phi(\beta)$, i.e. $\phi$ is increasing.
+	 \item Since $\phi$ is increasing, 
+	 \[
+		\inf_{a\in\mathbb{R}_+} \phi({\alpha}) = \inf_{a\in\mathbb{R}_+} \frac{J (x + \alpha y) - J(x)}{\alpha} =\lim\limits_{\alpha \downarrow 0} \frac{J (x + \alpha y) - J(x)}{\alpha} = J'(x; y)
+	 \]
+	 
+	 \item If $y \notin \dom J$ the inequality holds. Consider $y \in \dom J$, and we invoke convexity of $J$ for $\alpha \in (0,1)$, 
+	 \begin{align*}
+		 J((1-\alpha) x+\alpha y) &\leq (1-\alpha)J(x)+\alpha J(y) \\
+		 J((x+\alpha (y-x)) &\leq J(x)+\alpha (J(y)-J(x)) \\
+		 J((x+\alpha (y-x)) &\leq J(x)+\alpha (J(y)-J(x)) \\
+		 \frac{J((x+\alpha (y-x)) - J(x)}{\alpha} &\leq J(y)-J(x)
+	 \end{align*}
+	 Taking $\alpha \downarrow 0$, we have
+	 \begin{equation*}
+	 	J'(x;y-x)\leq J(y)-J(x)
+	 \end{equation*}
+\end{enumerate}
+ \end{proof}
 \end{proposition}
 
 \begin{proposition}
