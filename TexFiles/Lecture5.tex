@@ -1,10 +1,11 @@
 \subsection{Subgradients}
 
 \begin{proposition}
+\label{prop5. ConvexProperties}
  Let $J : U \rightarrow (-\infty, \infty]$ be proper and convex, let $x \in 
  \dom J$, and let $y \in U$. Then the following hold:
  \begin{enumerate}
- 	\item Let $\phi:\mathbb{R}_+\rightarrow (-\infty, \infty]$, such that $\phi(\alpha) := \frac{J(x+\alpha y) -J(x)}{\alpha}$. $\phi$ is increasing.
+ 	\item Let $\phi:\mathbb{R}_+\rightarrow (-\infty, \infty]$, such that $\phi(\alpha) := \frac{J(x+\alpha y) -J(x)}{\alpha}$. The function $\phi$ is increasing.
  	\item $J'(x;y)$ exists in $[-\infty, \infty]$ and  \[J'(x;y)=\inf_{\alpha \in \mathbb{R}_+} \frac{J(x+\alpha y)-J(x)}{\alpha}.\]
  	\item $J'(x; y-x)+J(x)\leq J(y)$.
 % 	\item $J'(x; \cdot)$ is sublinear and $J'(x; 0)=0$
@@ -42,10 +43,10 @@
  \end{proof}
 \end{proposition}
 
-\begin{proposition}
+\begin{remark}
 	Let $J: U \rightarrow (-\infty, \infty]$ be convex, let $x\in U$, and suppose
-	that $J$ is G\^ateaux differentiable at $x$. Then $\forall y \in U$ $(y - x \mid \nabla J(x))_{UU*}+J(x) \leq J(y)$.
-\end{proposition}	
+	that $J$ is G\^ateaux differentiable at $x$. The above result is equivalent to  say $\forall y \in U$ $(y - x \mid \nabla J(x))_{UU^*}+J(x) \leq J(y)$.
+\end{remark}	
 
 \begin{proposition}
 	 Let $J: U \rightarrow (-\infty, \infty]$ be proper. Suppose that $\dom J$
@@ -53,13 +54,12 @@
 	 following are equivalent:
 	 \begin{enumerate}
 		 \item $J$ is convex.
-		 \item $\forall x,y \in \dom J, \quad \left(x-y\mid \nabla J(x)\right)_{UU^*}\leq f(x)-f(y)$.
+		 \item $\forall x,y \in \dom J, \quad \left(x-y\mid \nabla J(x)\right)_{UU^*}\leq Jx)-J(y)$.
 		 \item $\forall x,y \in \dom J, \quad 0 \leq \left(x-y\mid \nabla J(x)-J(y)\right)_{UU^*}$, i.e. $
 		 \nabla J(x)$ is monotone.
 	 \end{enumerate}
 	 \begin{proof}\
-	 	\begin{itemize}
-		 \item $(1)\implies (2)$.  Let $x,y \in \dom J$, and $z \in U$. Since $\dom J$ is open, $\exists \epsilon >0$, such that $x+\epsilon(x-y) \in \dom J$ and $y+\epsilon(y-x) \in \dom J$. Set $C=(-\epsilon, 1+\epsilon)$ and the function $\phi: \mathbb{R}\rightarrow(-\infty, \infty)$
+  Let $x,y \in \dom J$, and $z \in U$. Since $\dom J$ is open, $\exists \epsilon >0$, such that $x+\epsilon(x-y) \in \dom J$ and $y+\epsilon(y-x) \in \dom J$. Set $C=(-\epsilon, 1+\epsilon)$ and the function $\phi: \mathbb{R}\rightarrow(-\infty, \infty)$
 
 		 \[
 			 \phi(\alpha) = J(y+\alpha(x-y))+I_C(\alpha).
@@ -70,23 +70,64 @@
 		 \[
 			 \phi'(\alpha)=\left(x-y\mid\nabla J(y+\alpha (x-y))\right)_{UU^*}
 		 \]
-		 \item $(2)\implies(3)$. 
 		 
-		 \item 
-		 \item 
+		\begin{itemize}
+		 \item $(1)\implies (2)$. Since $J$ is proper and convex, assumption number (1), by preposition \eqref{prop5. ConvexProperties} part (3), we have that 
+		 	 \begin{equation*}
+				\forall y \in \dom J \quad (y - x \mid \nabla J(x))_{UU^*}+J(x) \leq J(y)
+		 	 \end{equation*}
+		 \item $(2)\implies(3)$. Since assumption (2) holds $y, x \in \dom J$, 
+		 \begin{gather*} 
+		 (y - x \mid \nabla J(x))_{UU^*}+J(x) \leq J(y) \\
+		 		\text{and} \\
+		 (x - y \mid \nabla J(y))_{UU^*}+J(y) \leq J(x).
+		 \end{gather*}
+		 Adding both inequalities, we have
+		 \begin{equation*}
+		 0 \leq	(x - y \mid \nabla J(x)-\nabla J(y))_{UU^*}
+		 \end{equation*}
+		 \item $(3)\implies (1)$. Take $\alpha$ and $\beta$ in $C$, such that $\alpha<\beta$, and set $y_\alpha = y +\alpha(x-y)$ and $y_\beta= y +\beta(x-y)$. Then the assumption that for all $x,y \in \dom J$, $(x - y \mid \nabla J(x)-\nabla J(y))_{UU^*} \geq 0$ implies that 
+		 
+		 \begin{align*}
+		 0 &\leq (y_\beta - y_\alpha \mid \nabla J(y_\beta)-\nabla J(y_\alpha))_{UU^*}\\
+		   &=(\beta (x-y) - \alpha(x-y) \mid \nabla J(y_\beta)-\nabla J(y_\alpha))_{UU^*} \\
+	 	   &=(\beta-\alpha) ((x-y) \mid \nabla J(y_\beta)-\nabla J(y_\alpha))_{UU^*} \\
+	 	   &= (\beta-\alpha) \left(\phi'(\beta)-\phi'(\alpha)\right)
+		 \end{align*} 
+		 
+		 Therefore we have that, if $\beta > \alpha$ and assumption (3) holds, $\phi'$ is increasing on $C$, by proposition \eqref{prop0. Convex and increasing derivative}, we have that $\phi$ is convex. Therefore,
+		 \[
+		 J(\alpha y+(1-\alpha)y)=\phi(\alpha) \leq \alpha \phi(1)+(1-\alpha)\phi(0)=\alpha J(x) +(1-\alpha)J(y)
+		 \]
+		 Hence $J$ is convex.
 		\end{itemize}
-		 
 	 \end{proof}
 \label{prop5. First derivative convex.}
 \end{proposition}
 
 \begin{theorem}
 	\label{th5. Secon derivative convex.}
-	 Let $J: U \rightarrow (-\infty, \infty]$ be proper. Suppose that $\text{dom} f$
-	 is open and convex, and that $f$ is twice G\^ateaux differentiable on $\text{dom} f$ . Then,
+	 Let $J: U \rightarrow (-\infty, \infty]$ be proper. Suppose that $\dom J$
+	 is open and convex, and that $J$ is twice G\^ateaux differentiable on $\dom J$ . Then,
 	 \[
-		 (\forall x \in \dom f )(\forall y \in \dom f ) \quad (z\mid  \nabla^2 f(x)z)_{UU^*} \geq 0
+		 (\forall x \in \dom J )(\forall y \in \dom J ) \quad (z\mid  \nabla^2 f(x)z)_{UU^*} \geq 0 \iff J \text{ is convex}
 	 \]
+	 \begin{proof}
+	 	First assume $J$ convex. Let $z \in U$. Since $\dom J$ is open, $\exists \alpha >0$ small enough, such that $x+\alpha z \in \dom J$, and by proposition \eqref{prop5. ConvexProperties} part (3), 
+	 	\begin{align*}
+	 		0 \leq	(z \mid \nabla J(x+\alpha z)-\nabla J(x))_{UU^*} = \frac{1}{\alpha} ((x+\alpha z) -x \mid \nabla J(x+\alpha z)-\nabla J(x))_{UU^*},
+	 	\end{align*}
+	 	
+	 	letting $\alpha \downarrow 0$ we obtain
+	 	\[
+	 	0 \leq	(z \mid \nabla^2 J(x)z)_{UU^*} = (\mathsf{D}^2 J(x) z)z.
+	 	\] 
+	 	Now assume that $\phi$ is twice G\^ateaux differentiable on $\dom J$ with $\forall \alpha \in C$, given by
+	 	\[
+	 	 \phi''(\alpha) = (x-y \mid \nabla^2 J(y+\alpha(x-y))(x-y))_{UU^*}.
+	 	\]
+	 	Hence $\phi'$ is increasing and by proposition \eqref{prop0. Convex and increasing derivative}, $\phi$ is convex. Therefore $J$ is convex.
+	 \end{proof}
 \end{theorem}
 \begin{definition}
 	Let $U$ be a Banach space and let $J:U\rightarrow (-\infty, \infty]$ be a convex and proper function.
