@@ -1,0 +1,100 @@
+\begin{lemma}
+	\label{lemma11. Proximal sequence.}
+	Let $(u_k)_k$ be a proximal sequence. Then:
+	\begin{enumerate}
+		\item Let $J(u_k)_k$ is non increasing. Moreover, it decreases strictly, as long as $u_{n+1} \neq u_n$
+		\item For each $u\in U$ and $n\in \mathbb{N}$, we have 
+		\[
+			2 \sigma_n [J(u_{n+1}-J(u_n))] \leq \norm{u_0 - u }^2
+		\]
+		with $\sigma_n = \sum_{k=0}^{n} \lambda_k$
+	\end{enumerate}
+	\begin{proof}
+		Let $(u_k)_k$ be a proximal sequence. Then by the definition of proximal point algorithm, we see
+		\[
+			\frac{1}{2\lambda_n}\norm{u_{n+1}-u_n}^2 + J(u_{n+1}) \leq \frac{1}{2\lambda_n}\norm{u_{n}-u_n}^2 + J(u_{n}) = J(u_n) \quad \forall n \geq 0
+		\]
+		Implies $J(u_{n+1}) \leq J(u_n)$, $\forall n$, i.e. the sequence $(J(u_k))_k$ is non increasing. Indeed, it is decreasing strictly as long as $u_{n+1}\neq u_{n}$.
+		By definition of the subgradient, we obtain,
+		\begin{equation*}
+			J(u) \geq J(u_{n+1}) + \left\langle -\frac{u_{n+1}-u_n}{\lambda_n} , u-u_{n+1} \right\rangle  \quad \forall u \in U.
+		\end{equation*}
+		With $-\frac{u_{n+1}-u_n}{\lambda_n} \in \partial J(u_{n+1})$ .
+		\begin{align*}
+			2\lambda_n [J(u_n+1)-J(u)] &\leq 2 \lbrace u_{n+1}-u_n, u-u_{n+1}\rbrace \\
+			&= \norm{u_n-u}^2 -\norm{u_{n+1}-u}^2 -\norm{u_{n+1}-u}^2 \\
+			&\leq \norm{u_n-u}^2 - \norm{u_{n+1}-u}^2
+		\end{align*}
+		Taking the sum we find
+		\begin{align}
+			2\sum_{n=0}^{N} \lambda_n [J(u_{n+1})-J(u)] \leq \norm{u_n-u}^2 - \norm{u_{N+1}-u}^2 \leq \norm{u_0 - u}^2
+		\end{align}
+		$J(u_{n+1}) \leq J(u_{N+1}) $.
+		
+		Implies 2 $\sigma_n (J(u_{N+1})-J(u)) \leq \norm{u_0 - u}^2$
+	\end{proof}
+\end{lemma}
+
+\begin{theorem}[Weak convergence of the proximal sequence]
+	Let $(u_k)_k$ be a proximal sequence.
+	
+	\begin{enumerate}
+		\item If $\sigma_n \xrightarrow[n\rightarrow\infty]{}\infty$, then $J(u_n) \downarrow \alpha$ as $n\rightarrow \infty$
+		\item Every weak limit point of the $(u_k)_k$ lies in $S$.
+		\item  If $S\neq\{\}$, then $u_n$ converges weakly to a minimzer of $J$ and 
+		\[
+			J(u_{n+1}) - \alpha \leq \frac{\mathrm{d}(u_0, S)}{2 \sigma_n}
+		\]
+	\end{enumerate}
+	\begin{proof} \
+		\begin{enumerate}
+
+		\item 		By the previous lemma \eqref{lemma11. Proximal sequence.}, we obtain $J(u_{n+1})-J(u) \leq \frac{\norm{u_0-u}^2}{2\sigma_n}$. Consequently, if $\sigma_n \rightarrow \infty$, $J(u_n)\rightarrow \alpha = \inf_{u\in U } J(u)$.
+		\item Follows by the weak lower semi-continuity of $J$.
+		\item Replacing $J(u)\leq \alpha$
+		\end{enumerate}
+	\end{proof}
+\end{theorem}
+
+\begin{theorem}[Strong convergence of proximal sequence]
+	Let $(u_k)_k$ be a proximal sequence, with $(\lambda_n)_n \notin \ell^1$. If $J$ is \underline{strongly convex} with parameter $\alpha > 0$, i.e. $J(\lambda u + (1-\lambda)u) \leq \lambda J(u)+ (1-\lambda) J(v) -\frac{\alpha}{2} \norm{u-v}^2\lambda (1-\lambda)$, $\lambda \in [0,1]$, with $u,v \in U$. Then $S={\overline{u}}$ and 
+	
+	\begin{equation}
+		\label{eq11. Ineq Prod.}\norm{u_{n+1}-\overline{u}} \leq \norm{u_0-u} \prod_{k=0}^{n} (1+\alpha \lambda_k)^{-1} \tag{$\clubsuit$}
+	\end{equation}
+	In particular, $(u_n)_n$ converges strongly to the unique minimizer $\overline{u} \in S$ as $n\rightarrow \infty$.
+\end{theorem}
+
+\begin{lemma}
+	Let $J:U\rightarrow \overline{\mathbb{R}}$, be strongly convex with parameter $\alpha$. Then for $u^* \in \partial J(u)$ and $v\in U$, the inequality,
+	\begin{align}
+		J(v)\geq J(u)+\langle u^*, v-u\rangle +\frac{\alpha}{2}\norm{v-u}^2
+	\end{align}
+	holds. Moreover, $v^* \in \partial J(v)$, it holds that 
+	
+	\begin{equation}
+		(u^*-v^*, u-v) \geq \norm{u-v}^2
+	\end{equation}
+\end{lemma}
+
+\begin{example}
+	If the function $J:U\rightarrow \mathbb{R}$ is simple, i.e. the proximal map can be obtained by a explicit formula. 
+	\begin{enumerate}
+		\item The indicator function $J(u)=I_C(u)$. The proximal iterations: $u_{n+1}=P_C$, with projection $P_C:U\rightarrow U$ to the set $C$
+		\item $J:\mathbb{R}^n \rightarrow \mathbb{R}^n$, $u\mapsto \norm{u}_1$. Then the proximal iterations are completed via shrinkage operator.
+		
+		\begin{equation}
+			u_{n+1} = \mathcal{S}_\lambda (u_n) = \left(I+\lambda \partial \norm{\cdot}_1\right)^{-1} (u_n)
+		\end{equation}
+		
+		with $\mathcal{S}_\lambda (u) = (S_\lambda(u))^n_{i=1} $.
+		
+		\begin{equation}
+			S_\lambda(x)=\left\lbrace\begin{array}{ll}
+			x-\lambda &\quad, x>\lambda \\
+			0 &\quad , -\lambda \leq x \leq \lambda \\
+			x+\lambda &\quad, x \leq -\lambda
+			\end{array}\right.
+		\end{equation}
+	\end{enumerate}
+\end{example}
