@@ -170,3 +170,17 @@ Moreover, the strategy for increasing and decreasing $\tau$ should be different,
 		\[\forall j \geq k_l \quad u_j= u_{k_l}  \implies \norm{\nabla J(u_{k_l})} \rightarrow 0 \implies \nabla J(\overline{u})=0\].
 	\end{proof}
 \end{theorem}
+
+\begin{remark}
+	The Armijo-Goldstein rule can be applied to any method which yields a descent direction, i.e. an element $s\in U$ of a Banach space satisfying
+	\[
+		\left(s \mid \nabla J(u_k)\right)_{UU^*} < 0
+	\]
+	\paragraph{Descent Method:} For $k=0,1,\dots$
+		\begin{itemize}
+			\item Choose descent direction $s^k \in U: (s^k \mid \nabla J(u_k))_{UU^*}<0$.
+			\item Choose step size $\tau_k >0 : J(u_k+\tau_k s^k) < J(u_k)$.
+			\item $u_{k+1}=u_k+\tau_k s^k$.
+		Stop iteration if $\nabla J(u_{k+1})=0$.
+		\end{itemize}
+\end{remark}

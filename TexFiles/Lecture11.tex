@@ -1,11 +1,52 @@
+\subsection{The proximal point algorithm}
+In the following, we assume that $J:U\rightarrow \overline{\mathbb{R}}$ is proper, lower semicontinuous and convex. We denote the optimal value by
+\[
+	\alpha = \inf_{u\in U} J(u)
+\]
+and the set of solutions by $S$.
+Under these assumptions, the Moreau-Yosida regularization $J_{(\lambda, z)}$ of $J$ defined as
+\[
+J_{(\lambda, z)} = \frac{1}{2\lambda}\norm{u-z}^2 + J(u)	
+\]
+is proper, lower-semicontinuous and convex.
+
+\begin{definition}
+	The proximal mapping $\prox{}{}: U\rightarrow U$ is defined as
+	\[
+		\prox{\lambda, J}{(z)}=\argmin{u\in U}{J_{(\lambda, z)}(u)} =\argmin{u\in U}{ \frac{1}{2\lambda}\norm{u-z}^2 + J(u)}
+	\]
+	with $\lambda >0, z \in U$.
+\end{definition}
+
+\paragraph{The proximal point algorithm}
+The proximal point algorithm is given by iterating
+	\begin{itemize}
+		\item Choose $u_0$.
+		\item $u_{n+1}= \prox{\lambda_n, J}{(u_n)}$, for $n=1,2,\dots$.
+	\end{itemize}
+and the generated sequence is called proximal sequence.
+
+By theorem \ref{th6. 0 in subdifferential.} and \ref{th5. Moreau-Rockafellar}, we know that
+\[
+	0 \in \partial J_{(\lambda_n, u_n)}(u_{n+1}) \iff -\frac{u_{n+1}-u_n}{\lambda_n} \in \partial J(u_{n+1})
+\]
+This can be written with the resolvent operator as
+\[
+	u_{n+1}=(I+\lambda_n \partial J)^{-1} (u_n)
+\]
+Clearly, stationary points of the proximal sequence are minimizers of the objective function $J$:
+\[
+	u_{n+1}=u_n \iff 0 \in \partial J(u_{n+1}),
+\]
+i.e. if we find a fix point of the proximal operator.
 \begin{lemma}
 	\label{lemma11. Proximal sequence.}
 	Let $(u_k)_k$ be a proximal sequence. Then:
 	\begin{enumerate}
-		\item Let $J(u_k)_k$ is non increasing. Moreover, it decreases strictly, as long as $u_{n+1} \neq u_n$
+		\item Let $(J(u_k))_k$ is non-increasing. Moreover, it decreases strictly, as long as $u_{n+1} \neq u_n$
 		\item For each $u\in U$ and $n\in \mathbb{N}$, we have 
 		\[
-			2 \sigma_n [J(u_{n+1}-J(u_n))] \leq \norm{u_0 - u }^2
+			2 \sigma_n [J(u_{n+1})-J(u_n)] \leq \norm{u_0 - u }^2
 		\]
 		with $\sigma_n = \sum_{k=0}^{n} \lambda_k$
 	\end{enumerate}
@@ -21,7 +62,7 @@
 		\end{equation*}
 		With $-\frac{u_{n+1}-u_n}{\lambda_n} \in \partial J(u_{n+1})$ .
 		\begin{align*}
-			2\lambda_n [J(u_n+1)-J(u)] &\leq 2 \lbrace u_{n+1}-u_n, u-u_{n+1}\rbrace \\
+			2\lambda_n [J(u_{n+1})-J(u)] &\leq 2 \langle u_{n+1}-u_n, u-u_{n+1}\rangle \\
 			&= \norm{u_n-u}^2 -\norm{u_{n+1}-u}^2 -\norm{u_{n+1}-u}^2 \\
 			&\leq \norm{u_n-u}^2 - \norm{u_{n+1}-u}^2
 		\end{align*}
@@ -41,7 +82,7 @@
 	\begin{enumerate}
 		\item If $\sigma_n \xrightarrow[n\rightarrow\infty]{}\infty$, then $J(u_n) \downarrow \alpha$ as $n\rightarrow \infty$
 		\item Every weak limit point of the $(u_k)_k$ lies in $S$.
-		\item  If $S\neq\{\}$, then $u_n$ converges weakly to a minimzer of $J$ and 
+		\item  If $S\neq\{\}$, then $u_n$ converges weakly to a minimizer of $J$ and 
 		\[
 			J(u_{n+1}) - \alpha \leq \frac{\mathrm{d}(u_0, S)}{2 \sigma_n}
 		\]
@@ -71,9 +112,8 @@
 		J(v)\geq J(u)+\langle u^*, v-u\rangle +\frac{\alpha}{2}\norm{v-u}^2
 	\end{align}
 	holds. Moreover, $v^* \in \partial J(v)$, it holds that 
-	
 	\begin{equation}
-		(u^*-v^*, u-v) \geq \norm{u-v}^2
+		\langle u^*-v^*, u-v\rangle \geq \norm{u-v}^2
 	\end{equation}
 \end{lemma}
 
