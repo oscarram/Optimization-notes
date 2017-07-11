@@ -15,13 +15,20 @@
 \end{definition}
 
 \begin{lemma}
-	If C and V are convex in U, then
-	\begin{itemize}
-		\item  $\alpha V = \lbrace w = \alpha v, v\in V \rbrace$ is convex.
+	If C and V are convex subsets in U, then
+	\begin{enumerate}
+		\item  $\alpha V $ is convex, for $\alpha \in \mathbb{R}$.
 		\item $C+V$ is convex.
-	\end{itemize}
-	\begin{proof}
-		
+	\end{enumerate}
+	\begin{proof}\
+		\begin{enumerate}
+			\item Let $v_1$ and $v_2$ elements of $V$. By definition \ref{def0. Sets}, $\alpha v_1$ and $\alpha v_2$ are elements of $\alpha V$. Let for $t\in[0,1]$, $v_t= tv_1+(1-t)v_2$. Therefore,
+			\[			
+			\alpha v_t= \alpha \left(tv_1+(1-t)v_2\right)= t(\alpha v_1)+(1-t)(\alpha v_2)
+			\]
+			Since $V$ is convex $v_t \in V$, and hence $\alpha v_t \in \alpha V$.
+			\item  Let $c_1, c_2 \in C$ and $v_1, v_2 \in V$. For $t \in [0,1]$, $C\ni c_t = tc_1+(1-t)c_2$ and $V\ni v_t =$
+		\end{enumerate}
 	\end{proof}
 \end{lemma}
 
@@ -37,14 +44,14 @@
 \end{lemma}
 
 \begin{lemma}
-		Let $C\in U$ convex and $J: C \rightarrow \mathbb{R}$. Define $\alpha=\inf_{u\in C} J(u)$. Then the set $\Psi = \{u | J(u)=\alpha\}$ is convex, i.e. the solution of 
+		Let $U$ a Banach Space, let $C\subset U$ convex subset of $U$ and $J: C \rightarrow \mathbb{R}$ a functional defined over $C$. Define $\alpha=\inf_{u\in C} J(u)$. Then the set $\Psi = \{u \in C | J(u)=\alpha\}$ is convex, i.e. the solution of 
 		\[
 			\min_{u \in C} J(u)
 		\] 
 		is a convex set.
 		\begin{proof}
-			Let $u_1, u_2 \in \Psi$ and $u_t=tu_1+(1-t)u_2$.Sinc J is convex, it holds that
-			$J(u_t)\leq t J(u_t)+(1-t)J(u_t)=\alpha$. Thus $J(u_t)=\alpha$, $\forall t \in [0,1]$. Implying $u_t \in \Psi$ Hence $\Psi$ is convex.
+			Let $u_1, u_2 \in \Psi$ and $u_t=tu_1+(1-t)u_2$. Since $J$ is convex, it holds that
+			$J(u_t)\leq t J(u_t)+(1-t)J(u_t)=\alpha$. Thus $J(u_t)=\alpha$, $\forall t \in [0,1]$. Implying $u_t \in \Psi$. Hence $\Psi$ is convex.
 		\end{proof}
 \end{lemma}
 
@@ -61,7 +68,7 @@ for some ball $B_\epsilon(\overline{u})$ in $U$ with center in $\overline{u}$. T
 		For some $t\in(0,1)$, $u_t \in B_\epsilon(\overline{u})$.
 		
 		Thus, \[J(\overline{u})\leq J(u_t) \leq t J(\overline{u})+(1-t)J(\asterisk{u}).\]
-		We have $\forall t \in [0, 1]$ that $(1-t)\leq 0$, then
+		We have $\forall t \in [0, 1]$ that $(1-t)\geq 0$, then
 		\[
 			(1-t) J(\overline{u}) \leq (1-t) J(\asterisk{u}) \qquad \forall \asterisk{u} \in C
 		\]
