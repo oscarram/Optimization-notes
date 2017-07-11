@@ -20,14 +20,21 @@
 		\item  $\alpha V $ is convex, for $\alpha \in \mathbb{R}$.
 		\item $C+V$ is convex.
 	\end{enumerate}
-	\begin{proof}\
+	\begin{proof}
+		If $V$ or $C$ are empty sets then the statement is immediately true. Consider $V, C \neq \emptyset$.
 		\begin{enumerate}
-			\item Let $v_1$ and $v_2$ elements of $V$. By definition \ref{def0. Sets}, $\alpha v_1$ and $\alpha v_2$ are elements of $\alpha V$. Let for $t\in[0,1]$, $v_t= tv_1+(1-t)v_2$. Therefore,
+			\item Let $\alpha v_1$ and $\alpha v_2$ be elements of $\alpha V$. By definition \ref{def0. Sets}, $v_1$ and $v_2$ are elements of $V$. For $t\in[0,1]$, $v_t= tv_1+(1-t)v_2$. Therefore,
 			\[			
 			\alpha v_t= \alpha \left(tv_1+(1-t)v_2\right)= t(\alpha v_1)+(1-t)(\alpha v_2)
 			\]
 			Since $V$ is convex $v_t \in V$, and hence $\alpha v_t \in \alpha V$.
-			\item  Let $c_1, c_2 \in C$ and $v_1, v_2 \in V$. For $t \in [0,1]$, $C\ni c_t = tc_1+(1-t)c_2$ and $V\ni v_t =$
+			\item  Let $w_1, w_2 \in C+V$, therefore $\exists c_1, c_2 \in C$ and $\exists v_1, v_2 \in V$ such that $c_1+v_1=w_1$ and $c_2+v_2=w_2$ .  Since $C$ and $V$ are convex. For $t\in [0,1]$. Let $w_t = t w_1 + (1-t)w_2$.
+			
+			Let $c_1, c_2 \in C$ and $v_1, v_2 \in V$. For $t \in [0,1]$, $C\ni c_t = tc_1+(1-t)c_2$ and $V\ni v_t =tv_1+(1-t)v_2$. Therefore,
+			\[
+			w_t =t w_1 + (1-t)w_2=t(c_1+v_1)+(1-t)(c_2+v_2)=c_t+v_t
+			\]
+			Therefore by definition \ref{def0. Sets}, $c_t+v_t=w_t \in C+V$
 		\end{enumerate}
 	\end{proof}
 \end{lemma}
