@@ -118,9 +118,9 @@ i.e. if we find a fix point of the proximal operator.
 \end{lemma}
 
 \begin{example}
-	If the function $J:U\rightarrow \mathbb{R}$ is simple, i.e. the proximal map can be obtained by a explicit formula. 
+	If the function $J:U\rightarrow \mathbb{R}$ is simple, i.e. the proximal map can be obtained by an explicit formula. 
 	\begin{enumerate}
-		\item The indicator function $J(u)=I_C(u)$. The proximal iterations: $u_{n+1}=P_C$, with projection $P_C:U\rightarrow U$ to the set $C$
+		\item The indicator function $J(u)=I_C(u)$. The proximal iterations: $u_{n+1}=P_C(u_n)$, with projection $P_C:U\rightarrow U$ to the set $C$
 		\item $J:\mathbb{R}^n \rightarrow \mathbb{R}^n$, $u\mapsto \norm{u}_1$. Then the proximal iterations are completed via shrinkage operator.
 		
 		\begin{equation}
