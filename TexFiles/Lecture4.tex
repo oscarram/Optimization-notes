@@ -91,36 +91,33 @@ is lower semi-continuous if and only if C is closed.
 \paragraph{The Dual Systems of Linear Spaces} 
 Two linear spaces $X$ and $Y$ over the same scalar field $\Gamma$ define a dual system if a
 fixed bilinear functional on their product is given:
-\[(\cdot, \cdot) : X \times Y \rightarrow \Gamma\].
+\[(\cdot \mid \cdot) : X \times Y \rightarrow \Gamma\].
 
 
 The dual system is called separated if the following two properties hold:
 \begin{enumerate}
-	\item $\forall x \in X \backslash \{0\}$ there is $y \in Y$ such that $(x, y) \neq 0$.
-	\item $\forall y \in Y \backslash \{0\}$ there is $x \in X$ such that $(x, y) \neq 0$. 
+	\item $\forall x \in X \backslash \{0\}$ there is $y \in Y$ such that $(x\mid y) \neq 0$.
+	\item $\forall y \in Y \backslash \{0\}$ there is $x \in X$ such that $(x\mid y) \neq 0$. 
 \end{enumerate}
 
 
-In other words, $X$ separates points in $Y$ and $Y$ separates points in $X$.
+In other words, $X$ separates points in $Y$, and $Y$ separates points in $X$.
 We consider only separated dual systems.
-For each $x \in X$, we define the application $f_x: Y \rightarrow \Gamma$ by
-\[f_x(y) = (x, y) \quad \forall y \in Y\]
-We observe that $f_x$ is a linear functional on $Y$ and the mapping
-$x \rightarrow f_x, \quad \forall x \in X$,
-is linear and injective, as can be seen from condition (1). Hence, the correspondence is an embedding. Thus, the elements of $X$ can be identified with the linear
-functionals on $Y$. In a similar way, the elements of $Y$ can be considered as linear functionals of $X$, identifying an element $y \in Y$ with $g_y: X\rightarrow \Gamma$, defined by
-\[g_y(x) = (x, y), \quad \forall x \in X.\]
+For each $y \in Y$, we define the application $f_y: X \rightarrow \Gamma$ by
+\[f_y(x) = (x\mid y) \quad \forall x \in X\]
+We observe that $f_y$ is a linear functional on $X$ and the mapping
+$y \rightarrow f_y$, $\forall y \in Y$, is linear and injective, as can be seen from condition (1). Hence, the correspondence is an embedding. Thus, the elements of $Y$ can be identified with the linear functionals on $X$. In a similar way, the elements of $X$ can be considered as linear functionals of $Y$, identifying an element $x \in X$ with $g_x: Y\rightarrow \Gamma$, defined by
+\[g_x(y) = (x \mid y), \quad \forall y \in Y.\]
 
 Therefore, each dual system of linear spaces defines a mapping from either of the two linear spaces into the space of linear functionals on the other.
+
 We set,
 \begin{align*}
-p_y(x)=\abs{(x,y)}=\abs{g_y(x)}, & \quad \forall x \in X \\	
-q_x(y)=\abs{(x,y)}=\abs{f_x(y)}, & \quad \forall y \in Y
+p_x(y)=\abs{(x\mid y)}=\abs{g_x(y)}, & \quad \forall y \in Y \\	
+q_y(x)=\abs{(x\mid y)}=\abs{f_y(x)}, & \quad \forall x \in X
 \end{align*}
 
-and we observe that $\mathcal{P} = \{p_y | \ y \in Y \}$ is a family of seminorms on $X$ and $\mathcal{Q}=
-\{q_x | \ y \in  X\} $ is a family of seminorms on $Y$. 
-
+and we observe that $\mathcal{P} = \{p_x | \ x \in X \}$ is a family of seminorms on $Y$ and $\mathcal{Q}=\{q_y | \ y \in  Y\} $ is a family of seminorms on $X$. 
 
 
 \begin{definition}
@@ -147,7 +144,43 @@ and we observe that $\mathcal{P} = \{p_y | \ y \in Y \}$ is a family of seminorm
 \end{example}
 
 \begin{remark}
-	There is a natural duality between $U$ and $U^*$ determined by the bilinear functional $(\cdot, \cdot): U\times U^*\rightarrow \mathbb{R}$, defined as \[(u, u^*)=u^*(u), \quad \forall u \in U, \, \forall u^* \in U^*\]
+	There is a natural duality between $U$ and $U^*$ determined by the bilinear functional $(\cdot \mid \cdot): U\times U^*\rightarrow \mathbb{R}$, defined as \[(u \mid u^*)=u^*(u), \quad \forall u \in U, \, \forall u^* \in U^*\]
+\end{remark}
+
+
+
+\begin{definition}
+	A subset $A \in X\times X^*$ is called monotone if
+	$(x_1 - x_2 \mid y_1 - y_2 ) \geq 0$, for any $(x_1, y_1), (x_2, y_2) \in A$. A monotone subset of $X\times X^*$ is said to be maximal monotone if it is not properly contained in any other monotone subset of $X\times X^*$.
+	
+	If $\Lambda$ is a single-valued operator from $X$ to $X^*$, then the monotonicity condition becomes,
+	\[
+	(x_1-x_2 \mid Ax_1-Ax_2)\geq 0, \quad \forall x_1, x_2 \in \dom A
+	\]
+	
+\end{definition}
+
+\begin{definition}
+	A subset $A \subset X \times X^*$ is said to be locally bounded at $x_0 \in X$ if there exists a neighborhood $V$ of $x_0$ such that $A(V) = \{Ax;\ x \in (\dom A) \cap V \}$ is a
+	bounded subset of $X^*$. The operator $A: X \rightarrow X^*$ is said to be bounded if it maps every bounded subset of $X$ into a bounded set of $X^*$.
+\end{definition}
+
+\begin{remark}
+	If $X$ and $X^*$ are two vector spaces in duality, we can associate with a cone $C$ of $X$ its polar cone $C^*$
+	\[
+	C^* =\{p^* \in X^* \mid (p \mid p^*) \geq 0, \ \forall p \in C\}
+	\]
+	Since $C^*$ is a pointed cone with vertex $O$ in $X^*$, it defines a partial ordering relation denoted by $\preceq$ or $\succeq$:
+	\[
+	p^* \preceq q^* \iff q^* -p^* \in C^*
+	\]
+	Hence $C$ is evidently the cone of positive elements in $X^*$.
+	
+	If, $X$ and $X^*$ are two dual topological vector spaces and if $C$ is a pointed closed convex cone with vertex $O$, then from the above we have the following property:
+	\[
+	p \in C \iff p \succeq 0 \iff (p \mid p^*)\leq 0, \qquad \forall p^* \in C^*
+	\]
+	Indeed $C^{**}=C$, $C^{**}$ being the polar cone of $C^*$ and so $p \in C \iff p \in C^{**} \iff (p\mid p^*) \geq 0$, $\forall p^* \in C^*$. 
 \end{remark}
 
 \begin{definition}

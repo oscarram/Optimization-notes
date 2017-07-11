@@ -21,9 +21,33 @@ Let $X$ be a real  vector space, let $C$ and $D$ be subsets of $X$, and let $z \
 %-------------------------------------------------------------------------------
 
 \begin{definition}[Cone]
-	Using the above notation, we define $C$ as a cone if $C=\mathbb{R}^+C$.
+	Let $X$ be a vector space, and $C \subset X$. $C$ is called a cone with vertex $O$ if $C=\mathbb{R}^+C$. The cone is pointed or unpointed according to whether $O \in C$ or $\O \notin C$ respectively. A pointed cone with vertex  $O$ is salient if $C \cap \{-C\} = \{O\}$
 \end{definition}
 
+\begin{remark}[Ordering relation and Cones]
+	We can associate a partial ordering relation denoted by $\preceq$(or $\succeq$) with a pointed cone $C$ by setting the following relation,
+	\[
+	 p \preceq q \iff q - p \in C.
+	\]
+
+	We can see the following properties, $p \preceq p$, $\forall p \in X$. If $p \preceq q $ and $q \preceq r$, then $p\preceq r$; the partial ordering relation is compatible with the structure of a vector space in the sense that
+	\begin{align*}
+		p \succeq 0 &\implies \lambda p \succeq 0, \quad \forall \lambda > 0 \\
+		p \succeq q &\implies p+r \succeq q+r, \quad \forall r \in X		
+	\end{align*}
+	We see that the cone $C$ is the set of positive elements for this ordering relation,
+	\[
+		C = \{ p \in X \mid p \succeq 0\}
+	\]
+	The set $\{-C\}$ is the set of negative elements,
+	\[
+		\{-C\}=\{p \in X \mid p \preceq 0\}
+	\]
+	If the cone $C$ is salient, the relation $\preceq$ is an ordering relation:
+	\[
+		p\preceq q,\, q \preceq p \implies p = q
+	\]
+\end{remark}
 \begin{definition}
 	Let $C$ be a subset of $U$ Banach space. The conical hull of $C$ is the intersection of all the cones in $U$ containing $C$, i.e., the smallest cone in $U$ containing $C$. It is denoted by $\cone C$. The closed conical hull of $C$ is the smallest closed cone in $U$ containing $C$. It is denoted by $\overline{\cone} C.$
 \end{definition}
