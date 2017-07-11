@@ -160,7 +160,8 @@ and we observe that $\mathcal{P} = \{p_x | \ x \in X \}$ is a family of seminorm
 	
 \end{definition}
 
-\begin{definition}
+\begin{definition}[locally bounded.]
+	\label{def4. locally bounded.}
 	A subset $A \subset X \times X^*$ is said to be locally bounded at $x_0 \in X$ if there exists a neighborhood $V$ of $x_0$ such that $A(V) = \{Ax;\ x \in (\dom A) \cap V \}$ is a
 	bounded subset of $X^*$. The operator $A: X \rightarrow X^*$ is said to be bounded if it maps every bounded subset of $X$ into a bounded set of $X^*$.
 \end{definition}
@@ -261,24 +262,27 @@ and we observe that $\mathcal{P} = \{p_x | \ x \in X \}$ is a family of seminorm
 	\]
 \end{theorem}
 
-\begin{definition}
-	Let $J:U\rightarrow \overline{\mathbb{R}}$, we said that $J$ is locally bounded around $u_0$ if $\exists V\subset U$ neighborhood of $u_0$ such that for some $M \in \mathbb{R}$
+\begin{remark}
+	Let $J:U\rightarrow \overline{\mathbb{R}}$, from definition \ref{def4. locally bounded.},  we have $J$ is locally bounded around $u_0$ if $\exists V\subset U$ neighborhood of $u_0$ such that for some $M \in \mathbb{R}$,
 	\[
-		\abs{J(u)} < M \qquad \forall u \in V
+		\abs{J(u)} < M \qquad \forall u \in V.
 	\]
-\end{definition}
+\end{remark}
+%\begin{lemma}
+%	Let $U$ be a Banach space, and let $J:U\rightarrow \mathbb{R}$ convex. If $J$ is locally bounded around $u$, then $J$ is lower semi-continuous in $u$.
+%	\begin{proof}
+%		Let $u_k \rightarrow u$ as $k\rightarrow\infty$. For each $\epsilon > 0$ we can find a sequence $\alpha_k$ such that $\norm{\frac{u-u_k}{\alpha_k}}< \epsilon$, and $\alpha_k \rightarrow 0$ as $k\rightarrow \infty$. Moreover, for $k$ sufficiently large we have $\norm{u-u_k}<\epsilon$. Choose $\epsilon$ such that $J$ is bounded in $\overline{B_{2\epsilon}(u)}$ by $M$ and define $v_k = u_k + \frac{u-u_k}{\alpha_k} \in \overline{B_{2\epsilon}(u)}$, since  $\norm{v_k-u}\leq \norm{u_k-u}+\norm{\frac{u-u_k}{\alpha_k}}\leq 2\epsilon$. 
+%		
+%		Since $J$ is convex \[J(u)\leq \alpha_k J(v_k) + (1-\alpha_k)J(u_k) \leq \alpha_k M+J(u_k)\].
+%		
+%		Since $\alpha_k \rightarrow 0$, then
+%		\[J(u)\leq \liminf_{k\rightarrow \infty}(\alpha_kM+J(u_k)) = \liminf_{k\rightarrow\infty} J(u_k) \]
+%		Thus is if $J$ is convex and locally bounded around $u$, then is lower semi-continuous around $u$.
+%	\end{proof}
+%\end{lemma}
 \begin{lemma}
-	Let $J:U\rightarrow \mathbb{R}$ convex and $U$ is a Banach space. If $J$ is locally bounded around $u$, then $J$ is lower semi-continuous in $u$.
-	\begin{proof}
-		Let $u_k \rightarrow u$ as $k\rightarrow\infty$. For each $\epsilon > 0$ we can find a sequence $\alpha_k$ such that $\norm{\frac{u-u_k}{\alpha_k}}< \epsilon$, and $\alpha_k \rightarrow 0$ as $k\rightarrow \infty$. Moreover, for $k$ sufficiently large we have $\norm{u-u_k}<\epsilon$. Choose $\epsilon$ such that $J$ is bounded in $\overline{B_{2\epsilon}(u)}$ by $M$ and define $v_k = u_k + \frac{u-u_k}{\alpha_k} \in \overline{B_{2\epsilon}(u)}$, since  $\norm{v_k-u}\leq \norm{u_k-u}+\norm{\frac{u-u_k}{\alpha_k}}\leq 2\epsilon$. 
-		
-		Since $J$ is convex \[J(u)\leq \alpha_k J(v_k) + (1-\alpha_k)J(u_k) \leq \alpha_k M+J(u_k)\].
-		
-		Since $\alpha_k \rightarrow 0$, then
-		\[J(u)\leq \liminf_{k\rightarrow \infty}(\alpha_kM+J(u_k)) = \liminf_{k\rightarrow\infty} J(u_k) \]
-		Thus is if $J$ is convex and locally bounded around $u$, then is lower semi-continuous around $u$.
-	\end{proof}
+
 \end{lemma}
 \begin{remark}
-	The result that convexity and local boundedness imply lower semi-continuity is similar to classical result for linear operators where local boundness implies continuity. In general convexity plays in optimization the same role as linearity in solving equations.
+	The result that convexity and local boundedness imply lower semi-continuity is similar to classical result for linear operators where local boundedness implies continuity. In general convexity plays in optimization the same role as linearity in solving equations.
 \end{remark}
