@@ -98,7 +98,7 @@ i.e. if we find a fix point of the proximal operator.
 \end{theorem}
 
 \begin{theorem}[Strong convergence of proximal sequence]
-	Let $(u_k)_k$ be a proximal sequence, with $(\lambda_n)_n \notin \ell^1$. If $J$ is \underline{strongly convex} with parameter $\alpha > 0$, i.e. $J(\lambda u + (1-\lambda)u) \leq \lambda J(u)+ (1-\lambda) J(v) -\frac{\alpha}{2} \norm{u-v}^2\lambda (1-\lambda)$, $\lambda \in [0,1]$, with $u,v \in U$. Then $S={\overline{u}}$ and 
+	Let $(u_k)_k$ be a proximal sequence, with $(\lambda_n)_n \notin \ell^1$. If $J$ is \underline{strongly convex} with parameter $\alpha > 0$, i.e. \[J(\lambda u + (1-\lambda)u) \leq \lambda J(u)+ (1-\lambda) J(v) -\frac{\alpha}{2} \norm{u-v}^2\lambda (1-\lambda),\] $\lambda \in [0,1]$, with $u,v \in U$. Then $S=\{\overline{u}\}$ and 
 	
 	\begin{equation}
 		\label{eq11. Ineq Prod.}\norm{u_{n+1}-\overline{u}} \leq \norm{u_0-u} \prod_{k=0}^{n} (1+\alpha \lambda_k)^{-1} \tag{$\clubsuit$}
@@ -113,7 +113,7 @@ i.e. if we find a fix point of the proximal operator.
 	\end{align}
 	holds. Moreover, $v^* \in \partial J(v)$, it holds that 
 	\begin{equation}
-		\langle u^*-v^*, u-v\rangle \geq \norm{u-v}^2
+		\langle u^*-v^*, u-v\rangle \geq \alpha \norm{u-v}^2
 	\end{equation}
 \end{lemma}
 
