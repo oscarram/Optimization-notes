@@ -67,9 +67,9 @@ i.e. if we find a fix point of the proximal operator.
 			&\leq \norm{u_n-u}^2 - \norm{u_{n+1}-u}^2
 		\end{align*}
 		Taking the sum we find
-		\begin{align}
+		\begin{align*}
 			2\sum_{n=0}^{N} \lambda_n [J(u_{n+1})-J(u)] \leq \norm{u_n-u}^2 - \norm{u_{N+1}-u}^2 \leq \norm{u_0 - u}^2
-		\end{align}
+		\end{align*}
 		$J(u_{n+1}) \leq J(u_{N+1}) $.
 		
 		Implies 2 $\sigma_n (J(u_{N+1})-J(u)) \leq \norm{u_0 - u}^2$
@@ -108,33 +108,33 @@ i.e. if we find a fix point of the proximal operator.
 
 \begin{lemma}
 	Let $J:U\rightarrow \overline{\mathbb{R}}$, be strongly convex with parameter $\alpha$. Then for $u^* \in \partial J(u)$ and $v\in U$, the inequality,
-	\begin{align}
+	\begin{align*}
 		J(v)\geq J(u)+\langle u^*, v-u\rangle +\frac{\alpha}{2}\norm{v-u}^2
-	\end{align}
+	\end{align*}
 	holds. Moreover, $v^* \in \partial J(v)$, it holds that 
-	\begin{equation}
+	\begin{equation*}
 		\langle u^*-v^*, u-v\rangle \geq \alpha \norm{u-v}^2
-	\end{equation}
+	\end{equation*}
 \end{lemma}
 
 \begin{example}
-	If the function $J:U\rightarrow \mathbb{R}$ is simple, i.e. the proximal map can be obtained by an explicit formula. 
+	If the function $J:U\rightarrow \mathbb{R}$ is simple, the proximal map can be obtained by an explicit formula. 
 	\begin{enumerate}
 		\item The indicator function $J(u)=I_C(u)$. The proximal iterations: $u_{n+1}=P_C(u_n)$, with projection $P_C:U\rightarrow U$ to the set $C$
-		\item $J:\mathbb{R}^n \rightarrow \mathbb{R}^n$, $u\mapsto \norm{u}_1$. Then the proximal iterations are completed via shrinkage operator.
+		\item $J:\mathbb{R}^n \rightarrow \mathbb{R}^n$, $u\mapsto \norm{u}_1$. Then the proximal iterations are completed via the soft shrinkage operator.
 		
-		\begin{equation}
+		\begin{equation*}
 			u_{n+1} = \mathcal{S}_\lambda (u_n) = \left(I+\lambda \partial \norm{\cdot}_1\right)^{-1} (u_n)
-		\end{equation}
+		\end{equation*}
 		
-		with $\mathcal{S}_\lambda (u) = (S_\lambda(u))^n_{i=1} $.
+		with $\mathcal{S}_\lambda (u) = (S_\lambda(u_i))^n_{i=1} $.
 		
-		\begin{equation}
+		\begin{equation*}
 			S_\lambda(x)=\left\lbrace\begin{array}{ll}
-			x-\lambda &\quad, x>\lambda \\
-			0 &\quad , -\lambda \leq x \leq \lambda \\
-			x+\lambda &\quad, x \leq -\lambda
+			x-\lambda, &\quad x>\lambda \\
+			0, &\quad  -\lambda \leq x \leq \lambda \\
+			x+\lambda, &\quad x \leq -\lambda
 			\end{array}\right.
-		\end{equation}
+		\end{equation*}
 	\end{enumerate}
 \end{example}
