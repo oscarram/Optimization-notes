@@ -18,11 +18,11 @@ Then,
 \begin{enumerate}
 	\item $P_C$ is well defined, i.e.  $\forall x \in H $, $\exists !u \in C$ such that $P_C(x)=\{u\}$.
 	\item $\forall u,x\in H$, we have $u=P_C(x) \iff u\in C$  and  $\langle x-u, v-u\rangle\leq 0\ \forall v \in C$.
-	\item $\norm{P_C(u)-P_C(\overline{u})}\leq \norm{u-\overline{u}}$ \ $\forall u, \overline{u} \in H$, i.e. The projection $P_C$ is non expansive.
-	\item $\langle P_C(u)-P_C(\overline{u}), u-\overline{u}\rangle \leq 0, \quad \forall u, \overline{u}\in H$
+	\item $\forall x,y \in H$, $\langle y-x, P_C(y)-P_C(x)\rangle \geq 0$.
+	\item The projection $P_C$ is non expansive. That is $\norm{P_C(x)-P_C(y)}\leq \norm{x-y}$, $\forall x,y\in H$, 
 	\item Let be $t>0$ a real number, then $\forall u \in C$, and $\forall v\in H$, $\phi(t)=\frac{1}{t}\norm{P_C\left(u+tv\right)-u}$ is non-increasing.
 \end{enumerate}
-\begin{proof}
+\begin{proof}\
 	\begin{enumerate}
 		\item First we prove existence, let be $(v_k)_k$ a minimizing sequence in $C$, such that
 		\[
@@ -62,6 +62,65 @@ Then,
 		Therefore $\norm{v-v'}=0$, and $v=v'$.
 		
 		By the uniqueness and existence $\argmin{u\in C}{\norm{u-x}}$ is not empty set and has only one element for each $x \in H$. Thus, $P_C$ is well defined.
+		\item 
+		First consider that $u \in C$ and $\langle x-u, v-u\rangle \leq 0$, for all $v \in C$. Then,
+		\begin{align*}
+			\langle x- u, v-u\rangle  & =\langle x- u, x-x+v-u\rangle \\
+			& =\langle x- u, x-u\rangle+\langle x- u, v-x\rangle\\
+			& =\norm {x- u}^2+\langle x- u, v-x\rangle \\&\leq 0 
+		\end{align*}
+		Therefore, applying Cauchy-Schwartz inequality we have
+		\begin{align*}
+		\norm {x- u}^2 &\leq \langle x- u, x-v\rangle \\
+		 &\leq \norm{x-u}\norm{x-v} \\
+		 \implies \norm {x- u}&\leq \norm{x-v}
+		\end{align*}
+		And the above holds for every $v \in C$, therefore $u = P_C(x)$. Now consider $u=P_C(x)$, since $P_C(x)$ is well defined by definition $u\in C$. 
+		Since $C$ is convex for all $v \in C$, $u_t = u+t(v-u) \in C$, for all $t\in[0,1]$. Since $u=P_C(x)$ and $u_t \in C$, we have $\norm{x-u}^2\leq \norm{x-u_t}^2$
+		\begin{align*}
+			 \norm{x-u}^2& \leq \langle x-u_t, x-u_t\rangle \\
+			 & = \langle x-u-t(v-u),
+			 x-u-t(v-u)\rangle \\
+ 			& = \langle x-u, x-u\rangle -2\langle x-u,
+ 			t(v-u)\rangle +t^2\langle v-u, v-u\rangle \\
+ 			0 &\leq t^2\langle v-u, v-u\rangle-2t\langle x-u, v-u\rangle\\
+ 			0 &\leq t^2\norm{v-u}^2-2t\langle x-u, v-u\rangle
+ 		\end{align*}
+ 		For $t = 0$ the above inequality holds (since $u_t=u$), and for all $t>0$, we have 
+ 		\begin{align*}
+	 		\langle x-u, v-u\rangle &\leq \frac{t}{2}\norm{v-u}^2.
+		\end{align*}
+		Taking $t\downarrow 0$,
+ 		\begin{align*}
+		 		\langle x-u, v-u\rangle &\leq \inf_{t\in(0,1)}\frac{t}{2}\norm{v-u}^2 \\
+		 		\langle x-u, v-u\rangle &\leq 0
+		\end{align*}
+		\item By the above result, we have that $P_C(x) \in C$ and $P_C(y)\in C$, and
+		\begin{align*}
+			\begin{array}{ccc}
+			\langle x-P_C(x), P_C(y)-P_C(x)\rangle \leq 0 & \text{and}
+			&\langle y-P_C(y), P_C(x)-P_C(y)\rangle \leq 0
+			\end{array}			
+		\end{align*}
+		Rearranging and adding both inequalities we have,
+		\begin{align*}
+		\langle x-P_C(x), P_C(y)-P_C(x)\rangle &\leq 
+		\langle y-P_C(y), P_C(y)-P_C(x)\rangle \\
+		\langle x, P_C(y)-P_C(x)\rangle -\langle P_C(x), P_C(y)-P_C(x)\rangle&\leq \langle y, P_C(y)-P_C(x)\rangle -\langle P_C(y), P_C(y)-P_C(x)\rangle \\
+		\langle P_C(y), P_C(y)-P_C(x)\rangle -\langle P_C(x), P_C(y)-P_C(x)\rangle&\leq \langle y, P_C(y)-P_C(x)\rangle -\langle x, P_C(y)-P_C(x)\rangle \\
+		\norm{P_C(y)-P_C(x)}^2&\leq \langle y-x, P_C(y)-P_C(x)\rangle.
+		\end{align*}
+		The above inequality immediately implies $0\leq \langle y-x, P_C(y)-P_C(x)\rangle$.
+		\item Using, Cauchy-Schwartz inequality we obtain,
+		\begin{align*}
+		\norm{P_C(y)-P_C(x)}^2\leq \langle y-x, P_C(y)-P_C(x)\rangle\leq \norm{y-x} \norm{P_C(y)-P_C(x)}.
+		\end{align*}
+		Hence $\norm{P_C(y)-P_C(x)}\leq \norm{y-x}$, for all $x,y \in H$.
+		\item Let $v$ an element of $H$, and $\forall u \in C$, we have $u=P_C(u)$, therefore by the above result,
+		\[
+			\phi(t)=\frac{1}{t}\norm{P_C(u+tv)-u}=\frac{1}{t}\norm{P_C(u+tv)-P_C(u)} \leq \norm{v}
+		\]
+		
 	\end{enumerate}
 \end{proof}
 \end{lemma}
@@ -77,7 +136,7 @@ For all $\delta >0$, we multiply the Gate\^aux gradient  $(-\delta)$ and we have
 \]
 Thus, 
 	\[
-		\overline{u}=P_C(\overline{u}-\delta J(\overline{u}))
+		\overline{u}=P_C(\overline{u}-\delta \nabla J(\overline{u}))
 	\]
 \end{proof}
 \end{theorem}
