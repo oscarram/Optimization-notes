@@ -1,14 +1,14 @@
 We check the optimality conditions.
 \begin{align*}
 	0&=\Phi (\overline{u},0)+\Phi^*(0, \overline{p^*})\\
-	&= F(\overline{u})+G(A\overline{u})+F^*(A^*\overline{p^*}) +G^*(-\overline{p^*})\\
-	&= [F(\overline{u})+F^*(A^*\overline{p^*})-A^*\circ p^*(\overline{u})]+[G(A\overline{u})+G^*(-\overline{p^*})-(-p^*)(A\overline{u})]
+	&= F(\overline{u})+G(A\overline{u})+F^*(A^\star\overline{p^*}) +G^*(-\overline{p^*})\\
+	&= [F(\overline{u})+F^*(A^\star\overline{p^*})-A^\star\circ p^*(\overline{u})]+[G(A\overline{u})+G^*(-\overline{p^*})-(-p^*)(A\overline{u})]
 \end{align*}
 
 Using Young inequality $J(u)+J^*(u^*)-u^*(u)\geq 0$, $\forall u \in U$, and $\forall u^* \in U^*$, we see that both square brackets are nonnegative; and the sum is zero. Then
 \begin{align*}
-	F(\overline{u})+F^*(A^*\overline{p^*})=A^*\circ p^*(u) &\implies A^*p^* \in \partial F(\overline{u}) \\
-	G(A\overline{u})+G^*(-\overline{p^*})=(-p^*)(A\overline{u}) &\implies -p^* \in \partial G(A\overleftarrow{u})
+	F(\overline{u})+F^*(A^\star\overline{p^*})=A^\star\circ p^*(u) &\implies A^\star p^* \in \partial F(\overline{u}) \\
+	G(A\overline{u})+G^*(-\overline{p^*})=(-p^*)(A\overline{u}) &\implies -p^* \in \partial G(A\overline{u})
 \end{align*}
 
 $F$, $G$ are convex and locally bounded, one can show that 
@@ -53,7 +53,7 @@ G^*(p^*) &={\left\lbrace
 	\right.}  & \quad \forall p^* \in C_0^\infty(\Omega, \mathbb{R}^n)
 	\end{align*}
 	
-	In order to apply the Fencel duality we see that the , adjoint of $A$ is given by $A^*=-\alpha (\nabla\cdot)$, thus	
+	In order to apply the Fencel duality we see that the , adjoint of $A$ is given by $A^\star=-\alpha (\nabla\cdot)$, thus	
 	\[-J(p^*)=\frac{1}{2} \int_{\Omega} \abs{-\alpha \nabla\cdot p^* + v^2}^2+ \frac{1}{2} v^2 dx\]
 \end{example}
 
