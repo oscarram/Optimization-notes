@@ -97,7 +97,7 @@ Then we can write $y \in Y$ as a function of $u \in U$,
 \[
 y=y(u)=A^{-1}Bu.
 \]
-Where $A^{-1}B \in \mathcal{B}(U, Y)$, with adjoint with respect to the inner product $(A^{-1}B)^*$. Consider the reduced cost functional  $F:U\rightarrow \mathbb{R}$, such that $u\mapsto J(y(u), u)$, then our problem is equivalent to
+Where $A^{-1}B \in \mathcal{B}(U, Y)$, and adjoint with respect to the inner product $(A^{-1}B)^\star$. Consider the reduced cost functional  $F:U\rightarrow \mathbb{R}$, such that $u\mapsto J(y(u), u)$, then our problem is equivalent to
 \[
 	\overline{u}_{ad}=\min_{u \in U_{ad}} F(u) 
 \]
@@ -132,8 +132,8 @@ Let $(u_k)_k \in U_{ad}$ denote a minimizing sequence, i.e. $F(u_k) \rightarrow 
 		&= \langle A^{-1}B(u -\overline{u}), 
 		\nabla_y J(\overline{y}, \overline{u}) \rangle_{YY^*}+\langle u-\overline{u},  \nabla_u J(\overline{y},\overline{u})\rangle_{UU^*} \\
 		&= \langle u -\overline{u}, 
-		(A^{-1}B)^*\nabla_y J(y, \overline{u}) \rangle_{UU^*}+\langle u-\overline{u},  \nabla_u J(\overline{y},\overline{u})\rangle_{UU^*} \\
+		(A^{-1}B)^\star\nabla_y J(y, \overline{u}) \rangle_{UU^*}+\langle u-\overline{u},  \nabla_u J(\overline{y},\overline{u})\rangle_{UU^*} \\
 		&= \langle u -\overline{u}, 
-		(A^{-1}B)^*\nabla_y J(\overline{y}, \overline{u})+\nabla_u J(\overline{y},\overline{u})\rangle_{UU^*}
+		(A^{-1}B)^\star\nabla_y J(\overline{y}, \overline{u})+\nabla_u J(\overline{y},\overline{u})\rangle_{UU^*}
 	\end{align*}
-	Setting $p^*=(A^{-1}B)^*\nabla_y J(\overline{y}, \overline{u})$. We have that $\overline{u}=P_{U_{ad}}(\overline{u}-\delta(p^*+\nabla_u J(\overline{y}, \overline{u})))$
+	Setting $p^*=(A^{-1}B)^\star\nabla_y J(\overline{y}, \overline{u})$. We have that $\overline{u}=P_{U_{ad}}(\overline{u}-\delta(p^*+\nabla_u J(\overline{y}, \overline{u})))$
