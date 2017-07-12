@@ -95,13 +95,12 @@ For some set $U_{ad}$ closed, convex and bounded. And $A \in \mathcal{B}(Y,Z)$ b
 
 Then we can write $y \in Y$ as a function of $u \in U$,
 \[
-y=y(u)=A^{-1}Bu
+y=y(u)=A^{-1}Bu.
 \]
-Consider the reduced cost functional  $	F(u):=J(y(u), u)$, then our problem is equivalent to
+Where $A^{-1}B \in \mathcal{B}(U, Y)$, with adjoint with respect to the inner product $(A^{-1}B)^*$. Consider the reduced cost functional  $F:U\rightarrow \mathbb{R}$, such that $u\mapsto J(y(u), u)$, then our problem is equivalent to
 \[
 	\overline{u}_{ad}=\min_{u \in U_{ad}} F(u) 
 \]
-
 
 Let $(u_k)_k \in U_{ad}$ denote a minimizing sequence, i.e. $F(u_k) \rightarrow \inf_{u\in U_{ad}}F(u)$, since $u_k \in U_{ad}$ the sequence is bounded. Therefore we can find a convergent subsequence $u_{k_{l}} \xrightharpoonup[l\rightarrow \infty]{} \overline{u}$, moreover since $U_{ad}$ is closed and convex $U_{ad}$ is weakly closed, implying $\overline{u} \in U_{ad}$
 
@@ -118,22 +117,23 @@ Let $(u_k)_k \in U_{ad}$ denote a minimizing sequence, i.e. $F(u_k) \rightarrow 
 		\]
 
 	
-	Since $u_{k_{l}} \xrightharpoonup[l\rightarrow \infty]{} \overline{u}$, $\implies y(u_k) \xrightharpoonup[]{} y(\overline{u})$ and $A^{-1}B u_k \xrightharpoonup[]{}A^{-1}B  \overline{u}$
+	Since $u_{k_{l}} \xrightharpoonup[l\rightarrow \infty]{} \overline{u}$, $\implies y(u_k) \xrightharpoonup[]{} y(\overline{u})=\overline{y}$, and $A^{-1}B u_k \xrightharpoonup[]{}A^{-1}B  \overline{u}$
 	\end{proof}
 \end{proposition}
-	$J$ is Gate\^aux differentiable, applying the chain rule to $F$ and valuating in $u$ we have
+	If $J$ is Gate\^aux differentiable, applying the chain rule (fact \ref{fact1. Chain Rule}) to $F$ and valuating in $u$ we have
 	\[
-		F_u(u; h)=J_y(y; \alpha(u;h), u)+J_u(y,u;h)
+		F_u(u)=\left.J_y(y,u)\right|_{y=y(u)}\circ y_u(u)+\left.J_u(y,u)\right|_{y=y(u)},
 	\]
+	where $F_u(u) \in U^*$, $J_y(y,u) \in Y^*$, $y_u(u) \in \mathcal{B}(U, Y)$ and $J_u \in U^*$. Since $U$ and $Y$ are Hilbert spaces, there is a member of each space respectively representing this operator in the inner product. We take $\nabla_u F(u) \in U$,  $\nabla_y J(u) \in Y$, and $\nabla_u J(y, u) \in U$. Therefore we can write $F_u(u;u-\overline{u})$ as follows, and we evaluate our optimality condition,
 	\begin{align*}
-		0 &\leq \langle u-\overline{u}, \nabla_u F(\overline{u}) \rangle \quad \forall u \in U_{ad}\\
+		0 &\leq \langle u-\overline{u}, \nabla_u F(\overline{u}) \rangle_{UU^*} \quad \forall u \in U_{ad}\\
 		&= \langle A^{-1}B(u -\overline{u}), 
-		\nabla_y J(\overline{y}, \overline{u}) \rangle_{Y^*Y}+\langle u-\overline{u},  \nabla_u J(\overline{y},\overline{u})\rangle_{U^*U} \\
+		\nabla_y J(\overline{y}, \overline{u}) \rangle_{YY^*}+\langle u-\overline{u},  \nabla_u J(\overline{y},\overline{u})\rangle_{UU^*} \\
 		&= \langle A^{-1}B(u -\overline{u}), 
-		\nabla_y J(\overline{y}, \overline{u}) \rangle_{Y^*Y}+\langle u-\overline{u},  \nabla_u J(\overline{y},\overline{u})\rangle_{U^*U} \\
+		\nabla_y J(\overline{y}, \overline{u}) \rangle_{YY^*}+\langle u-\overline{u},  \nabla_u J(\overline{y},\overline{u})\rangle_{UU^*} \\
 		&= \langle u -\overline{u}, 
-		(A^{-1}B)^*\nabla_y J(y, \overline{u}) \rangle_{U^*U}+\langle u-\overline{u},  \nabla_u J(y,\overline{u})\rangle_{U^*U} \\
+		(A^{-1}B)^*\nabla_y J(y, \overline{u}) \rangle_{UU^*}+\langle u-\overline{u},  \nabla_u J(\overline{y},\overline{u})\rangle_{UU^*} \\
 		&= \langle u -\overline{u}, 
-		(A^{-1}B)^*\nabla_y J(\overline{y}, \overline{u})+\nabla_u J(\overline{y},\overline{u})\rangle_{U^*U}
+		(A^{-1}B)^*\nabla_y J(\overline{y}, \overline{u})+\nabla_u J(\overline{y},\overline{u})\rangle_{UU^*}
 	\end{align*}
 	Setting $p^*=(A^{-1}B)^*\nabla_y J(\overline{y}, \overline{u})$. We have that $\overline{u}=P_{U_{ad}}(\overline{u}-\delta(p^*+\nabla_u J(\overline{y}, \overline{u})))$
