@@ -124,6 +124,22 @@ Then,
 	\end{enumerate}
 \end{proof}
 \end{lemma}
+\begin{lemma}
+	Let $C$ be a nonempty closed convex subset of $H$ and let $x\in H$. Then $\forall \lambda \in \mathbb{R}_+$, $P_C(P_Cx+\lambda (x-P_Cx))=P_C(x)$.
+	
+	\begin{proof}
+		Let $\lambda \in \mathbb{R}_+$, and $y\in C$. Setting $z=P_C(x)+\lambda(x-P_C(x))$. Consider the fact, 
+		\[
+		\langle z-P_C(x), y-P_C(x)\rangle=\left\langle \left( (\lambda(x-P_C(x))+P_C(x)) - P_C(x)\right), y-P_C(x)\right\rangle = \lambda \langle x-P_C(x), y-P_C(x)\rangle	
+		\] 
+		By the above lemma $\langle x-P_C(x), y-P_C(x)\rangle \leq 0$ for all $y\in C$, and
+		\[
+			\lambda\langle x-P_C(x), y-P_C(x)\rangle=\langle z-P_C(x), y-P_C(x)\rangle \leq 0
+		\]
+		Therefore $P_C(z)=P_C(x)$.
+	\end{proof}
+\end{lemma}
+
 \begin{theorem}
 Let $H$ be Hilbert space, $C \subset H$ closed and convex, $J: C \rightarrow \mathbb{R}$, Gate\^aux differentiable at the local solution $\overline{u}$ of $\min_{u\in C} J(u)$. Thus, $J'(\overline{u};u-\overline{u}) \geq 0$, $\forall u \in C$ and it is equivalent to $ \overline{u}=P_C(\overline{u}-\delta\nabla J(\overline{u}))$, $\forall \delta >0$. 
 \begin{proof} 
