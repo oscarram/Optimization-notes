@@ -64,7 +64,7 @@
 			\item $(2)\implies (3)$Let $\xi\in \mathbb{R}$ and assume that $(u_n)_{n\in \mathbb{N}}$ is a sequence in $\mu_\xi$ that converges to $u$. 
 			Then the set $(u_n,\xi)_{n\in\mathbb{N}}$ is in $\epi (J)$. Since $\epi (J)$ is closed, we conclude that $(u, \xi)\in \epi (J)$, and hence $u \in \mu_\xi$.
 			
-			\item $(3)\implies (1)$ Let bet $u \in U$ an arbitrary member of the Banach space $U$, and let $(u_n)_{n\in \mathbb{N}}$ be a sequence that converges to $u$. And we set the number $\eta=\liminf_{n\rightarrow \infty} J(u_n)$. Then we have to prove that $J(u)\leq \eta$. When $\eta=\infty$, the inequality is clear. Therefore we assume that $\eta < +\infty$. Since every sequence in $\mathbb{R}$ has a subsequence that converges to the $\liminf$, the sequence $(u_n)_n$ has a subsequence $(u_k)_k$, such that $J(u_k) \xrightarrow{k\rightarrow\infty} \eta$. Now, we can fix $\xi \in (\eta, \infty)$. By convergence we can find $c$ such that $k\geq c$ implies that $(J(u_k))$ belongs to $(-\infty, \xi)$, therefore the set \[\lbrace u_k | \ k \geq c \in \mathbb{N}\rbrace \subset \mu_\xi. \]
+			\item $(3)\implies (1)$ Let bet $u \in U$ an arbitrary member of the Banach space $U$, and let $(u_n)_{n\in \mathbb{N}}$ be a sequence that converges to $u$. And we set the number $\eta=\underset{n\rightarrow \infty}{\liminf} J(u_n)$. Then we have to prove that $J(u)\leq \eta$. When $\eta=\infty$, the inequality is clear. Therefore we assume that $\eta < +\infty$. Since every sequence in $\mathbb{R}$ has a subsequence that converges to the $\liminf$, the sequence $(u_n)_n$ has a subsequence $(u_k)_k$, such that $J(u_k) \xrightarrow{k\rightarrow\infty} \eta$. Now, we can fix $\xi \in (\eta, \infty)$. By convergence we can find $c$ such that $k\geq c$ implies that $(J(u_k))$ belongs to $(-\infty, \xi)$, therefore the set \[\lbrace u_k | \ k \geq c \in \mathbb{N}\rbrace \subset \mu_\xi. \]
 			
 			Since the sequence $u_n \rightarrow u$, the subsequence $u_k\rightarrow u$. And $\mu_\xi$ closed implies $u \in \mu_\xi$. Since this holds for all $\eta < \infty$, we take $\xi \downarrow \eta$. Implying $J(u)\leq \eta$. 
 		\end{itemize}
@@ -83,7 +83,7 @@ I_C(u)=
 \end{equation*}
 is lower semi-continuous if and only if C is closed. 
 \begin{proof}
-	Take $\xi \in \mathbb{R}$.  If $\xi < 0$, the set $\mu_\xi=\emptyset$. If $\xi >0$, the set $\mu_\xi = C$. Therefore the sets $m_\xi$, for all $\xi \in \mathbb{R}$ is closed if and only if $C$ is closed. By the theorem \ref{th4: levelsets and lsc} $I_C$ is lower semi-continuous if and only if $C$ is closed.
+	Take $\xi \in \mathbb{R}$.  If $\xi < 0$, the set $\mu_\xi=\emptyset$. If $\xi >0$, the set $\mu_\xi = C$. Therefore the set $\mu_\xi$, for all $\xi \in \mathbb{R}$, is closed if and only if $C$ is closed. By the theorem \ref{th4: levelsets and lsc} $I_C$ is lower semi-continuous if and only if $C$ is closed.
 \end{proof}
 \end{example}
 
