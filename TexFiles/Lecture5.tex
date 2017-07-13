@@ -91,7 +91,7 @@
 		 \begin{align*}
 		 0 &\leq (y_\beta - y_\alpha \mid \nabla J(y_\beta)-\nabla J(y_\alpha))_{UU^*}\\
 		   &=(\beta (x-y) - \alpha(x-y) \mid \nabla J(y_\beta)-\nabla J(y_\alpha))_{UU^*} \\
-	 	   &=(\beta-\alpha) ((x-y) \mid \nabla J(y_\beta)-\nabla J(y_\alpha))_{UU^*} \\
+	 	   &=(\beta-\alpha) (x-y \mid \nabla J(y_\beta)-\nabla J(y_\alpha))_{UU^*} \\
 	 	   &= (\beta-\alpha) \left(\phi'(\beta)-\phi'(\alpha)\right)
 		 \end{align*} 
 		 
@@ -184,7 +184,7 @@
 		\right.
 	\]
 	The subdifferentiable is the definition of normal cone at $u$
-	\[\partial I_C (u)=\lbrace u^* \in U^* \ | \ u^*(u-v)\geq \forall v \in C\rbrace = \mathcal{N}_C(u)\].
+	\[\partial I_C (u)=\lbrace u^* \in U^* \ | \ u^*(u-v)\geq 0, \, \forall v \in C\rbrace = \mathcal{N}_C(u)\].
 
 \end{example}
 
