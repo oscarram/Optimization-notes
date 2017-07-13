@@ -20,7 +20,7 @@ Then,
 	\item $\forall u,x\in H$, we have $u=P_C(x) \iff u\in C$  and  $\langle x-u, v-u\rangle\leq 0\ \forall v \in C$.
 	\item $\forall x,y \in H$, $\langle y-x, P_C(y)-P_C(x)\rangle \geq 0$.
 	\item The projection $P_C$ is non expansive. That is $\norm{P_C(x)-P_C(y)}\leq \norm{x-y}$, $\forall x,y\in H$, 
-	\item Let be $t>0$ a real number, then $\forall u \in C$, and $\forall v\in H$, $\phi(t)=\frac{1}{t}\norm{P_C\left(u+tv\right)-u}$ is non-increasing.
+	\item Let be $t>0$ a real number, then $\forall u \in C$, and $\forall v\in H$, $\phi(t)=\frac{1}{t}\norm{P_C\left(u+tv\right)-u}$ is not increasing.
 \end{enumerate}
 \begin{proof}\
 	\begin{enumerate}
@@ -116,11 +116,11 @@ Then,
 		\norm{P_C(y)-P_C(x)}^2\leq \langle y-x, P_C(y)-P_C(x)\rangle\leq \norm{y-x} \norm{P_C(y)-P_C(x)}.
 		\end{align*}
 		Hence $\norm{P_C(y)-P_C(x)}\leq \norm{y-x}$, for all $x,y \in H$.
-		\item Let $v$ an element of $H$, and $\forall u \in C$, we have $u=P_C(u)$, therefore by the above result,
+		\item If $u+tv \in C$, then $P_C(u+tv)=u+tv$, therefore $\phi(t)= \norm{v}$. And the function is not increasing. Now if $u+tv \notin C$, we can bound $\phi(t)$ as follows,
 		\[
 			\phi(t)=\frac{1}{t}\norm{P_C(u+tv)-u}=\frac{1}{t}\norm{P_C(u+tv)-P_C(u)} \leq \norm{v}
 		\]
-		
+		Since $\underset{t\rightarrow 0}{\lim}\, \phi(t) = \norm{v}$, and for $t>0$ we have the above inequality, then $\phi$ cannot be increasing.
 	\end{enumerate}
 \end{proof}
 \end{lemma}
