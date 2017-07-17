@@ -9,13 +9,18 @@
 			J(p)\geq J(Au)+p^*(p-Au) \quad \forall p \in V 
 		\]
 		where $p=Av$ with $v\in U$,
+		
 		\begin{align*}
 			(J\circ A) (v) &\geq (J\circ A) (u)+p^*(A(v-u)) \quad \forall v \in U \\
 						   &=(J\circ A)(u)+A^*p^*(v-u) \quad \forall v \in U
 		\end{align*}
 		
-		i.e. $A^*p^* \in \partial (J\circ A)(u) \implies A^* \partial J(Au)\subseteq \partial (J\circ A)(u)$. Proof based again on the weak separation theorem of convex sets. (We have to check Bauschke)
-	\end{proof}
+		i.e. $A^*p^* \in \partial (J\circ A)(u) \implies A^* \partial J(Au)\subseteq \partial (J\circ A)(u)$. The other implication,
+		\[
+		\partial (J\circ A)(u)\subseteq A^* \partial J(Au),
+		\]
+		is based in the Hann-Bannach Theorem and separation of the spaces.
+		\end{proof}
 \end{theorem}
 
 \begin{theorem}
