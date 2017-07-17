@@ -15,12 +15,41 @@
 						   &=(J\circ A)(u)+A^*p^*(v-u) \quad \forall v \in U
 		\end{align*}
 		
-		i.e. $A^*p^* \in \partial (J\circ A)(u) \implies A^* \partial J(Au)\subseteq \partial (J\circ A)(u)$. The other implication,
-		\[
-		\partial (J\circ A)(u)\subseteq A^* \partial J(Au),
-		\]
-		is based in the Hann-Bannach Theorem and separation of the spaces.
-		\end{proof}
+		i.e. $A^*p^* \in \partial (J\circ A)(u) \implies A^* \partial J(Au)\subseteq \partial (J\circ A)(u)$. 
+		
+		Conversely, take $u^*\in \partial (J\circ A)(u)$.
+		\begin{align*}
+		\label{eq6. u* in subdifferential}
+			\forall v \in V, \qquad u^*(v-u)+(J\circ A)(u)\leq (J\circ A)(v)  \tag{\EODeer}
+		\end{align*}
+		 
+		
+Let us consider the affine subspace in $V\times \mathbb{R}$.
+\begin{equation*}
+\mathscr{L}=\{\left(Av, u^*(v-u)+(J\circ A)(u) )\quad | \quad v \in V\right)\}
+\end{equation*}
+
+The inequality \eqref{eq6. u* in subdifferential}, shows that $\mathscr{L}$ and $\epi J$ only have boundary points in common. Since $J$ has been assumed to be convex and continuous at $A\overline{u}$, and $\interior{\epi J} \neq \emptyset$, and there is a closed affine hyperplane $\mathscr{H}$ containing $\mathscr{L}$, which no intersects $\interior{\epi J}$. As usual, $\mathscr{H}$ is non-vertical, and therefore is the graph of a continuous affine function of $V$ into $\mathbb{R}$:
+\begin{align*}
+	p \mapsto p^*(p)+\alpha, \qquad \text{ where } p^* \in Y^*, \qquad \alpha \in \mathbb{R}.
+\end{align*}
+Since $\mathscr{H}$ contains $\mathscr{L}$:
+\begin{align*}
+	\forall v \in V, \qquad& p^*(p)+\alpha = u^*(v-u)+J\circ A(u)\\
+	& \alpha = J\circ A(u)-u^*(u)\\
+	\forall v \in V, \qquad & p^*(Av)=u^*(v)
+\end{align*}
+Thus  $u^*=A^*p^*$. Finally, since $\mathscr{H}$ does not intersect $\interior{\epi J}$:
+
+\begin{align*}
+	\forall p \in V, \qquad &p^*(p)+(J\circ A)(u) - A^*p^*(u) \leq J(p) \\
+	& p^*(p-Au) + (J\circ A)(u)\leq J(p).
+\end{align*}
+Thus $p^* \in \partial F(Au)$. Whence the desired result: $u^*= A^*p^* \in A^*\partial J (Au)$, and
+\begin{align*}
+	\partial (J\circ A)(u)\subseteq A^* \partial J(Au).
+\end{align*}
+\end{proof}
 \end{theorem}
 
 \begin{theorem}
