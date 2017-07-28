@@ -133,16 +133,16 @@
 \begin{theorem}
 	Let $U$ be a Banach space and let $J:U\rightarrow (-\infty, \infty]$ be a convex and proper function. If $J$ is Gate\^aux differentiable, therefore $J$ is weakly lower-semicontinuous.
 	\begin{proof}
-		Consider a sequence $(y_n)$ in $U$,  converging weakly . That is $y_n \rightharpoonup y$ as $n\rightarrow \infty$. Since $J$ is convex and Gate\^aux differentiable, we apply proposition \eqref{prop5. First derivative convex.}, part (2)
-		\begin{align}
-		\left(y_n-y\mid \nabla J(y_n)\right)_{UU^*}\leq J(y_n)-J(y).	
-		\end{align}
-		We have that for all $y_n$, $\nabla J(y_n) \in U^*$, moreover given $(y_n)$ weakly convergent, we have that $ 0 \leq \underset{n\rightarrow\infty}{\limsup} \left(\left(y_n-y\mid \nabla J(y_n)\right)_{UU^*}+ J(y)\right)$
+		Consider a sequence $(y_n)$ in $U$,  converging weakly to $y \in U$. That is $y_n \rightharpoonup y$ as $n\rightarrow \infty$.
+		Since $J$ is Gate\^aux differentiable, for all $y_n \in U$, then we have $\nabla J(y_n) \in U^*$. Moreover, given $(y_n)$ weakly convergent, we have that $ \underset{n\rightarrow\infty}{\limsup} \left(\left(y_n-y\mid \nabla J(y_n)\right)_{UU^*}+ J(y)\right) \geq 0$. Since $J$ is convex and proper we apply proposition \eqref{prop5. First derivative convex.}, part (2), 
 		\begin{align*}
-			\underset{n\rightarrow\infty}{\limsup} \left(\left(y_n-y\mid \nabla J(y_n)\right)_{UU^*}+ J(y)\right)\leq \underset{n\rightarrow\infty}{\liminf}  J(y_n)\\
-			\underset{n\rightarrow\infty}{\limsup} \left(\left(y_n-y\mid \nabla J(y_n)\right)_{UU^*}\right)+ J(y)\leq 0+ J(y)\leq \underset{n\rightarrow\infty}{\liminf}  J(y_n)\\
-			 J(y)\leq \underset{n\rightarrow\infty}{\liminf}  J(y_n)
+			\left(y_n-y\mid \nabla J(y_n)\right)_{UU^*}\leq J(y_n) -J(y)\\
+			\underset{n\rightarrow\infty}{\limsup} \left(\left(y_n-y\mid \nabla J(y_n)\right)_{UU^*}\right)\leq \underset{n\rightarrow\infty}{\liminf}  \left(J(y_n)-J(y)\right)\\
+			0\leq \underset{n\rightarrow\infty}{\limsup} \left(\left(y_n-y\mid \nabla J(y_n)\right)_{UU^*}\right)\leq \underset{n\rightarrow\infty}{\liminf}  \left(J(y_n)-J(y)\right) \\
+			0\leq \underset{n\rightarrow\infty}{\liminf}  \left(J(y_n)-J(y)\right)
+			J(y)\leq \underset{n\rightarrow\infty}{\liminf} J(y_n)
 		\end{align*} 
+		Therefore $J$ is sequentially weakly lower semicontinuous, and hence weakly lower semicontinuous. 
 	\end{proof}
 \end{theorem}
 
