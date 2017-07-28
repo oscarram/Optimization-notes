@@ -131,16 +131,23 @@
 \end{theorem}
 
 \begin{theorem}
-	Let $U$ be a Banach space and let $J:U\rightarrow (-\infty, \infty]$ be a convex and proper function. If $J$ is Gate\^aux differentiable, therefore $J$ is weakly lower-semicontinuous.
+	Let $U$ be a Banach space and let $J:U\rightarrow (-\infty, \infty]$ be a convex and proper function. If $J$ is Gate\^aux differentiable, then $J$ is weakly lower-semicontinuous.
 	\begin{proof}
-		Consider a sequence $(y_n)$ in $U$,  converging weakly to $y \in U$. That is $y_n \rightharpoonup y$ as $n\rightarrow \infty$.
-		Since $J$ is Gate\^aux differentiable, for all $y_n \in U$, then we have $\nabla J(y_n) \in U^*$. Moreover, given $(y_n)$ weakly convergent, we have that $ \underset{n\rightarrow\infty}{\limsup} \left(\left(y_n-y\mid \nabla J(y_n)\right)_{UU^*}+ J(y)\right) \geq 0$. Since $J$ is convex and proper we apply proposition \eqref{prop5. First derivative convex.}, part (2), 
+		Consider a sequence $(y_n)$ in $U$,  converging weakly to $y \in U$. That is $y_n \rightharpoonup y$ as $n\rightarrow \infty$. Using proposition \eqref{prop5. First derivative convex.}, part (3), we have $\forall n \in \mathbb{N}$
 		\begin{align*}
-			\left(y_n-y\mid \nabla J(y_n)\right)_{UU^*}\leq J(y_n) -J(y)\\
-			\underset{n\rightarrow\infty}{\limsup} \left(\left(y_n-y\mid \nabla J(y_n)\right)_{UU^*}\right)\leq \underset{n\rightarrow\infty}{\liminf}  \left(J(y_n)-J(y)\right)\\
-			0\leq \underset{n\rightarrow\infty}{\limsup} \left(\left(y_n-y\mid \nabla J(y_n)\right)_{UU^*}\right)\leq \underset{n\rightarrow\infty}{\liminf}  \left(J(y_n)-J(y)\right) \\
-			0\leq \underset{n\rightarrow\infty}{\liminf}  \left(J(y_n)-J(y)\right)
-			J(y)\leq \underset{n\rightarrow\infty}{\liminf} J(y_n)
+			0&\leq \left(y_n-y\mid \nabla J(y_n) - \nabla J(y)\right)_{UU^*}=\left(y_n-y\mid \nabla J(y_n)\right)_{UU^*} - \left(y_n-y\mid\nabla J(y)\right)_{UU^*}\\
+		\implies& \left(y_n-y\mid\nabla J(y)\right)_{UU^*} \leq \left(y_n-y\mid \nabla J(y_n)\right)_{UU^*}
+		\end{align*} 
+		Since $y_n$ converges weakly to $y$, and $\nabla J(y) \in U^*$. Then \[\underset{n\rightarrow \infty}{\lim}{\left(y_n-y\mid \nabla J(y)\right)_{UU^*}}=0.\] Therefore the following inequality holds,
+		\[
+			0\leq \underset{n\rightarrow \infty}{\liminf} \left(y_n-y\mid\nabla J(y_n)\right)_{UU^*}.
+		\]
+		 By proposition \eqref{prop5. First derivative convex.}, part (2), and taking the $\liminf$ in both sides of the inequality we have,
+		\begin{align*}
+		\left(y_n-y\mid \nabla J(y_n)\right)_{UU^*}&\leq J(y_n) -J(y)\\
+			\underset{n\rightarrow \infty}{\liminf}\left(y_n-y\mid \nabla J(y_n)\right)_{UU^*}&\leq \underset{n\rightarrow \infty}{\liminf} \left(J(y_n) -J(y)\right)\\
+			0&\leq \underset{n\rightarrow \infty}{\liminf} \left(J(y_n)\right)-J(y)\\
+			J(y)&\leq \underset{n\rightarrow \infty}{\liminf} \left(J(y_n)\right)
 		\end{align*} 
 		Therefore $J$ is sequentially weakly lower semicontinuous, and hence weakly lower semicontinuous. 
 	\end{proof}
