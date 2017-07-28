@@ -129,6 +129,24 @@
 	 	Hence $\phi'$ is increasing and by proposition \eqref{prop0. Convex and increasing derivative}, $\phi$ is convex. Therefore $J$ is convex.
 	 \end{proof}
 \end{theorem}
+
+\begin{theorem}
+	Let $U$ be a Banach space and let $J:U\rightarrow (-\infty, \infty]$ be a convex and proper function. If $J$ is Gate\^aux differentiable, therefore $J$ is weakly lower-semicontinuous.
+	\begin{proof}
+		Consider a sequence $(y_n)$ in $U$,  converging weakly . That is $y_n \rightharpoonup y$ as $n\rightarrow \infty$. Since $J$ is convex and Gate\^aux differentiable, we apply proposition \eqref{prop5. First derivative convex.}, part (2)
+		\begin{align}
+		\left(y_n-y\mid \nabla J(y_n)\right)_{UU^*}\leq J(y_n)-J(y).	
+		\end{align}
+		We have that for all $y_n$, $\nabla J(y_n) \in U^*$, moreover given $(y_n)$ weakly convergent, we have that $ 0 \leq \underset{n\rightarrow\infty}{\limsup} \left(\left(y_n-y\mid \nabla J(y_n)\right)_{UU^*}+ J(y)\right)$
+		\begin{align*}
+			\underset{n\rightarrow\infty}{\limsup} \left(\left(y_n-y\mid \nabla J(y_n)\right)_{UU^*}+ J(y)\right)\leq \underset{n\rightarrow\infty}{\liminf}  J(y_n)\\
+			\underset{n\rightarrow\infty}{\limsup} \left(\left(y_n-y\mid \nabla J(y_n)\right)_{UU^*}\right)+ J(y)\leq 0+ J(y)\leq \underset{n\rightarrow\infty}{\liminf}  J(y_n)\\
+			 J(y)\leq \underset{n\rightarrow\infty}{\liminf}  J(y_n)
+		\end{align*} 
+	\end{proof}
+\end{theorem}
+
+
 \begin{definition}
 	Let $U$ be a Banach space and let $J:U\rightarrow (-\infty, \infty]$ be a convex and proper function.
 	The subdifferential at a point $u \in \dom J$ is a mapping,
@@ -187,6 +205,7 @@
 	\[\partial I_C (u)=\lbrace u^* \in U^* \ | \ u^*(u-v)\geq 0, \, \forall v \in C\rbrace = \mathcal{N}_C(u)\].
 
 \end{example}
+
 
 \begin{theorem}
 	Let $U$ be a Banach space. And $J: U\rightarrow \overline{\mathbb{R}}$ a subdifferentiable function. Then $\partial J(u)$ is convex and weakly closed.
