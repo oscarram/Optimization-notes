@@ -110,7 +110,7 @@
 	 Let $J: U \rightarrow (-\infty, \infty]$ be proper. Suppose that $\dom J$
 	 is open and convex, and that $J$ is twice G\^ateaux differentiable on $\dom J$ . Then,
 	 \[
-		 (\forall x \in \dom J )(\forall y \in \dom J ) \quad (z\mid  \nabla^2 f(x)z)_{UU^*} \geq 0 \iff J \text{ is convex}
+		 (\forall x \in \dom J )(\forall y \in \dom J ) \quad (z\mid  \nabla^2 J(x)z)_{UU^*} \geq 0 \iff J \text{ is convex}
 	 \]
 	 \begin{proof}
 	 	First assume $J$ convex. Let $z \in U$. Since $\dom J$ is open, $\exists \alpha >0$ small enough, such that $x+\alpha z \in \dom J$, and by proposition \eqref{prop5. ConvexProperties} part (3), 
@@ -159,7 +159,7 @@
 \begin{example}
 	Consider $J:\mathbb{R}\rightarrow \mathbb{R}$, $u\rightarrow \abs{u}$ which is not differentiable at $u=0$. If $u>0$, then $J(u)=u$ and we can find $0<v<u<w$. Then $p^* \in \partial J(u)$ implies by definition of subdifferential
 	\begin{align*}
-		v-u \geq p^*(v-u) &\equiv (1-p^*)(u-v) \leq 0 \\
+		v-u \geq p^*(v-u) &\equiv (1-p^*)(u-v) \geq 0 \\
 		w-u \geq p^*(w-u) &\equiv (1-p^*)(w-u) \geq 0.
 	\end{align*}
 	which implies for $u>0$, $p^* \leq 1 \leq p^*$, then $p^*=1$.
